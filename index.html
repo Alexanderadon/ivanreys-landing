@@ -636,13 +636,17 @@ p{color:var(--ink-soft)}
   "use strict";
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* photo fade-in + graceful fallback (broken img -> gradient behind stays) */
-  document.querySelectorAll(".shot > img, .quote__av img").forEach(function(img){
-    function ok(){ img.classList.add("on"); }
+  /* photo fade-in + resilient fallback: loremflickr -> picsum -> gradient behind */
+  document.querySelectorAll(".shot > img, .quote__av img").forEach(function(img, idx){
+    function ok(){ img.style.visibility="visible"; img.classList.add("on"); }
     function fail(){ img.classList.remove("on"); img.style.visibility="hidden"; }
-    if(img.complete){ img.naturalWidth ? ok() : fail(); }
-    img.addEventListener("load", function(){ img.style.visibility="visible"; ok(); });
-    img.addEventListener("error", fail);
+    function onerr(){
+      if(!img.dataset.fb){ img.dataset.fb="1"; img.classList.remove("on"); img.src = "https://picsum.photos/seed/briz" + idx + "/640/420"; }
+      else { fail(); }
+    }
+    img.addEventListener("load", ok);
+    img.addEventListener("error", onerr);
+    if(img.complete){ img.naturalWidth ? ok() : onerr(); }
   });
 
   /* theme */
