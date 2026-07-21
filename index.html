@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Бриз — соберите сайт из одной фразы</title>
-<meta name="description" content="Бриз — ИИ-конструктор сайтов. Опишите идею словами, и через минуту у вас готовый лендинг: тексты, блоки, картинки и свой домен. Без кода и дизайнеров.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ffc9d6'/%3E%3Cstop offset='.5' stop-color='%23dcccff'/%3E%3Cstop offset='1' stop-color='%235fd0b6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='26' fill='url(%23g)'/%3E%3Cpath d='M30 62c14 8 26 8 40 0M28 46c16 9 30 9 46 0M32 32c10 6 18 6 30 1' stroke='%2315141a' stroke-width='6' stroke-linecap='round' fill='none' opacity='.75'/%3E%3C/svg%3E">
+<title>Монета — видно, куда уходят деньги</title>
+<meta name="description" content="Монета — приложение для личных финансов. Автоматический учёт трат, бюджеты по категориям, цели-копилки и подписки — всё в тенге, в одном экране.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23b8edda'/%3E%3Cstop offset='.5' stop-color='%235fd0b6'/%3E%3Cstop offset='1' stop-color='%230fa98e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='26' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-size='52' font-weight='800' text-anchor='middle' fill='%230b4f42' font-family='Arial'%3E%E2%82%B8%3C/text%3E%3C/svg%3E">
 <style>
 /* reset */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -16,34 +16,42 @@ a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 
 /* tokens */
-:root{color-scheme:light dark;--bg:#fff;--bg-soft:#f6f5fb;--surface:#fff;--surface-2:#faf9ff;--border:#ececf3;--border-strong:#e0dfea;--ink:#15141a;--ink-soft:#55535f;--ink-faint:#8d8a99;--pill:#16151b;--pill-ink:#fff;--pill-hover:#2a2833;--accent:#0fa98e;--accent-deep:#0b7d69;--ring:rgba(15,169,142,.32);--g-rose:#ffc9d6;--g-peach:#ffe1c4;--g-lilac:#dccbff;--g-sky:#c6e2ff;--g-mint:#b8edda;--g-teal:#5fd0b6;--grain:.5;--shadow-sm:0 1px 2px rgba(20,19,26,.05),0 4px 12px -6px rgba(20,19,26,.10);--shadow-md:0 2px 4px rgba(20,19,26,.04),0 18px 48px -18px rgba(20,19,26,.20);--shadow-lg:0 30px 80px -30px rgba(30,24,60,.28);--font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Inter",system-ui,"Helvetica Neue",Arial,"Apple Color Emoji",sans-serif;--font-mono:"SF Mono","JetBrains Mono","Cascadia Code",ui-monospace,"Consolas","Liberation Mono",monospace;--wrap:1180px;--r-lg:26px;--r-xl:34px}
-@media (prefers-color-scheme:dark){:root{--bg:#0c0b10;--bg-soft:#100f17;--surface:#151420;--surface-2:#1a1826;--border:#262433;--border-strong:#312e40;--ink:#f4f3f8;--ink-soft:#adaabb;--ink-faint:#7d7a8c;--pill:#f4f3f8;--pill-ink:#141320;--pill-hover:#e3e1ee;--accent:#38d4b6;--accent-deep:#7defd3;--ring:rgba(56,212,182,.34);--grain:.85;--shadow-sm:0 1px 2px rgba(0,0,0,.4),0 6px 16px -8px rgba(0,0,0,.6);--shadow-md:0 2px 6px rgba(0,0,0,.4),0 24px 60px -22px rgba(0,0,0,.7);--shadow-lg:0 40px 90px -30px rgba(0,0,0,.75)}}
-:root[data-theme="light"]{color-scheme:light;--bg:#fff;--bg-soft:#f6f5fb;--surface:#fff;--surface-2:#faf9ff;--border:#ececf3;--border-strong:#e0dfea;--ink:#15141a;--ink-soft:#55535f;--ink-faint:#8d8a99;--pill:#16151b;--pill-ink:#fff;--pill-hover:#2a2833;--accent:#0fa98e;--accent-deep:#0b7d69;--ring:rgba(15,169,142,.32);--grain:.5;--shadow-sm:0 1px 2px rgba(20,19,26,.05),0 4px 12px -6px rgba(20,19,26,.10);--shadow-md:0 2px 4px rgba(20,19,26,.04),0 18px 48px -18px rgba(20,19,26,.20);--shadow-lg:0 30px 80px -30px rgba(30,24,60,.28)}
-:root[data-theme="dark"]{color-scheme:dark;--bg:#0c0b10;--bg-soft:#100f17;--surface:#151420;--surface-2:#1a1826;--border:#262433;--border-strong:#312e40;--ink:#f4f3f8;--ink-soft:#adaabb;--ink-faint:#7d7a8c;--pill:#f4f3f8;--pill-ink:#141320;--pill-hover:#e3e1ee;--accent:#38d4b6;--accent-deep:#7defd3;--ring:rgba(56,212,182,.34);--grain:.85;--shadow-sm:0 1px 2px rgba(0,0,0,.4),0 6px 16px -8px rgba(0,0,0,.6);--shadow-md:0 2px 6px rgba(0,0,0,.4),0 24px 60px -22px rgba(0,0,0,.7);--shadow-lg:0 40px 90px -30px rgba(0,0,0,.75)}
+:root{color-scheme:light dark;--bg:#fff;--bg-soft:#f4f7f5;--surface:#fff;--surface-2:#f7fbf9;--border:#e9efec;--border-strong:#dbe6e1;--ink:#12191a;--ink-soft:#51605c;--ink-faint:#8a9995;--pill:#12191a;--pill-ink:#fff;--pill-hover:#243230;--accent:#0fa98e;--accent-deep:#0b7d69;--pos:#16a34a;--neg:#e05a4b;--ring:rgba(15,169,142,.32);--g-rose:#ffc9d6;--g-peach:#ffe1c4;--g-lilac:#dccbff;--g-sky:#c6e2ff;--g-mint:#b8edda;--g-teal:#5fd0b6;--grain:.5;--shadow-sm:0 1px 2px rgba(16,32,28,.05),0 4px 12px -6px rgba(16,32,28,.10);--shadow-md:0 2px 4px rgba(16,32,28,.04),0 18px 48px -18px rgba(16,32,28,.20);--shadow-lg:0 30px 80px -30px rgba(12,40,32,.30);--font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Inter",system-ui,"Helvetica Neue",Arial,"Apple Color Emoji",sans-serif;--font-mono:"SF Mono","JetBrains Mono","Cascadia Code",ui-monospace,"Consolas","Liberation Mono",monospace;--wrap:1180px;--r-lg:26px;--r-xl:34px}
+@media (prefers-color-scheme:dark){:root{--bg:#0a0f0e;--bg-soft:#0d1413;--surface:#131a19;--surface-2:#18211f;--border:#242e2c;--border-strong:#2f3b38;--ink:#eef4f2;--ink-soft:#a4b3af;--ink-faint:#75837f;--pill:#eef4f2;--pill-ink:#111817;--pill-hover:#dde6e3;--accent:#34d6b7;--accent-deep:#79f0d6;--pos:#4ade80;--neg:#ff7a6d;--ring:rgba(52,214,183,.34);--grain:.85;--shadow-sm:0 1px 2px rgba(0,0,0,.4),0 6px 16px -8px rgba(0,0,0,.6);--shadow-md:0 2px 6px rgba(0,0,0,.4),0 24px 60px -22px rgba(0,0,0,.7);--shadow-lg:0 40px 90px -30px rgba(0,0,0,.75)}}
+:root[data-theme="light"]{color-scheme:light;--bg:#fff;--bg-soft:#f4f7f5;--surface:#fff;--surface-2:#f7fbf9;--border:#e9efec;--border-strong:#dbe6e1;--ink:#12191a;--ink-soft:#51605c;--ink-faint:#8a9995;--pill:#12191a;--pill-ink:#fff;--pill-hover:#243230;--accent:#0fa98e;--accent-deep:#0b7d69;--pos:#16a34a;--neg:#e05a4b;--ring:rgba(15,169,142,.32);--grain:.5;--shadow-sm:0 1px 2px rgba(16,32,28,.05),0 4px 12px -6px rgba(16,32,28,.10);--shadow-md:0 2px 4px rgba(16,32,28,.04),0 18px 48px -18px rgba(16,32,28,.20);--shadow-lg:0 30px 80px -30px rgba(12,40,32,.30)}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0a0f0e;--bg-soft:#0d1413;--surface:#131a19;--surface-2:#18211f;--border:#242e2c;--border-strong:#2f3b38;--ink:#eef4f2;--ink-soft:#a4b3af;--ink-faint:#75837f;--pill:#eef4f2;--pill-ink:#111817;--pill-hover:#dde6e3;--accent:#34d6b7;--accent-deep:#79f0d6;--pos:#4ade80;--neg:#ff7a6d;--ring:rgba(52,214,183,.34);--grain:.85;--shadow-sm:0 1px 2px rgba(0,0,0,.4),0 6px 16px -8px rgba(0,0,0,.6);--shadow-md:0 2px 6px rgba(0,0,0,.4),0 24px 60px -22px rgba(0,0,0,.7);--shadow-lg:0 40px 90px -30px rgba(0,0,0,.75)}
 
 /* base */
 body{font-family:var(--font-sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
 .wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:24px}
-.section{padding-block:clamp(72px,11vw,132px)}
+.section{padding-block:clamp(72px,11vw,128px)}
 .eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);font-weight:600;display:inline-flex;align-items:center;gap:8px}
 .eyebrow::before{content:"";width:22px;height:1.5px;background:currentColor;opacity:.6}
 h1,h2,h3{line-height:1.05;letter-spacing:-.03em;font-weight:800;text-wrap:balance;color:var(--ink)}
-h1{font-size:clamp(2.5rem,6.4vw,4.55rem)}
-h2{font-size:clamp(2rem,4.2vw,3.15rem)}
-h3{font-size:1.22rem;letter-spacing:-.02em;font-weight:750}
+h1{font-size:clamp(2.4rem,6vw,4.3rem)}
+h2{font-size:clamp(2rem,4.2vw,3.1rem)}
+h3{font-size:1.2rem;letter-spacing:-.02em;font-weight:750}
 p{color:var(--ink-soft)}
-.lead{font-size:clamp(1.05rem,1.7vw,1.28rem);color:var(--ink-soft);text-wrap:pretty;max-width:56ch}
+.lead{font-size:clamp(1.05rem,1.7vw,1.26rem);color:var(--ink-soft);text-wrap:pretty;max-width:54ch}
+.num{font-variant-numeric:tabular-nums}
 
 /* buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;height:50px;padding:0 24px;border-radius:999px;font-weight:650;font-size:.98rem;letter-spacing:-.01em;white-space:nowrap;transition:transform .18s cubic-bezier(.2,.7,.3,1),background .2s,box-shadow .25s,border-color .2s;will-change:transform}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;height:50px;padding:0 24px;border-radius:14px;font-weight:650;font-size:.98rem;letter-spacing:-.01em;white-space:nowrap;transition:transform .18s cubic-bezier(.2,.7,.3,1),background .2s,box-shadow .25s,border-color .2s;will-change:transform}
 .btn--primary{background:var(--pill);color:var(--pill-ink);box-shadow:var(--shadow-sm)}
 .btn--primary:hover{background:var(--pill-hover);transform:translateY(-2px);box-shadow:var(--shadow-md)}
 .btn--primary:active{transform:translateY(0)}
 .btn--ghost{background:transparent;color:var(--ink);border:1.5px solid var(--border-strong)}
 .btn--ghost:hover{border-color:var(--ink);transform:translateY(-2px);background:var(--surface-2)}
-.btn--sm{height:42px;padding:0 18px;font-size:.92rem}
+.btn--sm{height:42px;padding:0 18px;font-size:.92rem;border-radius:11px}
 .btn .arw{transition:transform .2s}
 .btn:hover .arw{transform:translateX(3px)}
+/* store badges */
+.stores{display:flex;gap:12px;flex-wrap:wrap}
+.store{display:inline-flex;align-items:center;gap:11px;height:54px;padding:0 20px 0 17px;border-radius:15px;background:var(--pill);color:var(--pill-ink);transition:transform .18s,box-shadow .25s}
+.store:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.store svg{width:24px;height:24px;flex:none}
+.store small{display:block;font-size:.66rem;opacity:.7;line-height:1.1}
+.store b{font-size:1rem;font-weight:700;letter-spacing:-.01em;line-height:1.1}
 
 /* nav */
 .nav{position:sticky;top:0;z-index:60;transition:background .3s,border-color .3s,box-shadow .3s}
@@ -52,8 +60,7 @@ p{color:var(--ink-soft)}
 .nav.scrolled::before{backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4)}
 .nav__in{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px;position:relative}
 .brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.16rem;letter-spacing:-.03em}
-.brand__mark{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,var(--g-rose),var(--g-lilac) 46%,var(--g-teal));position:relative;box-shadow:var(--shadow-sm);flex:none}
-.brand__mark svg{position:absolute;inset:0;margin:auto;width:22px;height:22px}
+.brand__mark{width:32px;height:32px;border-radius:10px;background:linear-gradient(140deg,var(--g-mint),var(--g-teal) 55%,var(--accent));position:relative;box-shadow:var(--shadow-sm);flex:none;display:grid;place-items:center;color:#0b4f42;font-weight:800;font-size:1rem}
 .nav__links{display:flex;gap:6px;align-items:center}
 .nav__links a{padding:8px 13px;border-radius:9px;color:var(--ink-soft);font-size:.95rem;font-weight:520;transition:color .2s,background .2s}
 .nav__links a:hover{color:var(--ink);background:var(--surface-2)}
@@ -62,167 +69,180 @@ p{color:var(--ink-soft)}
 .iconbtn:hover{color:var(--ink);border-color:var(--border-strong);background:var(--surface-2)}
 
 /* hero */
-.hero{position:relative;text-align:center;padding-top:clamp(44px,6vw,78px);padding-bottom:clamp(56px,8vw,96px);overflow:hidden}
-.hero__mesh{position:absolute;inset:-20% -10% auto;height:135%;z-index:-2;filter:blur(8px)}
-.hero__veil{position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(64% 52% at 50% 34%,var(--bg) 8%,color-mix(in srgb,var(--bg) 42%,transparent) 44%,transparent 74%)}
+.hero{position:relative;overflow:hidden;padding-top:clamp(30px,5vw,60px);padding-bottom:clamp(56px,8vw,96px)}
+.hero__mesh{position:absolute;inset:-25% -10% auto;height:150%;z-index:-2;filter:blur(8px)}
+.hero__veil{position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(70% 60% at 30% 30%,var(--bg) 6%,color-mix(in srgb,var(--bg) 40%,transparent) 46%,transparent 76%)}
 .mesh{position:absolute;inset:0}
 .mesh b{position:absolute;border-radius:50%;filter:blur(64px);opacity:.5;mix-blend-mode:multiply}
-@media (prefers-color-scheme:dark){.mesh b{mix-blend-mode:screen;opacity:.55}}
+@media (prefers-color-scheme:dark){.mesh b{mix-blend-mode:screen;opacity:.5}}
 :root[data-theme="light"] .mesh b{mix-blend-mode:multiply;opacity:.5}
-:root[data-theme="dark"] .mesh b{mix-blend-mode:screen;opacity:.55}
-.mesh .b1{width:44vw;height:44vw;left:-6%;top:-8%;background:var(--g-rose);animation:drift1 22s ease-in-out infinite}
-.mesh .b2{width:40vw;height:40vw;right:-4%;top:-14%;background:var(--g-lilac);animation:drift2 26s ease-in-out infinite}
-.mesh .b3{width:46vw;height:46vw;left:22%;top:24%;background:var(--g-teal);animation:drift3 24s ease-in-out infinite}
-.mesh .b4{width:30vw;height:30vw;right:14%;top:30%;background:var(--g-peach);animation:drift1 30s ease-in-out infinite reverse}
-.grain{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:var(--grain);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");mix-blend-mode:soft-light}
-.badge{display:inline-flex;align-items:center;gap:9px;padding:7px 15px 7px 8px;border-radius:999px;background:color-mix(in srgb,var(--surface) 86%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--border-strong);box-shadow:var(--shadow-md);font-size:.86rem;color:var(--ink-soft);font-weight:520;margin-bottom:26px}
+:root[data-theme="dark"] .mesh b{mix-blend-mode:screen;opacity:.5}
+.mesh .b1{width:42vw;height:42vw;left:-8%;top:-6%;background:var(--g-mint);animation:drift1 22s ease-in-out infinite}
+.mesh .b2{width:38vw;height:38vw;right:-6%;top:-12%;background:var(--g-lilac);animation:drift2 26s ease-in-out infinite}
+.mesh .b3{width:44vw;height:44vw;left:30%;top:26%;background:var(--g-teal);animation:drift3 24s ease-in-out infinite}
+.mesh .b4{width:26vw;height:26vw;right:24%;top:6%;background:var(--g-sky);animation:drift1 30s ease-in-out infinite reverse}
+.hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,56px);align-items:center}
+.badge{display:inline-flex;align-items:center;gap:9px;padding:7px 15px 7px 8px;border-radius:999px;background:color-mix(in srgb,var(--surface) 86%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--border-strong);box-shadow:var(--shadow-sm);font-size:.85rem;color:var(--ink-soft);font-weight:520;margin-bottom:24px}
 .badge b{color:var(--ink);font-weight:700}
-.badge .dot{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,var(--g-rose),var(--g-teal));display:grid;place-items:center;font-size:11px}
-.hero h1{margin-inline:auto;max-width:15ch}
-.hero .lead{margin:22px auto 0;text-align:center}
-.hero__cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
-.hero__trust{margin-top:16px;font-size:.85rem;font-weight:500;color:var(--ink-soft);display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.badge .dot{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,var(--g-mint),var(--accent));display:grid;place-items:center;font-size:11px;color:#0b4f42}
+.hero h1{max-width:14ch}
+.hero .lead{margin-top:22px}
+.hero__cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px;align-items:center}
+.hero__trust{margin-top:20px;font-size:.85rem;font-weight:500;color:var(--ink-soft);display:flex;gap:16px;flex-wrap:wrap}
 .hero__trust span{display:inline-flex;align-items:center;gap:6px}
 .hero__trust .ok{color:var(--accent-deep)}
+.hero__art{position:relative;display:flex;justify-content:center;align-items:center;min-height:520px}
 
-/* prompt */
-.demo{max-width:680px;margin:34px auto 0}
-.prompt{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--border-strong);border-radius:16px;padding:10px 10px 10px 18px;box-shadow:var(--shadow-md);position:relative;text-align:left}
-.prompt__spark{color:var(--accent);flex:none;font-size:1.05rem}
-.prompt__text{flex:1;font-size:1.02rem;color:var(--ink);min-height:1.5em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.prompt__text .ph{color:var(--ink-faint)}
-.caret{display:inline-block;width:2px;height:1.05em;background:var(--accent);vertical-align:-2px;margin-left:1px;animation:blink 1.05s steps(1) infinite}
+/* phone mockup */
+.phone{position:relative;width:clamp(240px,26vw,290px);aspect-ratio:9/19;background:#0c100f;border-radius:40px;padding:11px;box-shadow:var(--shadow-lg),0 0 0 1px rgba(0,0,0,.25);z-index:2}
+:root[data-theme="dark"] .phone{box-shadow:var(--shadow-lg),0 0 0 1px #2a3532}
+.phone::before{content:"";position:absolute;top:16px;left:50%;transform:translateX(-50%);width:64px;height:6px;border-radius:6px;background:#000;opacity:.55;z-index:3}
+.screen{height:100%;border-radius:30px;overflow:hidden;background:var(--surface);display:flex;flex-direction:column;position:relative}
+.sbar{display:flex;align-items:center;justify-content:space-between;padding:12px 18px 4px;font-size:.66rem;font-weight:700;color:var(--ink)}
+.sbar .dots{display:flex;gap:3px}.sbar .dots i{width:4px;height:4px;border-radius:50%;background:var(--ink);opacity:.5}
+.scr-pad{padding:6px 16px 14px;display:flex;flex-direction:column;gap:12px;overflow:hidden}
+.bal{}
+.bal small{font-size:.64rem;color:var(--ink-faint);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.bal .amt{font-size:1.7rem;font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-top:2px}
+.bal .chg{font-size:.68rem;font-weight:700;color:var(--pos);margin-top:1px}
+.ringrow{display:flex;align-items:center;gap:14px;background:var(--surface-2);border:1px solid var(--border);border-radius:16px;padding:13px}
+.donut{width:82px;height:82px;flex:none;position:relative}
+.donut svg{transform:rotate(-90deg)}
+.donut .mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.donut .mid small{font-size:.5rem;color:var(--ink-faint);font-weight:600}
+.donut .mid b{font-size:.72rem;font-weight:800;letter-spacing:-.02em}
+.legend{display:flex;flex-direction:column;gap:5px;font-size:.62rem;flex:1;min-width:0}
+.legend div{display:flex;align-items:center;gap:6px;color:var(--ink-soft);font-weight:600}
+.legend i{width:8px;height:8px;border-radius:3px;flex:none}
+.legend span{margin-left:auto;color:var(--ink);font-weight:700}
+.txs{display:flex;flex-direction:column;gap:9px}
+.txs>small{font-size:.6rem;color:var(--ink-faint);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.tx{display:flex;align-items:center;gap:10px}
+.tx .ic{width:30px;height:30px;border-radius:9px;flex:none;display:grid;place-items:center;font-size:.9rem}
+.tx .nm{flex:1;min-width:0}
+.tx .nm b{display:block;font-size:.72rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tx .nm small{font-size:.58rem;color:var(--ink-faint)}
+.tx .val{font-size:.74rem;font-weight:700;white-space:nowrap}
 
-/* photo with gradient fallback */
-.shot{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--g-rose),var(--g-lilac) 55%,var(--g-teal))}
-.shot>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s}
-.shot>img.on{opacity:1}
+/* floating widgets near phone */
+.fw{position:absolute;z-index:3;background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow-md);padding:13px 15px}
+.fw.goal{left:-6%;top:16%;width:190px}
+.fw.subs{right:-4%;bottom:14%;width:200px}
+.fw h5{font-size:.72rem;font-weight:700;display:flex;align-items:center;gap:7px}
+.fw .sub{font-size:.62rem;color:var(--ink-faint);margin-top:1px}
+.ring{width:44px;height:44px;flex:none}
+.ring svg{transform:rotate(-90deg)}
+.ring .valc{stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 1.3s cubic-bezier(.2,.7,.3,1)}
+.in .ring .valc{stroke-dashoffset:var(--v)}
+.goal .row{display:flex;align-items:center;gap:11px;margin-top:8px}
+.goal .row b{font-size:1.05rem;font-weight:800;letter-spacing:-.02em}
+.subrow{display:flex;align-items:center;gap:9px;margin-top:9px}
+.subrow i{width:22px;height:22px;border-radius:6px;flex:none;display:grid;place-items:center;font-size:.62rem;font-weight:800}
+.subrow b{font-size:.68rem;font-weight:700}
+.subrow span{margin-left:auto;font-size:.68rem;font-weight:700;color:var(--neg)}
 
-/* browser window */
-.window{border-radius:15px;overflow:hidden;background:var(--surface);border:1px solid var(--border-strong);box-shadow:var(--shadow-lg)}
-.window__bar{height:40px;display:flex;align-items:center;gap:7px;padding:0 14px;background:var(--surface-2);border-bottom:1px solid var(--border)}
-.window__bar .dotr{width:11px;height:11px;border-radius:50%;flex:none}
-.window__bar .dotr.r{background:#ff5f57}.window__bar .dotr.y{background:#febc2e}.window__bar .dotr.g{background:#28c840}
-.window__url{margin-left:8px;flex:1;height:24px;border-radius:7px;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;gap:6px;padding:0 11px;font-family:var(--font-mono);font-size:11px;color:var(--ink-faint);min-width:0}
-.window__url b{color:var(--ink-soft);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.genchip{margin-left:auto;font-size:.7rem;font-weight:650;color:var(--accent-deep);background:color-mix(in srgb,var(--accent) 14%,transparent);padding:3px 9px;border-radius:999px;flex:none;white-space:nowrap}
-
-/* generated-site mockup (hero) */
-.genframe{max-width:900px;margin:38px auto 0;position:relative}
-.genframe::after{content:"";position:absolute;inset:auto 7% -26px;height:70px;background:radial-gradient(50% 100% at 50% 0,rgba(20,19,26,.20),transparent 70%);filter:blur(7px);z-index:-1}
-.genbody{position:relative}
-.gensite__hero{position:relative;aspect-ratio:16/7.3;display:flex;flex-direction:column;justify-content:space-between}
-.gensite__hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,8,20,.12),rgba(10,8,20,.58))}
-.gtop{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:15px 22px;color:#fff}
-.gtop b{font-weight:800;letter-spacing:-.02em;font-size:1.02rem}
-.gtop span{display:flex;gap:18px;font-size:.74rem;opacity:.92}
-.gtop span i{font-style:normal}
-.ghero-copy{position:relative;z-index:2;padding:22px}
-.ghero-copy em{font-style:normal;font-family:var(--font-mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;opacity:.9}
-.ghero-copy h4{color:#fff;font-size:clamp(1.35rem,3.6vw,2.1rem);letter-spacing:-.03em;line-height:1.04;margin:9px 0 16px;max-width:17ch}
-.gbtns{display:flex;gap:10px}
-.gbtns b{padding:9px 17px;border-radius:999px;background:#fff;color:#15141a;font-size:.8rem;font-weight:650}
-.gbtns i{padding:9px 17px;border-radius:999px;border:1.5px solid rgba(255,255,255,.6);color:#fff;font-style:normal;font-size:.8rem;font-weight:600}
-.gstrip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:16px 22px 22px;background:var(--surface)}
-.gcard{border:1px solid var(--border);border-radius:11px;overflow:hidden;background:var(--surface-2)}
-.gcard .shot{aspect-ratio:16/9}
-.gcard p{font-size:.68rem;color:var(--ink-soft);padding:8px 11px;font-weight:600}
-.genloader{position:absolute;inset:0;z-index:5;display:none;align-items:center;justify-content:center;gap:14px;flex-direction:column;background:color-mix(in srgb,var(--surface) 80%,transparent);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-weight:600;color:var(--ink);font-size:.95rem}
-.genframe.busy .genloader{display:flex}
-.spin{width:36px;height:36px;border-radius:50%;border:3px solid var(--border-strong);border-top-color:var(--accent);animation:spin .8s linear infinite}
-
-/* cards */
+/* feature cards */
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px;box-shadow:var(--shadow-sm);transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,border-color .3s;position:relative;overflow:hidden}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px;box-shadow:var(--shadow-sm);transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,border-color .3s}
 .card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:var(--border-strong)}
-.card__art{height:118px;border-radius:16px;margin-bottom:20px;position:relative;overflow:hidden}
-.card:nth-child(1) .card__art{background:linear-gradient(150deg,var(--g-mint),color-mix(in srgb,var(--g-mint) 30%,var(--surface)))}
-.card:nth-child(2) .card__art{background:linear-gradient(150deg,var(--g-lilac),color-mix(in srgb,var(--g-lilac) 30%,var(--surface)))}
-.card:nth-child(3) .card__art{background:linear-gradient(150deg,var(--g-peach),color-mix(in srgb,var(--g-peach) 30%,var(--surface)))}
-.card:nth-child(4) .card__art{background:linear-gradient(150deg,var(--g-sky),color-mix(in srgb,var(--g-sky) 30%,var(--surface)))}
-.card__ic{position:absolute;left:16px;top:16px;width:38px;height:38px;border-radius:11px;background:var(--surface);display:grid;place-items:center;box-shadow:var(--shadow-sm)}
-.card__ic svg{width:20px;height:20px}
-.card__art .c1{position:absolute;width:44px;height:44px;right:18px;top:20px;border-radius:9px;background:#fff;opacity:.75;animation:float 6s ease-in-out infinite}
-.card__art .c2{position:absolute;width:60px;height:14px;right:34px;bottom:22px;border-radius:7px;background:#fff;opacity:.6;animation:float 6s ease-in-out infinite;animation-delay:1s}
+.card__ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px}
+.card:nth-child(1) .card__ic{background:color-mix(in srgb,var(--g-teal) 40%,var(--surface))}
+.card:nth-child(2) .card__ic{background:color-mix(in srgb,var(--g-lilac) 40%,var(--surface))}
+.card:nth-child(3) .card__ic{background:color-mix(in srgb,var(--g-peach) 45%,var(--surface))}
+.card:nth-child(4) .card__ic{background:color-mix(in srgb,var(--g-sky) 45%,var(--surface))}
+.card__ic svg{width:24px;height:24px}
 .card h3{margin-bottom:8px}
 .card p{font-size:.94rem}
 
-/* gradient band */
+/* band */
 .band{position:relative;border-radius:var(--r-xl);padding:clamp(40px,6vw,72px);overflow:hidden;text-align:center;box-shadow:var(--shadow-md)}
-.band__bg{position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 90% at 12% 12%,var(--g-rose),transparent 60%),radial-gradient(60% 90% at 88% 8%,var(--g-peach),transparent 55%),radial-gradient(80% 120% at 78% 100%,var(--g-teal),transparent 60%),radial-gradient(90% 120% at 20% 100%,var(--g-lilac),transparent 62%),var(--surface-2)}
+.band__bg{position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 90% at 14% 14%,var(--g-mint),transparent 60%),radial-gradient(60% 90% at 86% 10%,var(--g-sky),transparent 55%),radial-gradient(80% 120% at 80% 100%,var(--g-teal),transparent 60%),radial-gradient(90% 120% at 20% 100%,var(--g-lilac),transparent 62%),var(--surface-2)}
 :root[data-theme="dark"] .band__bg{opacity:.85}
-.band h2{max-width:18ch;margin:14px auto 0}
+.band h2{max-width:20ch;margin:14px auto 0}
 .band .lead{margin:16px auto 0;text-align:center}
 .band .btn{margin-top:28px}
 .band .eyebrow{color:var(--ink);opacity:.8}
 
-/* logos */
+/* banks marquee */
 .logos{text-align:center}
 .logos__t{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
-.marquee{margin-top:26px;position:relative;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-.marquee__row{display:flex;gap:60px;width:max-content;animation:scrollx 32s linear infinite}
+.marquee{margin-top:24px;position:relative;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marquee__row{display:flex;gap:52px;width:max-content;animation:scrollx 30s linear infinite}
 .marquee:hover .marquee__row{animation-play-state:paused}
-.logo{display:flex;align-items:center;gap:9px;color:var(--ink-faint);font-weight:750;font-size:1.18rem;letter-spacing:-.02em;white-space:nowrap;transition:color .3s;opacity:.72}
-.logo:hover{color:var(--ink);opacity:1}
-.logo svg{width:22px;height:22px}
+.bank{display:flex;align-items:center;gap:9px;color:var(--ink-faint);font-weight:750;font-size:1.1rem;letter-spacing:-.02em;white-space:nowrap;transition:color .3s;opacity:.75}
+.bank:hover{color:var(--ink);opacity:1}
+.bank .bm{width:24px;height:24px;border-radius:7px;flex:none}
 
 /* feature rows */
 .feature{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center}
 .feature--rev .feature__media{order:-1}
 .feature h2{margin:16px 0 0}
-.feature .lead{margin-top:18px;font-size:1.08rem}
+.feature .lead{margin-top:18px;font-size:1.06rem}
 .flist{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:13px}
 .flist li{display:flex;gap:12px;align-items:flex-start;color:var(--ink-soft);font-size:1rem}
 .flist .tick{flex:none;width:24px;height:24px;border-radius:8px;background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent-deep);display:grid;place-items:center;margin-top:1px}
 .flist .tick svg{width:14px;height:14px}
 .feature .btn{margin-top:30px}
-.mockwrap{position:relative}
-.uichip{position:absolute;z-index:3;background:var(--surface);border:1px solid var(--border);border-radius:13px;box-shadow:var(--shadow-md);padding:11px 13px;display:flex;align-items:center;gap:10px;font-size:.85rem;font-weight:600;color:var(--ink)}
-.uichip .k{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex:none}
-.uichip small{display:block;font-weight:500;color:var(--ink-faint);font-size:.74rem}
-.mock-a .u1{left:-14px;top:26px;animation:float 7s ease-in-out infinite}
-.mock-a .u2{right:-12px;bottom:30px;animation:float 8s ease-in-out infinite reverse}
-.mock-b .u1{right:-12px;top:30px;animation:float 7.5s ease-in-out infinite}
-.mock-b .u2{left:-14px;bottom:28px;animation:float 8.5s ease-in-out infinite reverse}
 
-/* builder mockup */
-.builder__body{display:flex;height:344px;background:var(--surface-2)}
-.builder__rail{width:138px;flex:none;border-right:1px solid var(--border);padding:12px 10px;display:flex;flex-direction:column;gap:7px;background:var(--surface)}
-.builder__rail small{font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:2px}
-.brow{display:flex;align-items:center;gap:8px;padding:7px 9px;border-radius:9px;border:1px solid var(--border);background:var(--surface-2);font-size:.72rem;color:var(--ink-soft);font-weight:600}
-.brow.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--surface));color:var(--ink)}
-.brow span{width:16px;height:16px;border-radius:5px;flex:none}
-.builder__canvas{flex:1;padding:14px;overflow:hidden;display:flex;flex-direction:column;gap:10px;min-width:0}
-.builder__canvas .shot{aspect-ratio:16/6.4;border-radius:9px}
-.builder__canvas .shot::after{content:"";position:absolute;inset:6px;border:2px dashed rgba(255,255,255,.75);border-radius:8px;z-index:2}
-.bline{height:9px;border-radius:5px;background:var(--border)}
-.bline.w1{width:52%}.bline.w2{width:76%}
-.bcards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:2px}
-.bcards i{height:46px;border-radius:8px;background:var(--border)}
+/* app-panel mockups (dashboard / goals) */
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow-lg);padding:24px;position:relative}
+.panel__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.panel__head b{font-size:1.02rem;font-weight:750}
+.panel__head span{font-family:var(--font-mono);font-size:.66rem;color:var(--ink-faint);background:var(--surface-2);border:1px solid var(--border);padding:4px 9px;border-radius:8px}
+.bars{display:flex;align-items:flex-end;gap:10px;height:150px;padding-bottom:22px;position:relative}
+.bars::after{content:"";position:absolute;left:0;right:0;bottom:22px;height:1px;background:var(--border)}
+.bars .bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;height:100%}
+.bars .bar i{width:100%;max-width:34px;border-radius:7px 7px 0 0;background:color-mix(in srgb,var(--g-teal) 55%,var(--surface));transition:height 1s cubic-bezier(.2,.7,.3,1)}
+.bars .bar.on i{background:linear-gradient(180deg,var(--accent),var(--g-teal))}
+.bars .bar small{font-size:.62rem;color:var(--ink-faint);font-weight:600}
+.catlist{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+.catrow{display:flex;align-items:center;gap:12px}
+.catrow .ci{width:34px;height:34px;border-radius:10px;flex:none;display:grid;place-items:center;font-size:1rem}
+.catrow .cn{flex:1;min-width:0}
+.catrow .cn b{font-size:.86rem;font-weight:700}
+.catrow .track{height:6px;border-radius:6px;background:var(--border);margin-top:5px;overflow:hidden}
+.catrow .track i{display:block;height:100%;border-radius:6px;background:var(--accent);width:0;transition:width 1.1s cubic-bezier(.2,.7,.3,1)}
+.in .catrow .track i{width:var(--w)}
+.catrow .cv{font-size:.84rem;font-weight:750;white-space:nowrap;font-variant-numeric:tabular-nums}
+/* goals */
+.goals-grid{display:flex;flex-direction:column;gap:14px}
+.goalcard{display:flex;align-items:center;gap:16px;background:var(--surface-2);border:1px solid var(--border);border-radius:16px;padding:16px}
+.goalcard .gr{width:58px;height:58px;flex:none}
+.goalcard .gr svg{transform:rotate(-90deg)}
+.goalcard .gr .valc{stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 1.3s cubic-bezier(.2,.7,.3,1)}
+.in .goalcard .gr .valc{stroke-dashoffset:var(--v)}
+.goalcard .gi{flex:1;min-width:0}
+.goalcard .gi b{font-size:.98rem;font-weight:750;display:block}
+.goalcard .gi small{font-size:.8rem;color:var(--ink-faint)}
+.goalcard .gp{text-align:right}
+.goalcard .gp b{font-size:1.05rem;font-weight:800;letter-spacing:-.02em}
+.goalcard .gp small{font-size:.72rem;color:var(--ink-faint);display:block}
 
-/* published mockup */
-.pub__hero{aspect-ratio:16/10.5;position:relative}
-.pub__hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,transparent 45%,rgba(10,8,20,.5))}
-.pub__cap{position:absolute;z-index:2;left:16px;bottom:14px;color:#fff}
-.pub__cap em{font-style:normal;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;opacity:.9}
-.pub__cap b{display:block;font-size:1.1rem;letter-spacing:-.02em}
-.panel{position:absolute;z-index:4;right:-14px;bottom:-16px;width:190px;background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow-md);padding:13px 14px}
-.panel h5{font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:space-between}
-.panel h5 span{font-family:var(--font-mono);font-size:.64rem;color:var(--accent-deep)}
-.panel .big{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;margin-top:4px;font-variant-numeric:tabular-nums}
-.panel .spark{display:block;width:100%;height:30px;margin-top:6px}
+/* categories grid */
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cat{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:22px;box-shadow:var(--shadow-sm);transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s}
+.cat:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.cat__top{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.cat__ic{width:44px;height:44px;border-radius:13px;flex:none;display:grid;place-items:center;font-size:1.3rem}
+.cat__top b{font-size:1.02rem;font-weight:750}
+.cat__top small{display:block;font-size:.78rem;color:var(--ink-faint);font-weight:500}
+.cat__amt{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.cat__bud{display:flex;justify-content:space-between;font-size:.76rem;color:var(--ink-faint);margin:12px 0 6px}
+.cat__track{height:7px;border-radius:7px;background:var(--border);overflow:hidden}
+.cat__track i{display:block;height:100%;border-radius:7px;width:0;transition:width 1.1s cubic-bezier(.2,.7,.3,1)}
+.in .cat__track i{width:var(--w)}
 
-/* gallery */
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.site-card{border-radius:14px;overflow:hidden;background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-sm);transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s}
-.site-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
-.site-card .window__bar{height:30px}
-.site-card .window__bar .dotr{width:8px;height:8px}
-.site-card .window__url{height:19px;font-size:10px}
-.site-card .shot{aspect-ratio:16/10}
-.site-card__cap{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 15px}
-.site-card__cap b{font-weight:700;font-size:.94rem;letter-spacing:-.01em}
-.site-card__cap span{font-family:var(--font-mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent-deep);background:color-mix(in srgb,var(--accent) 12%,transparent);padding:3px 8px;border-radius:6px;white-space:nowrap;flex:none}
+/* security */
+.secure{position:relative;border-radius:var(--r-xl);overflow:hidden;background:var(--surface-2);border:1px solid var(--border);padding:clamp(36px,5vw,56px)}
+.secure__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);align-items:center}
+.sfeats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+.sfeat{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px}
+.sfeat .si{width:40px;height:40px;border-radius:11px;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent-deep);display:grid;place-items:center;margin-bottom:12px}
+.sfeat .si svg{width:20px;height:20px}
+.sfeat b{font-size:.96rem;font-weight:700;display:block;margin-bottom:4px}
+.sfeat p{font-size:.85rem}
+.shield{display:grid;place-items:center}
+.shield svg{width:min(300px,70%);height:auto;filter:drop-shadow(0 20px 50px rgba(15,169,142,.25))}
 
 /* steps */
 .steps__head{text-align:center;max-width:46ch;margin:0 auto 52px}
@@ -233,7 +253,7 @@ p{color:var(--ink-soft)}
 .step__n{counter-increment:s;font-family:var(--font-mono);font-size:.8rem;font-weight:600;letter-spacing:.08em;color:var(--accent-deep)}
 .step__n::before{content:"0" counter(s)}
 .step__line{height:1px;background:var(--border);margin:14px 0 18px;position:relative;overflow:hidden}
-.step__line::after{content:"";position:absolute;left:0;top:0;height:100%;width:38%;background:linear-gradient(90deg,var(--g-rose),var(--g-teal))}
+.step__line::after{content:"";position:absolute;left:0;top:0;height:100%;width:38%;background:linear-gradient(90deg,var(--g-mint),var(--accent))}
 .step:nth-child(2) .step__line::after{width:66%}
 .step:nth-child(3) .step__line::after{width:100%}
 .step h3{margin-bottom:9px}
@@ -251,22 +271,19 @@ p{color:var(--ink-soft)}
 .quote__mark{font-size:3.2rem;line-height:.4;color:var(--accent);opacity:.4;font-family:Georgia,serif}
 .quote blockquote{font-size:clamp(1.3rem,2.6vw,1.85rem);font-weight:600;letter-spacing:-.02em;line-height:1.35;color:var(--ink);text-wrap:balance;margin:14px 0 24px}
 .quote__by{display:flex;gap:13px;align-items:center;justify-content:center}
-.quote__av{width:48px;height:48px;border-radius:50%;overflow:hidden;flex:none;box-shadow:var(--shadow-sm);background:linear-gradient(135deg,var(--g-rose),var(--g-lilac),var(--g-teal))}
+.quote__av{width:48px;height:48px;border-radius:50%;overflow:hidden;flex:none;box-shadow:var(--shadow-sm);background:linear-gradient(135deg,var(--g-mint),var(--g-teal),var(--accent))}
 .quote__av img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s}
 .quote__av img.on{opacity:1}
 .quote__by b{display:block;color:var(--ink);font-weight:700;font-size:.98rem}
 .quote__by span{font-size:.86rem;color:var(--ink-faint)}
 
-/* final cta */
+/* cta */
 .cta{position:relative;border-radius:var(--r-xl);overflow:hidden;text-align:center;padding:clamp(48px,7vw,88px) 24px;box-shadow:var(--shadow-lg)}
-.cta__bg{position:absolute;inset:0;z-index:-1;background:radial-gradient(70% 120% at 15% 0%,var(--g-rose),transparent 55%),radial-gradient(70% 120% at 85% 10%,var(--g-lilac),transparent 55%),radial-gradient(90% 130% at 50% 120%,var(--g-teal),transparent 60%),var(--surface-2)}
-.cta__grain{position:absolute;inset:0;z-index:-1;opacity:var(--grain);mix-blend-mode:soft-light;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.cta h2{max-width:16ch;margin:14px auto 0}
+.cta__bg{position:absolute;inset:0;z-index:-1;background:radial-gradient(70% 120% at 15% 0%,var(--g-mint),transparent 55%),radial-gradient(70% 120% at 85% 10%,var(--g-sky),transparent 55%),radial-gradient(90% 130% at 50% 120%,var(--g-teal),transparent 60%),var(--surface-2)}
+.cta h2{max-width:18ch;margin:14px auto 0}
 .cta .lead{margin:16px auto 0;text-align:center}
-.cta__form{margin:30px auto 0;max-width:460px;display:flex;gap:8px;background:var(--surface);border:1px solid var(--border-strong);border-radius:14px;padding:7px 7px 7px 16px;box-shadow:var(--shadow-md)}
-.cta__form input{flex:1;border:none;background:none;font:inherit;font-size:.98rem;color:var(--ink);outline:none;min-width:0}
-.cta__form input::placeholder{color:var(--ink-faint)}
-.cta__note{margin-top:14px;font-size:.82rem;color:var(--ink-faint)}
+.cta .stores{justify-content:center;margin-top:30px}
+.cta__note{margin-top:16px;font-size:.82rem;color:var(--ink-faint)}
 
 /* footer */
 .foot{border-top:1px solid var(--border);background:var(--bg-soft)}
@@ -293,41 +310,43 @@ p{color:var(--ink-soft)}
 @keyframes drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-5%,6%) scale(1.08)}}
 @keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(4%,-5%) scale(1.15)}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-@keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
 @keyframes scrollx{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-@keyframes spin{to{transform:rotate(360deg)}}
+.fw.goal{animation:float 7s ease-in-out infinite}
+.fw.subs{animation:float 8s ease-in-out infinite reverse}
 
 /* responsive */
 @media (max-width:960px){
+  .hero__grid{grid-template-columns:1fr;gap:36px}
+  .hero__art{min-height:0;margin-top:8px}
+  .fw.goal{left:2%}.fw.subs{right:2%}
   .cards{grid-template-columns:repeat(2,1fr)}
-  .gallery{grid-template-columns:repeat(2,1fr)}
+  .cats{grid-template-columns:repeat(2,1fr)}
   .steps{grid-template-columns:1fr;max-width:520px;margin-inline:auto}
   .stats{grid-template-columns:repeat(2,1fr);gap:28px 20px}
   .stats .stat:nth-child(3){border-left:none}
-  .feature{grid-template-columns:1fr;gap:44px}
+  .feature{grid-template-columns:1fr;gap:40px}
   .feature--rev .feature__media{order:0}
+  .secure__grid{grid-template-columns:1fr;gap:32px}
+  .shield{order:-1}
   .foot__grid{grid-template-columns:1fr 1fr;gap:34px}
   .foot__brand{grid-column:1/-1}
   .nav__links{display:none}
-  .mock-a .u1,.mock-b .u1{left:auto;right:auto}
 }
 @media (max-width:560px){
   .cards{grid-template-columns:1fr}
-  .gallery{grid-template-columns:1fr}
+  .cats{grid-template-columns:1fr}
   .stats{grid-template-columns:1fr 1fr}
+  .sfeats{grid-template-columns:1fr}
   .foot__grid{grid-template-columns:1fr 1fr}
-  .btn{height:48px}
-  .hero__cta .btn{flex:1;min-width:150px}
-  .prompt{flex-wrap:wrap}
-  .prompt .btn{width:100%}
-  .builder__rail{display:none}
-  .gstrip{grid-template-columns:repeat(3,1fr)}
-  .panel{position:static;width:auto;margin-top:12px}
+  .fw{display:none}
+  .stores{width:100%}.store{flex:1}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   .rv{opacity:1;transform:none}
-  .shot>img,.quote__av img{opacity:1}
+  .quote__av img{opacity:1}
+  .ring .valc,.goalcard .gr .valc{stroke-dashoffset:var(--v)}
+  .catrow .track i,.cat__track i{width:var(--w)}
 }
 </style>
 </head>
@@ -335,20 +354,17 @@ p{color:var(--ink-soft)}
 
 <header class="nav" id="nav">
   <div class="wrap nav__in">
-    <a class="brand" href="#top" aria-label="Бриз — на главную">
-      <span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#15141a" stroke-width="2.1" stroke-linecap="round"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h15a3 3 0 1 1-3 3"/><path d="M3 16h8"/></svg></span>
-      Бриз
-    </a>
+    <a class="brand" href="#top" aria-label="Монета — на главную"><span class="brand__mark" aria-hidden="true">₸</span> Монета</a>
     <nav class="nav__links" aria-label="Основное меню">
       <a href="#features">Возможности</a>
-      <a href="#examples">Примеры</a>
+      <a href="#categories">Категории</a>
+      <a href="#security">Безопасность</a>
       <a href="#how">Как это работает</a>
-      <a href="#pricing">Тарифы</a>
     </nav>
     <div class="nav__cta">
       <button class="iconbtn" id="themeBtn" aria-label="Переключить тему" title="Светлая / тёмная тема"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></button>
       <a class="btn btn--ghost btn--sm" href="#">Войти</a>
-      <a class="btn btn--primary btn--sm" href="#cta">Начать бесплатно</a>
+      <a class="btn btn--primary btn--sm" href="#get">Скачать</a>
     </div>
   </div>
 </header>
@@ -357,199 +373,251 @@ p{color:var(--ink-soft)}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero__mesh" id="mesh" aria-hidden="true"><div class="mesh"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></div></div>
+  <div class="hero__mesh" aria-hidden="true"><div class="mesh"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></div></div>
   <div class="hero__veil" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true"></div>
   <div class="wrap">
-    <span class="badge rv"><span class="dot">✦</span> <b>Бриз&nbsp;2.0</b> — теперь с генерацией картинок</span>
-    <h1 class="rv rv-d1">Опишите идею словами — а сайт соберём мы</h1>
-    <p class="lead rv rv-d2">Никакого кода и дизайнеров. Расскажите Бризу, что вы делаете, — и через минуту получите готовый лендинг: тексты, блоки, картинки и свой домен.</p>
-
-    <div class="demo rv rv-d2">
-      <div class="prompt">
-        <span class="prompt__spark" aria-hidden="true">✦</span>
-        <span class="prompt__text" id="promptText" aria-live="polite"><span class="ph">кофейня в центре Алматы</span></span><span class="caret" id="caret" aria-hidden="true"></span>
-        <button class="btn btn--primary btn--sm" id="promptGo">Собрать сайт</button>
+    <div class="hero__grid">
+      <div class="hero__text">
+        <span class="badge rv"><span class="dot">✦</span> <b>Монета&nbsp;3.0</b> — теперь с кэшбэк-советами</span>
+        <h1 class="rv rv-d1">Видно, куда уходят деньги — до последней тенге</h1>
+        <p class="lead rv rv-d2">Монета сама раскладывает траты по категориям, держит бюджеты и подсказывает, сколько откладывать на цель. Никаких таблиц — просто подключите карту.</p>
+        <div class="hero__cta rv rv-d3">
+          <div class="stores">
+            <a class="store" href="#get"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12.6c0-2 1.6-3 1.7-3-.9-1.4-2.4-1.6-2.9-1.6-1.2-.1-2.4.7-3 .7-.6 0-1.6-.7-2.6-.7-1.3 0-2.6.8-3.3 2-1.4 2.4-.4 6 1 8 .7 1 1.4 2 2.5 2 1 0 1.3-.6 2.5-.6s1.5.6 2.5.6 1.7-.9 2.4-1.9c.7-1 1-2 1-2.1-.1 0-2.3-.9-2.3-3zM14.6 6.2c.5-.7.9-1.6.8-2.5-.8 0-1.8.5-2.4 1.2-.5.6-1 1.5-.8 2.4.9 0 1.8-.5 2.4-1.1z"/></svg><span><small>Загрузите в</small><b>App Store</b></span></a>
+            <a class="store" href="#get"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 2.5c-.3.2-.5.6-.5 1.1v16.8c0 .5.2.9.5 1.1l9.2-9.5L4 2.5zm10.3 8.5 2.4-2.5-9.9-5.6c-.4-.2-.8-.2-1 0l8.5 8.1zm0 2-8.5 8.1c.2.2.6.2 1 0l9.9-5.6-2.4-2.5zm5.4-3.4-2.1-1.2-2.7 2.6 2.7 2.6 2.1-1.2c.7-.4.7-1.2 0-1.6z"/></svg><span><small>Доступно в</small><b>Google Play</b></span></a>
+          </div>
+        </div>
+        <div class="hero__trust rv rv-d3">
+          <span><span class="ok">✓</span> Бесплатно навсегда</span>
+          <span><span class="ok">✓</span> Данные не продаём</span>
+          <span><span class="ok">✓</span> Face ID и шифрование</span>
+        </div>
       </div>
-    </div>
 
-    <div class="hero__cta rv rv-d3">
-      <a class="btn btn--primary" href="#cta">Попробовать бесплатно</a>
-      <a class="btn btn--ghost" href="#examples">Смотреть примеры <span class="arw" aria-hidden="true">→</span></a>
-    </div>
-    <div class="hero__trust rv rv-d3">
-      <span><span class="ok">✓</span> 14 дней бесплатно</span>
-      <span><span class="ok">✓</span> Без банковской карты</span>
-      <span><span class="ok">✓</span> Отмена в один клик</span>
-    </div>
+      <div class="hero__art rv rv-d2">
+        <!-- floating goal widget -->
+        <div class="fw goal">
+          <h5>🎯 Цель: Отпуск в Грузии</h5>
+          <div class="sub">осталось 240 000 ₸</div>
+          <div class="row">
+            <span class="ring" aria-hidden="true" style="--v:32"><svg viewBox="0 0 42 42"><circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--border)" stroke-width="5"/><circle class="valc" cx="21" cy="21" r="15.915" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/></svg></span>
+            <b class="num">68%</b>
+          </div>
+        </div>
 
-    <!-- generated-site mockup -->
-    <div class="genframe rv rv-d2" id="genframe">
-      <div class="window">
-        <div class="window__bar"><i class="dotr r"></i><i class="dotr y"></i><i class="dotr g"></i><div class="window__url">🔒 <b id="genUrl">obzharka.briz.site</b></div><span class="genchip">✦ собрано Бризом</span></div>
-        <div class="genbody">
-          <div class="gensite__hero shot">
-            <img id="genImg" src="https://loremflickr.com/1000/460/coffeeshop,cafe?lock=7" alt="Пример сайта, собранного в Бризе">
-            <div class="gtop"><b id="genBrand">Обжарка</b><span><i>Меню</i><i>О нас</i><i>Контакты</i></span></div>
-            <div class="ghero-copy"><em id="genTag">Обжарка с 2019 года</em><h4 id="genH">Кофе, который будит район</h4><div class="gbtns"><b>Забронировать стол</b><i>Смотреть меню</i></div></div>
+        <!-- phone -->
+        <div class="phone" aria-label="Экран приложения Монета">
+          <div class="screen">
+            <div class="sbar"><span>9:41</span><span class="dots"><i></i><i></i><i></i></span></div>
+            <div class="scr-pad">
+              <div class="bal">
+                <small>Общий баланс</small>
+                <div class="amt num">1 248 500 ₸</div>
+                <div class="chg num">▲ 2,4% за июль</div>
+              </div>
+              <div class="ringrow">
+                <div class="donut" aria-hidden="true">
+                  <svg viewBox="0 0 42 42" width="82" height="82">
+                    <circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--border)" stroke-width="6"/>
+                    <circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--g-teal)" stroke-width="6" stroke-dasharray="34 66" stroke-dashoffset="25"/>
+                    <circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--g-lilac)" stroke-width="6" stroke-dasharray="22 78" stroke-dashoffset="-9"/>
+                    <circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--g-peach)" stroke-width="6" stroke-dasharray="16 84" stroke-dashoffset="-31"/>
+                    <circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--g-sky)" stroke-width="6" stroke-dasharray="28 72" stroke-dashoffset="-47"/>
+                  </svg>
+                  <div class="mid"><small>июль</small><b class="num">312к ₸</b></div>
+                </div>
+                <div class="legend">
+                  <div><i style="background:var(--g-teal)"></i>Продукты <span class="num">34%</span></div>
+                  <div><i style="background:var(--g-lilac)"></i>Кафе <span class="num">22%</span></div>
+                  <div><i style="background:var(--g-peach)"></i>Транспорт <span class="num">16%</span></div>
+                  <div><i style="background:var(--g-sky)"></i>Прочее <span class="num">28%</span></div>
+                </div>
+              </div>
+              <div class="txs">
+                <small>Последние операции</small>
+                <div class="tx"><span class="ic" style="background:color-mix(in srgb,var(--g-teal) 55%,var(--surface))">🛒</span><span class="nm"><b>Magnum</b><small>Продукты</small></span><span class="val num">−8 640 ₸</span></div>
+                <div class="tx"><span class="ic" style="background:color-mix(in srgb,var(--g-lilac) 55%,var(--surface))">☕</span><span class="nm"><b>Wolt</b><small>Кафе и рестораны</small></span><span class="val num">−4 200 ₸</span></div>
+                <div class="tx"><span class="ic" style="background:color-mix(in srgb,var(--g-peach) 55%,var(--surface))">🚕</span><span class="nm"><b>Яндекс Go</b><small>Транспорт</small></span><span class="val num">−1 980 ₸</span></div>
+                <div class="tx"><span class="ic" style="background:color-mix(in srgb,var(--g-mint) 60%,var(--surface))">💸</span><span class="nm"><b>Зарплата</b><small>Доход</small></span><span class="val num" style="color:var(--pos)">+520 000 ₸</span></div>
+              </div>
+            </div>
           </div>
-          <div class="gstrip">
-            <div class="gcard"><div class="shot"><img loading="lazy" src="https://loremflickr.com/320/180/latte?lock=71" alt=""></div><p>Спешелти-обжарка</p></div>
-            <div class="gcard"><div class="shot"><img loading="lazy" src="https://loremflickr.com/320/180/croissant,pastry?lock=72" alt=""></div><p>Свежая выпечка</p></div>
-            <div class="gcard"><div class="shot"><img loading="lazy" src="https://loremflickr.com/320/180/cafe,interior?lock=73" alt=""></div><p>Уютный зал</p></div>
-          </div>
-          <div class="genloader" id="genloader"><span class="spin"></span><span>Собираю сайт…</span></div>
+        </div>
+
+        <!-- floating subscriptions widget -->
+        <div class="fw subs">
+          <h5>🔁 Подписки в этом месяце</h5>
+          <div class="sub">5 активных · 12 400 ₸/мес</div>
+          <div class="subrow"><i style="background:#e50914;color:#fff">N</i><b>Netflix</b><span class="num">−4 990 ₸</span></div>
+          <div class="subrow"><i style="background:#1db954;color:#fff">♪</i><b>Spotify</b><span class="num">−2 290 ₸</span></div>
+          <div class="subrow"><i style="background:color-mix(in srgb,var(--g-sky) 60%,#fff);color:#0b4f42">☁</i><b>iCloud</b><span class="num">−1 300 ₸</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- BANKS -->
+<section class="section logos" style="padding-block:clamp(30px,5vw,52px)">
+  <div class="wrap"><p class="logos__t rv">Подключается к вашим счетам за минуту</p></div>
+  <div class="marquee rv" aria-hidden="true"><div class="marquee__row">
+    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#ff2d2d,#ff5c5c)"></span>Kaspi</span>
+    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#0a7d3c,#37c26e)"></span>Halyk</span>
+    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#7b2ff7,#a56bff)"></span>Jusan</span>
+    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#0b6bcb,#3ba0ff)"></span>Freedom</span>
+    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#c0392b,#e67e22)"></span>ForteBank</span>
+    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#0f766e,#2dd4bf)"></span>Bereke</span>
+    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#ff2d2d,#ff5c5c)"></span>Kaspi</span>
+    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#0a7d3c,#37c26e)"></span>Halyk</span>
+    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#7b2ff7,#a56bff)"></span>Jusan</span>
+    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#0b6bcb,#3ba0ff)"></span>Freedom</span>
+    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#c0392b,#e67e22)"></span>ForteBank</span>
+    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#0f766e,#2dd4bf)"></span>Bereke</span>
+  </div></div>
+</section>
+
 <!-- FEATURE CARDS -->
-<section class="section" id="features">
+<section class="section" id="features" style="padding-top:clamp(40px,6vw,72px)">
   <div class="wrap">
     <div class="steps__head rv" style="text-align:center;max-width:52ch">
-      <span class="eyebrow">Что внутри</span>
-      <h2 style="margin-top:14px">Всё для запуска — в одном окне</h2>
+      <span class="eyebrow" style="justify-content:center">Что умеет</span>
+      <h2 style="margin-top:14px">Все финансы — в одном спокойном экране</h2>
     </div>
     <div class="cards">
-      <article class="card rv rv-d1"><div class="card__art"><span class="c1"></span><span class="c2"></span><div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="#0b7d69" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 4 3.5 7 8 8 4.5-1 8-4 8-8V7z"/><path d="m9 12 2 2 4-4"/></svg></div></div><h3>ИИ пишет тексты</h3><p>Заголовки, описания и кнопки под вашу нишу — на грамотном русском, а не переводом с английского.</p></article>
-      <article class="card rv rv-d2"><div class="card__art"><span class="c1"></span><span class="c2"></span><div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="#6a4bd6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="5" rx="2"/><rect x="13" y="10" width="8" height="11" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/></svg></div></div><h3>200+ готовых блоков</h3><p>Соберите страницу из секций, как из кубиков. Меняйте порядок и содержимое в один клик.</p></article>
-      <article class="card rv rv-d3"><div class="card__art"><span class="c1"></span><span class="c2"></span><div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="#c26a2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 4 9-.2 3.2-1.5 6.5-4 9-2.5-2.5-3.8-5.8-4-9 .2-3.2 1.5-6.5 4-9z"/></svg></div></div><h3>Свой домен за минуту</h3><p>Подключите свой домен или возьмите бесплатный адрес *.briz.site — SSL настроится сам.</p></article>
-      <article class="card rv rv-d4"><div class="card__art"><span class="c1"></span><span class="c2"></span><div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2b74c2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div></div><h3>Аналитика и A/B</h3><p>Смотрите, какие блоки работают, и тестируйте два варианта без сторонних сервисов.</p></article>
+      <article class="card rv rv-d1"><div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="#0b7d69" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 4-5"/></svg></div><h3>Автоучёт трат</h3><p>Каждая покупка сама попадает в нужную категорию. Вручную ничего вносить не нужно.</p></article>
+      <article class="card rv rv-d2"><div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="#6a4bd6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 10h18M7 15h5"/></svg></div><h3>Бюджеты по категориям</h3><p>Задайте лимит на кафе или такси — Монета мягко предупредит, когда он подходит к концу.</p></article>
+      <article class="card rv rv-d3"><div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="#c26a2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 21a7 7 0 100-14 7 7 0 000 14z"/><path d="M12 11v3l2 1"/></svg></div><h3>Цели-копилки</h3><p>Отпуск, ноутбук, подушка безопасности. Монета посчитает, сколько откладывать в месяц.</p></article>
+      <article class="card rv rv-d4"><div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2b74c2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 019-9 9 9 0 019 9M21 12a9 9 0 01-9 9 9 9 0 01-9-9"/><path d="M16 8l-8 8M8 8h4M16 12v4"/></svg></div><h3>Подписки под контролем</h3><p>Все автосписания в одном списке — видно, за что платите, и что пора отменить.</p></article>
     </div>
   </div>
 </section>
 
-<!-- FEATURE ROW A: builder -->
+<!-- FEATURE ROW A: dashboard -->
 <section class="section" style="padding-bottom:0">
   <div class="wrap">
     <div class="feature">
       <div class="feature__text rv">
-        <span class="eyebrow">Редактор</span>
-        <h2>Собирайте страницу, как из кубиков</h2>
-        <p class="lead">Перетаскивайте готовые блоки, меняйте тексты прямо на странице, вставляйте свои фото. Бриз сам держит отступы, шрифты и цвета в порядке — получается как из студии.</p>
+        <span class="eyebrow">Аналитика</span>
+        <h2>Куда уходят деньги — видно сразу</h2>
+        <p class="lead">Понятные графики вместо простыней из выписки. Смотрите траты по месяцам и категориям, сравнивайте с прошлым и ловите, где утекает больше, чем кажется.</p>
         <ul class="flist">
-          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Живой предпросмотр — видно результат сразу</li>
-          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Идеальная вёрстка на телефоне, планшете и десктопе</li>
-          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Светлая и тёмная тема — сразу из коробки</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Разбивка по категориям и месяцам</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Прогресс по бюджету в реальном времени</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Умные советы: где можно сэкономить</li>
         </ul>
-        <a class="btn btn--ghost" href="#examples">Смотреть примеры <span class="arw" aria-hidden="true">→</span></a>
+        <a class="btn btn--ghost" href="#get">Попробовать бесплатно <span class="arw" aria-hidden="true">→</span></a>
       </div>
       <div class="feature__media rv rv-d2">
-        <div class="mockwrap mock-a">
-          <div class="window builder">
-            <div class="window__bar"><i class="dotr r"></i><i class="dotr y"></i><i class="dotr g"></i><div class="window__url">briz.app / <b>редактор</b></div></div>
-            <div class="builder__body">
-              <aside class="builder__rail">
-                <small>Блоки</small>
-                <div class="brow on"><span style="background:var(--g-rose)"></span>Обложка</div>
-                <div class="brow"><span style="background:var(--g-lilac)"></span>Текст</div>
-                <div class="brow"><span style="background:var(--g-teal)"></span>Галерея</div>
-                <div class="brow"><span style="background:var(--g-peach)"></span>Тарифы</div>
-                <div class="brow"><span style="background:var(--g-sky)"></span>Форма</div>
-                <div class="brow"><span style="background:var(--g-mint)"></span>Футер</div>
-              </aside>
-              <div class="builder__canvas">
-                <div class="shot"><img loading="lazy" src="https://loremflickr.com/760/300/interior,architecture?lock=77" alt=""></div>
-                <div class="bline w2"></div><div class="bline w1"></div>
-                <div class="bcards"><i></i><i></i><i></i></div>
-              </div>
-            </div>
+        <div class="panel">
+          <div class="panel__head"><b>Траты по месяцам</b><span>2024</span></div>
+          <div class="bars" aria-hidden="true">
+            <div class="bar"><i style="height:48%"></i><small>Фев</small></div>
+            <div class="bar"><i style="height:62%"></i><small>Мар</small></div>
+            <div class="bar"><i style="height:40%"></i><small>Апр</small></div>
+            <div class="bar"><i style="height:72%"></i><small>Май</small></div>
+            <div class="bar"><i style="height:55%"></i><small>Июн</small></div>
+            <div class="bar on"><i style="height:88%"></i><small>Июл</small></div>
           </div>
-          <div class="uichip u1"><span class="k" style="background:var(--g-lilac)">Аа</span><span>Шрифты<small>Подобраны ИИ</small></span></div>
-          <div class="uichip u2"><span class="k" style="background:var(--g-teal)">◐</span><span>Палитра<small>6 оттенков</small></span></div>
+          <div class="catlist">
+            <div class="catrow" style="--w:78%"><span class="ci" style="background:color-mix(in srgb,var(--g-teal) 55%,var(--surface))">🛒</span><div class="cn"><b>Продукты</b><div class="track"><i></i></div></div><span class="cv num">106 200 ₸</span></div>
+            <div class="catrow" style="--w:54%"><span class="ci" style="background:color-mix(in srgb,var(--g-lilac) 55%,var(--surface))">☕</span><div class="cn"><b>Кафе и рестораны</b><div class="track"><i></i></div></div><span class="cv num">68 400 ₸</span></div>
+            <div class="catrow" style="--w:38%"><span class="ci" style="background:color-mix(in srgb,var(--g-peach) 55%,var(--surface))">🚕</span><div class="cn"><b>Транспорт</b><div class="track"><i></i></div></div><span class="cv num">49 900 ₸</span></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FEATURE ROW B: publish -->
+<!-- FEATURE ROW B: goals -->
 <section class="section">
   <div class="wrap">
     <div class="feature feature--rev">
       <div class="feature__text rv">
-        <span class="eyebrow">Публикация</span>
-        <h2>От идеи до публикации — один клик</h2>
-        <p class="lead">Готово? Нажмите «Опубликовать» — Бриз развернёт сайт на быстром хостинге, настроит SSL и подключит домен. Скорость загрузки и SEO уже внутри.</p>
+        <span class="eyebrow">Цели</span>
+        <h2>Копите на мечту без напряга</h2>
+        <p class="lead">Поставьте цель и срок — Монета сама рассчитает комфортный ежемесячный взнос и будет откладывать понемногу, чтобы вы даже не заметили.</p>
         <ul class="flist">
-          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Глобальный CDN — сайт открывается меньше чем за секунду</li>
-          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> SEO-теги, карта сайта и Open Graph генерируются сами</li>
-          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Формы и заявки прилетают прямо в Telegram или на почту</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Автопополнение в удобном ритме</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Прогресс и дата достижения цели</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Несколько целей одновременно</li>
         </ul>
-        <a class="btn btn--primary" href="#cta">Опубликовать бесплатно</a>
+        <a class="btn btn--primary" href="#get">Поставить первую цель</a>
       </div>
       <div class="feature__media rv rv-d2">
-        <div class="mockwrap mock-b">
-          <div class="window">
-            <div class="window__bar"><i class="dotr r"></i><i class="dotr y"></i><i class="dotr g"></i><div class="window__url">🔒 <b>sever-store.kz</b></div></div>
-            <div class="pub__hero shot">
-              <img loading="lazy" src="https://loremflickr.com/820/540/boutique,shop?lock=88" alt="Опубликованный сайт">
-              <div class="pub__cap"><em>Новая коллекция</em><b>Север — одежда для города</b></div>
-            </div>
+        <div class="panel">
+          <div class="panel__head"><b>Мои цели</b><span>3 активные</span></div>
+          <div class="goals-grid">
+            <div class="goalcard" style="--v:32"><span class="gr" aria-hidden="true"><svg viewBox="0 0 42 42" width="58" height="58"><circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--border)" stroke-width="5"/><circle class="valc" cx="21" cy="21" r="15.915" fill="none" stroke="var(--g-teal)" stroke-width="5" stroke-linecap="round"/></svg></span><div class="gi"><b>Отпуск в Грузии</b><small>из 750 000 ₸</small></div><div class="gp"><b class="num">68%</b><small>к маю</small></div></div>
+            <div class="goalcard" style="--v:60"><span class="gr" aria-hidden="true"><svg viewBox="0 0 42 42" width="58" height="58"><circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--border)" stroke-width="5"/><circle class="valc" cx="21" cy="21" r="15.915" fill="none" stroke="var(--g-lilac)" stroke-width="5" stroke-linecap="round"/></svg></span><div class="gi"><b>Новый ноутбук</b><small>из 620 000 ₸</small></div><div class="gp"><b class="num">40%</b><small>к августу</small></div></div>
+            <div class="goalcard" style="--v:15"><span class="gr" aria-hidden="true"><svg viewBox="0 0 42 42" width="58" height="58"><circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--border)" stroke-width="5"/><circle class="valc" cx="21" cy="21" r="15.915" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/></svg></span><div class="gi"><b>Подушка безопасности</b><small>из 1 500 000 ₸</small></div><div class="gp"><b class="num">85%</b><small>почти</small></div></div>
           </div>
-          <div class="panel">
-            <h5>Посетители <span>7 дней</span></h5>
-            <div class="big">2 480</div>
-            <svg class="spark" viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="sp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity=".35"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs><path d="M0 24 L14 20 L28 22 L42 13 L56 15 L70 8 L84 10 L100 3 L100 30 L0 30 Z" fill="url(#sp)"/><path d="M0 24 L14 20 L28 22 L42 13 L56 15 L70 8 L84 10 L100 3" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div class="uichip u1"><span class="k" style="background:var(--g-mint)">↑</span><span>Опубликовано<small>0.4s загрузка</small></span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GRADIENT BAND -->
+<!-- BAND -->
 <section class="section" style="padding-block:0">
   <div class="wrap">
     <div class="band rv">
       <div class="band__bg" aria-hidden="true"></div>
-      <span class="eyebrow">Растёт вместе с вами</span>
-      <h2>Сайт на минуту сегодня — витрина на тысячи клиентов завтра</h2>
-      <p class="lead">Начните с одного лендинга. Добавляйте страницы, блог, каталог и формы, когда будете готовы. Бриз не заставит переезжать.</p>
-      <a class="btn btn--primary" href="#cta">Собрать свой сайт</a>
+      <span class="eyebrow">Спокойнее с деньгами</span>
+      <h2>Меньше тревоги в конце месяца — больше денег к цели</h2>
+      <p class="lead">В среднем за первые три месяца пользователи Монеты находят 42 000 ₸ «утекающих» трат и перенаправляют их на цели.</p>
+      <a class="btn btn--primary" href="#get">Скачать Монету</a>
     </div>
   </div>
 </section>
 
-<!-- GALLERY -->
-<section class="section" id="examples">
+<!-- CATEGORIES -->
+<section class="section" id="categories">
   <div class="wrap">
     <div class="steps__head rv">
-      <span class="eyebrow" style="justify-content:center">Примеры</span>
-      <h2 style="margin-top:14px">Сделано в Бризе за один вечер</h2>
-      <p class="lead">Реальные ниши, реальные страницы. Каждый сайт собран из текстового описания и опубликован в один клик.</p>
+      <span class="eyebrow" style="justify-content:center">Категории</span>
+      <h2 style="margin-top:14px">Каждая тенге — на своём месте</h2>
+      <p class="lead">Монета сама узнаёт магазины и сервисы и раскладывает траты. Бюджет по каждой категории — перед глазами.</p>
     </div>
-    <div class="gallery">
-      <article class="site-card rv rv-d1"><div class="window__bar"><i class="dotr r"></i><i class="dotr y"></i><i class="dotr g"></i><div class="window__url"><b>obzharka.briz.site</b></div></div><div class="shot"><img loading="lazy" src="https://loremflickr.com/560/350/coffeeshop,cafe?lock=11" alt="Сайт кофейни «Обжарка»"></div><div class="site-card__cap"><b>Кофейня «Обжарка»</b><span>Кофе</span></div></article>
-      <article class="site-card rv rv-d2"><div class="window__bar"><i class="dotr r"></i><i class="dotr y"></i><i class="dotr g"></i><div class="window__url"><b>potok.briz.site</b></div></div><div class="shot"><img loading="lazy" src="https://loremflickr.com/560/350/yoga,studio?lock=22" alt="Сайт йога-студии «Поток»"></div><div class="site-card__cap"><b>Студия «Поток»</b><span>Йога</span></div></article>
-      <article class="site-card rv rv-d3"><div class="window__bar"><i class="dotr r"></i><i class="dotr y"></i><i class="dotr g"></i><div class="window__url"><b>ilyakim.briz.site</b></div></div><div class="shot"><img loading="lazy" src="https://loremflickr.com/560/350/photographer,camera?lock=33" alt="Портфолио фотографа Ильи Кима"></div><div class="site-card__cap"><b>Илья Ким</b><span>Фото</span></div></article>
-      <article class="site-card rv rv-d1"><div class="window__bar"><i class="dotr r"></i><i class="dotr y"></i><i class="dotr g"></i><div class="window__url"><b>zelenyobed.briz.site</b></div></div><div class="shot"><img loading="lazy" src="https://loremflickr.com/560/350/salad,food?lock=44" alt="Сайт доставки «Зелёный обед»"></div><div class="site-card__cap"><b>«Зелёный обед»</b><span>Доставка</span></div></article>
-      <article class="site-card rv rv-d2"><div class="window__bar"><i class="dotr r"></i><i class="dotr y"></i><i class="dotr g"></i><div class="window__url"><b>englishup.briz.site</b></div></div><div class="shot"><img loading="lazy" src="https://loremflickr.com/560/350/classroom,study?lock=55" alt="Сайт школы English Up"></div><div class="site-card__cap"><b>School English Up</b><span>Курсы</span></div></article>
-      <article class="site-card rv rv-d3"><div class="window__bar"><i class="dotr r"></i><i class="dotr y"></i><i class="dotr g"></i><div class="window__url"><b>sever.briz.site</b></div></div><div class="shot"><img loading="lazy" src="https://loremflickr.com/560/350/fashion,clothing?lock=66" alt="Сайт бутика «Север»"></div><div class="site-card__cap"><b>Бутик «Север»</b><span>Магазин</span></div></article>
+    <div class="cats">
+      <article class="cat rv rv-d1" style="--w:71%"><div class="cat__top"><span class="cat__ic" style="background:color-mix(in srgb,var(--g-teal) 45%,var(--surface))">🛒</span><span><b>Продукты</b><small>Magnum, Small, Galmart</small></span></div><div class="cat__amt num">106 200 ₸</div><div class="cat__bud"><span>Бюджет 150 000 ₸</span><span class="num">71%</span></div><div class="cat__track"><i style="background:var(--g-teal)"></i></div></article>
+      <article class="cat rv rv-d2" style="--w:91%"><div class="cat__top"><span class="cat__ic" style="background:color-mix(in srgb,var(--g-lilac) 45%,var(--surface))">🍽️</span><span><b>Кафе и рестораны</b><small>Wolt, Glovo, кофейни</small></span></div><div class="cat__amt num">68 400 ₸</div><div class="cat__bud"><span>Бюджет 75 000 ₸</span><span class="num" style="color:var(--neg)">91%</span></div><div class="cat__track"><i style="background:var(--g-lilac)"></i></div></article>
+      <article class="cat rv rv-d3" style="--w:50%"><div class="cat__top"><span class="cat__ic" style="background:color-mix(in srgb,var(--g-peach) 50%,var(--surface))">🚕</span><span><b>Транспорт</b><small>Яндекс Go, InDrive, АЗС</small></span></div><div class="cat__amt num">49 900 ₸</div><div class="cat__bud"><span>Бюджет 100 000 ₸</span><span class="num">50%</span></div><div class="cat__track"><i style="background:var(--g-peach)"></i></div></article>
+      <article class="cat rv rv-d1" style="--w:38%"><div class="cat__top"><span class="cat__ic" style="background:color-mix(in srgb,var(--g-sky) 50%,var(--surface))">🎬</span><span><b>Развлечения</b><small>Кино, игры, подписки</small></span></div><div class="cat__amt num">22 700 ₸</div><div class="cat__bud"><span>Бюджет 60 000 ₸</span><span class="num">38%</span></div><div class="cat__track"><i style="background:var(--g-sky)"></i></div></article>
+      <article class="cat rv rv-d2" style="--w:24%"><div class="cat__top"><span class="cat__ic" style="background:color-mix(in srgb,var(--g-mint) 55%,var(--surface))">💊</span><span><b>Здоровье</b><small>Аптеки, клиники</small></span></div><div class="cat__amt num">14 300 ₸</div><div class="cat__bud"><span>Бюджет 60 000 ₸</span><span class="num">24%</span></div><div class="cat__track"><i style="background:var(--g-mint)"></i></div></article>
+      <article class="cat rv rv-d3" style="--w:62%"><div class="cat__top"><span class="cat__ic" style="background:color-mix(in srgb,var(--g-rose) 45%,var(--surface))">🏠</span><span><b>Дом и связь</b><small>Коммуналка, интернет</small></span></div><div class="cat__amt num">37 100 ₸</div><div class="cat__bud"><span>Бюджет 60 000 ₸</span><span class="num">62%</span></div><div class="cat__track"><i style="background:var(--g-rose)"></i></div></article>
     </div>
   </div>
 </section>
 
-<!-- LOGOS -->
-<section class="section logos" style="padding-block:clamp(40px,6vw,64px)">
-  <div class="wrap"><p class="logos__t rv">Более 4&nbsp;000 команд уже запустились на Бризе</p></div>
-  <div class="marquee rv" aria-hidden="true"><div class="marquee__row">
-    <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/></svg>Фотон</span>
-    <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18 12 4l8 14z"/></svg>Меркурий</span>
-    <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="5"/></svg>Тёплый хлеб</span>
-    <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 3 12l9 9 9-9z"/></svg>Север</span>
-    <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="12" r="5"/><circle cx="16" cy="12" r="5"/></svg>Атлас</span>
-    <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M12 4v16" stroke-linecap="round"/></svg>Гринлайт</span>
-    <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/></svg>Фотон</span>
-    <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18 12 4l8 14z"/></svg>Меркурий</span>
-    <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="5"/></svg>Тёплый хлеб</span>
-    <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 3 12l9 9 9-9z"/></svg>Север</span>
-    <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="12" r="5"/><circle cx="16" cy="12" r="5"/></svg>Атлас</span>
-    <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M12 4v16" stroke-linecap="round"/></svg>Гринлайт</span>
-  </div></div>
+<!-- SECURITY -->
+<section class="section" id="security">
+  <div class="wrap">
+    <div class="secure">
+      <div class="secure__grid">
+        <div class="rv">
+          <span class="eyebrow">Безопасность</span>
+          <h2 style="margin-top:14px">Ваши деньги видите только вы</h2>
+          <p class="lead" style="margin-top:16px">Монета читает операции только на просмотр и никогда не может ими двигать. Мы не храним данные карт и не продаём вашу историю — на этом просто не зарабатываем.</p>
+          <div class="sfeats">
+            <div class="sfeat"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></div><b>Шифрование банков</b><p>AES-256 и защищённое соединение, как в вашем банке.</p></div>
+            <div class="sfeat"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg></div><b>Face ID и код</b><p>Вход только по вашему лицу или отпечатку.</p></div>
+            <div class="sfeat"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><b>Только чтение</b><p>Мы видим траты, но не можем ничего списать.</p></div>
+            <div class="sfeat"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/><circle cx="12" cy="12" r="10"/></svg></div><b>Никакой рекламы</b><p>Не продаём и не показываем ваши данные третьим.</p></div>
+          </div>
+        </div>
+        <div class="shield rv rv-d2" aria-hidden="true">
+          <svg viewBox="0 0 220 240" fill="none">
+            <defs><linearGradient id="sh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--g-mint)"/><stop offset=".55" stop-color="var(--g-teal)"/><stop offset="1" stop-color="var(--accent)"/></linearGradient></defs>
+            <path d="M110 12 202 44v78c0 60-44 96-92 106-48-10-92-46-92-106V44z" fill="url(#sh)"/>
+            <path d="M110 12 202 44v78c0 60-44 96-92 106-48-10-92-46-92-106V44z" fill="#0b4f42" opacity=".08"/>
+            <path d="M74 120l24 24 48-56" stroke="#083f35" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
+            <text x="110" y="210" text-anchor="middle" font-size="20" font-weight="800" fill="#083f35" opacity=".8" font-family="Arial">₸</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- STEPS -->
@@ -557,13 +625,13 @@ p{color:var(--ink-soft)}
   <div class="wrap">
     <div class="steps__head rv">
       <span class="eyebrow" style="justify-content:center">Три шага</span>
-      <h2 style="margin-top:14px">От пустого экрана до готового сайта</h2>
-      <p class="lead">Средний путь до первой публикации у пользователей Бриза — меньше десяти минут.</p>
+      <h2 style="margin-top:14px">От установки до первого инсайта — 5 минут</h2>
+      <p class="lead">Не нужно ничего заполнять руками. Монета всё поймёт сама.</p>
     </div>
     <div class="steps">
-      <article class="step rv rv-d1"><div class="step__n"></div><div class="step__line"></div><h3>Опишите проект</h3><p>Одна фраза о том, что вы делаете и для кого. Бриз задаст пару уточняющих вопросов — и всё.</p></article>
-      <article class="step rv rv-d2"><div class="step__n"></div><div class="step__line"></div><h3>Выберите стиль</h3><p>ИИ покажет три готовых варианта дизайна. Правьте тексты и блоки прямо на странице.</p></article>
-      <article class="step rv rv-d3"><div class="step__n"></div><div class="step__line"></div><h3>Опубликуйте</h3><p>Нажмите одну кнопку — сайт уже в сети со своим доменом, SSL и аналитикой.</p></article>
+      <article class="step rv rv-d1"><div class="step__n"></div><div class="step__line"></div><h3>Подключите счёт</h3><p>Выберите банк и войдите — безопасно, только на чтение операций.</p></article>
+      <article class="step rv rv-d2"><div class="step__n"></div><div class="step__line"></div><h3>Смотрите аналитику</h3><p>Монета раскладывает траты по категориям и показывает, куда уходят деньги.</p></article>
+      <article class="step rv rv-d3"><div class="step__n"></div><div class="step__line"></div><h3>Достигайте целей</h3><p>Ставьте бюджеты и цели — приложение подсказывает, сколько откладывать.</p></article>
     </div>
   </div>
 </section>
@@ -572,10 +640,10 @@ p{color:var(--ink-soft)}
 <section class="section">
   <div class="wrap">
     <div class="stats">
-      <div class="stat rv rv-d1"><div class="stat__n" data-to="4000" data-suffix="+">0</div><div class="stat__l">команд запустились</div></div>
-      <div class="stat rv rv-d2"><div class="stat__n" data-to="60" data-suffix=" сек">0</div><div class="stat__l">до первого сайта</div></div>
-      <div class="stat rv rv-d3"><div class="stat__n" data-to="200" data-suffix="+">0</div><div class="stat__l">готовых блоков</div></div>
-      <div class="stat rv rv-d4"><div class="stat__n" data-to="99.9" data-suffix="%">0</div><div class="stat__l">аптайм хостинга</div></div>
+      <div class="stat rv rv-d1"><div class="stat__n" data-to="180" data-suffix="к">0</div><div class="stat__l">пользователей в Казахстане</div></div>
+      <div class="stat rv rv-d2"><div class="stat__n" data-to="42000" data-suffix=" ₸">0</div><div class="stat__l">экономии за 3 месяца</div></div>
+      <div class="stat rv rv-d3"><div class="stat__n" data-to="6" data-suffix="">0</div><div class="stat__l">банков подключается</div></div>
+      <div class="stat rv rv-d4"><div class="stat__n" data-to="4.9" data-suffix="★">0</div><div class="stat__l">в App Store и Google Play</div></div>
     </div>
   </div>
 </section>
@@ -585,49 +653,51 @@ p{color:var(--ink-soft)}
   <div class="wrap">
     <div class="quote rv">
       <div class="quote__mark" aria-hidden="true">“</div>
-      <blockquote>Раньше на лендинг для акции уходила неделя и подрядчик. Теперь я собираю его сама за вечер — и он выглядит лучше прежних.</blockquote>
+      <blockquote>Думала, что и так знаю свои траты. Монета за неделю показала, что на доставку еды уходит как на аренду. Теперь коплю на отпуск — с тех же денег.</blockquote>
       <div class="quote__by">
-        <div class="quote__av"><img src="https://i.pravatar.cc/128?img=45" alt="Динара Ахметова"></div>
-        <div style="text-align:left"><b>Динара Ахметова</b><span>маркетолог, сеть пекарен «Тёплый хлеб»</span></div>
+        <div class="quote__av"><img src="https://i.pravatar.cc/128?img=32" alt="Динара Ахметова"></div>
+        <div style="text-align:left"><b>Динара Ахметова</b><span>дизайнер, Алматы</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="section" id="cta">
+<!-- CTA -->
+<section class="section" id="get">
   <div class="wrap">
     <div class="cta rv">
       <div class="cta__bg" aria-hidden="true"></div>
-      <div class="cta__grain" aria-hidden="true"></div>
-      <span class="eyebrow" style="justify-content:center">Бесплатный старт</span>
-      <h2>Ваш сайт ждёт всего одну фразу</h2>
-      <p class="lead">Опишите идею — и посмотрите, что соберёт Бриз. Без карты, без обязательств.</p>
-      <form class="cta__form" id="ctaForm"><input type="email" placeholder="Ваш e-mail" aria-label="Ваш e-mail" required><button class="btn btn--primary" type="submit">Начать бесплатно</button></form>
-      <p class="cta__note" id="ctaNote">14 дней бесплатно · дальше от 2&nbsp;900 ₸ в месяц</p>
+      <span class="eyebrow" style="justify-content:center">Бесплатно</span>
+      <h2>Начните видеть свои деньги уже сегодня</h2>
+      <p class="lead">Скачайте Монету, подключите счёт за минуту — и посмотрите, куда на самом деле уходит зарплата.</p>
+      <div class="stores">
+        <a class="store" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12.6c0-2 1.6-3 1.7-3-.9-1.4-2.4-1.6-2.9-1.6-1.2-.1-2.4.7-3 .7-.6 0-1.6-.7-2.6-.7-1.3 0-2.6.8-3.3 2-1.4 2.4-.4 6 1 8 .7 1 1.4 2 2.5 2 1 0 1.3-.6 2.5-.6s1.5.6 2.5.6 1.7-.9 2.4-1.9c.7-1 1-2 1-2.1-.1 0-2.3-.9-2.3-3zM14.6 6.2c.5-.7.9-1.6.8-2.5-.8 0-1.8.5-2.4 1.2-.5.6-1 1.5-.8 2.4.9 0 1.8-.5 2.4-1.1z"/></svg><span><small>Загрузите в</small><b>App Store</b></span></a>
+        <a class="store" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 2.5c-.3.2-.5.6-.5 1.1v16.8c0 .5.2.9.5 1.1l9.2-9.5L4 2.5zm10.3 8.5 2.4-2.5-9.9-5.6c-.4-.2-.8-.2-1 0l8.5 8.1zm0 2-8.5 8.1c.2.2.6.2 1 0l9.9-5.6-2.4-2.5zm5.4-3.4-2.1-1.2-2.7 2.6 2.7 2.6 2.1-1.2c.7-.4.7-1.2 0-1.6z"/></svg><span><small>Доступно в</small><b>Google Play</b></span></a>
+      </div>
+      <p class="cta__note">Бесплатно навсегда · Премиум от 990 ₸/мес · Отмена в один клик</p>
     </div>
   </div>
 </section>
 
 </main>
 
-<footer class="foot" id="pricing">
+<footer class="foot">
   <div class="wrap">
     <div class="foot__grid">
       <div class="foot__brand">
-        <a class="brand" href="#top"><span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#15141a" stroke-width="2.1" stroke-linecap="round"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h15a3 3 0 1 1-3 3"/><path d="M3 16h8"/></svg></span> Бриз</a>
-        <p>ИИ-конструктор сайтов, который превращает одну фразу в готовый лендинг. Сделано, чтобы вы запускались быстрее.</p>
+        <a class="brand" href="#top"><span class="brand__mark" aria-hidden="true">₸</span> Монета</a>
+        <p>Приложение для личных финансов. Видно, куда уходят деньги — и как накопить на то, что важно.</p>
         <div class="foot__soc">
           <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M21.9 4.3 18.7 19c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-4.9 9-8.1c.4-.3-.1-.5-.6-.2L6.3 12.9l-4.8-1.5c-1-.3-1-1 .2-1.5l18.7-7.2c.9-.3 1.6.2 1.3 1.6z"/></svg></a>
           <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
           <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12s0-3.3-.4-4.9c-.2-.9-.9-1.5-1.7-1.7C18.3 5 12 5 12 5s-6.3 0-7.9.4c-.8.2-1.5.8-1.7 1.7C2 8.7 2 12 2 12s0 3.3.4 4.9c.2.9.9 1.5 1.7 1.7C5.7 19 12 19 12 19s6.3 0 7.9-.4c.8-.2 1.5-.8 1.7-1.7.4-1.6.4-4.9.4-4.9zM10 15V9l5 3z"/></svg></a>
         </div>
       </div>
-      <div class="foot__col"><h4>Продукт</h4><a href="#features">Возможности</a><a href="#examples">Примеры</a><a href="#cta">Тарифы</a><a href="#">Обновления</a></div>
+      <div class="foot__col"><h4>Продукт</h4><a href="#features">Возможности</a><a href="#categories">Категории</a><a href="#security">Безопасность</a><a href="#get">Тарифы</a></div>
       <div class="foot__col"><h4>Компания</h4><a href="#">О нас</a><a href="#">Блог</a><a href="#">Вакансии</a><a href="#">Контакты</a></div>
-      <div class="foot__col"><h4>Поддержка</h4><a href="#">Помощь</a><a href="#">Статус</a><a href="#">Документация</a><a href="#">API</a></div>
+      <div class="foot__col"><h4>Поддержка</h4><a href="#">Помощь</a><a href="#">Статус</a><a href="#">Условия</a><a href="#">Конфиденциальность</a></div>
     </div>
-    <div class="foot__bar"><span>© 2026 Бриз. Все права защищены.</span><span class="made">Сделано с <span class="heart">♥</span> в Алматы</span></div>
+    <div class="foot__bar"><span>© 2026 Монета. Все права защищены.</span><span class="made">Сделано с <span class="heart">♥</span> в Алматы</span></div>
   </div>
 </footer>
 
@@ -636,28 +706,24 @@ p{color:var(--ink-soft)}
   "use strict";
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* photo fade-in + resilient fallback: loremflickr -> picsum -> gradient behind */
-  document.querySelectorAll(".shot > img, .quote__av img").forEach(function(img, idx){
+  /* avatar with graceful fallback */
+  document.querySelectorAll(".quote__av img").forEach(function(img, idx){
     function ok(){ img.style.visibility="visible"; img.classList.add("on"); }
     function fail(){ img.classList.remove("on"); img.style.visibility="hidden"; }
-    function onerr(){
-      if(!img.dataset.fb){ img.dataset.fb="1"; img.classList.remove("on"); img.src = "https://picsum.photos/seed/briz" + idx + "/640/420"; }
-      else { fail(); }
-    }
-    img.addEventListener("load", ok);
-    img.addEventListener("error", onerr);
+    function onerr(){ if(!img.dataset.fb){ img.dataset.fb="1"; img.classList.remove("on"); img.src="https://picsum.photos/seed/coin"+idx+"/160/160"; } else { fail(); } }
+    img.addEventListener("load", ok); img.addEventListener("error", onerr);
     if(img.complete){ img.naturalWidth ? ok() : onerr(); }
   });
 
   /* theme */
   var root = document.documentElement, tbtn = document.getElementById("themeBtn");
-  try{ var saved = localStorage.getItem("briz-theme"); if(saved) root.setAttribute("data-theme", saved); }catch(e){}
+  try{ var saved = localStorage.getItem("moneta-theme"); if(saved) root.setAttribute("data-theme", saved); }catch(e){}
   tbtn.addEventListener("click", function(){
     var cur = root.getAttribute("data-theme");
     if(!cur){ cur = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; }
     var next = cur === "dark" ? "light" : "dark";
     root.setAttribute("data-theme", next);
-    try{ localStorage.setItem("briz-theme", next); }catch(e){}
+    try{ localStorage.setItem("moneta-theme", next); }catch(e){}
   });
 
   /* nav shadow */
@@ -672,46 +738,14 @@ p{color:var(--ink-soft)}
     rvs.forEach(function(el){ io.observe(el); });
   } else { rvs.forEach(function(el){ el.classList.add("in"); }); }
 
-  /* hero prompt typing */
-  var ideas = ["кофейня в центре Алматы","студия йоги и медитации","SaaS для учёта склада","портфолио фотографа","доставка здоровых обедов","школа английского онлайн"];
-  var pt = document.getElementById("promptText"), caret = document.getElementById("caret");
-  var ii = 0, ci = 0, typing = true;
-  function typeLoop(){
-    var word = ideas[ii];
-    if(typing){ pt.textContent = word.slice(0, ++ci); if(ci >= word.length){ typing = false; setTimeout(typeLoop, 1600); return; } setTimeout(typeLoop, 55 + Math.random()*45); }
-    else { pt.textContent = word.slice(0, --ci); if(ci <= 0){ typing = true; ii = (ii+1) % ideas.length; setTimeout(typeLoop, 260); return; } setTimeout(typeLoop, 26); }
-  }
-  if(!reduce){ pt.textContent = ""; setTimeout(typeLoop, 700); } else { pt.innerHTML = '<span class="ph">кофейня в центре Алматы</span>'; if(caret) caret.style.display="none"; }
-
-  /* generate — swap the hero mockup between examples */
-  var examples = [
-    {brand:"Обжарка", url:"obzharka.briz.site", tag:"Обжарка с 2019 года", h:"Кофе, который будит район", img:"https://loremflickr.com/1000/460/coffeeshop,cafe?lock=7"},
-    {brand:"Поток", url:"potok.briz.site", tag:"Йога-студия в центре", h:"Найдите тишину посреди города", img:"https://loremflickr.com/1000/460/yoga,studio?lock=22"},
-    {brand:"Илья Ким", url:"ilyakim.briz.site", tag:"Фотограф · Алматы", h:"Съёмки, которые хочется пересматривать", img:"https://loremflickr.com/1000/460/photographer,portrait?lock=33"},
-    {brand:"Север", url:"sever.briz.site", tag:"Новая коллекция", h:"Одежда для города и непогоды", img:"https://loremflickr.com/1000/460/fashion,clothing?lock=66"}
-  ];
-  var ei = 0;
-  var frame = document.getElementById("genframe"), go = document.getElementById("promptGo"), busy = false;
-  var genImg = document.getElementById("genImg"), genBrand = document.getElementById("genBrand"), genUrl = document.getElementById("genUrl"), genTag = document.getElementById("genTag"), genH = document.getElementById("genH");
-  go.addEventListener("click", function(){
-    if(busy) return; busy = true;
-    frame.classList.add("busy"); go.textContent = "Собираю…";
-    ei = (ei + 1) % examples.length;
-    var ex = examples[ei];
-    setTimeout(function(){
-      genImg.classList.remove("on"); genImg.style.visibility="visible"; genImg.src = ex.img;
-      genBrand.textContent = ex.brand; genUrl.textContent = ex.url; genTag.textContent = ex.tag; genH.textContent = ex.h;
-      frame.classList.remove("busy"); go.textContent = "Собрать ещё";
-      setTimeout(function(){ busy = false; }, 300);
-    }, reduce ? 250 : 1500);
-  });
-
   /* stats count-up */
+  function fmt(v, dec){ return dec ? v.toFixed(1).replace(".",",") : Math.round(v).toLocaleString("ru-RU"); }
   function animateStat(el){
     var to = parseFloat(el.getAttribute("data-to")), suffix = el.getAttribute("data-suffix") || "", dec = (to % 1 !== 0) ? 1 : 0;
-    if(reduce){ el.textContent = (dec ? to.toFixed(1).replace(".",",") : to.toLocaleString("ru-RU")) + suffix; return; }
+    var kilo = suffix === "к";
+    if(reduce){ el.textContent = fmt(to, dec) + suffix; return; }
     var start = null;
-    function fr(t){ if(!start) start = t; var p = Math.min((t - start)/1500, 1), val = to * (1 - Math.pow(1 - p, 3)); el.textContent = (dec ? val.toFixed(1).replace(".",",") : Math.round(val).toLocaleString("ru-RU")) + suffix; if(p < 1) requestAnimationFrame(fr); }
+    function fr(t){ if(!start) start = t; var p = Math.min((t - start)/1500, 1), val = to * (1 - Math.pow(1 - p, 3)); el.textContent = fmt(val, dec) + suffix; if(p < 1) requestAnimationFrame(fr); }
     requestAnimationFrame(fr);
   }
   var stated = false, statEls = document.querySelectorAll(".stat__n");
@@ -721,14 +755,10 @@ p{color:var(--ink-soft)}
   } else { statEls.forEach(animateStat); }
 
   /* hero parallax */
-  var mesh = document.getElementById("mesh");
+  var mesh = document.querySelector(".mesh");
   if(mesh && !reduce && window.matchMedia("(pointer:fine)").matches){
-    window.addEventListener("mousemove", function(ev){ mesh.style.transform = "translate(" + ((ev.clientX/window.innerWidth-0.5)*18) + "px," + ((ev.clientY/window.innerHeight-0.5)*18) + "px)"; }, {passive:true});
+    window.addEventListener("mousemove", function(ev){ mesh.style.transform = "translate(" + ((ev.clientX/window.innerWidth-0.5)*16) + "px," + ((ev.clientY/window.innerHeight-0.5)*16) + "px)"; }, {passive:true});
   }
-
-  /* fake form */
-  var form = document.getElementById("ctaForm"), note = document.getElementById("ctaNote");
-  form.addEventListener("submit", function(e){ e.preventDefault(); var btn = form.querySelector("button"); btn.textContent = "Отправляю…"; setTimeout(function(){ btn.textContent = "Письмо отправлено ✓"; note.textContent = "Проверьте почту — там ссылка для входа в Бриз."; }, 900); });
 })();
 </script>
 </body>
