@@ -98,14 +98,15 @@ p{color:var(--ink-soft)}
 .hero::before{content:"";position:absolute;left:0;right:0;bottom:-1px;height:150px;z-index:1;background:linear-gradient(transparent,var(--bg));pointer-events:none}
 .hero .wrap{position:relative;z-index:2}
 .stars{position:absolute;inset:0;z-index:0;display:block}
-/* giant planet: glossy iridescent horizon in the site's cover palette (coral/gold/cyan/violet) */
-.planet{position:absolute;z-index:1;left:50%;top:8%;width:150vw;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;overflow:hidden;background:radial-gradient(circle at 50% 50%,#0d0819 44%,#1b1033 74%,#34195a 91%,#4a2374 100%);box-shadow:0 -42px 190px 30px color-mix(in srgb,var(--accent-2) 44%,transparent),0 -22px 116px 10px color-mix(in srgb,var(--accent) 42%,transparent),0 -12px 64px 0 color-mix(in srgb,var(--accent-3) 34%,transparent),0 -8px 44px 0 color-mix(in srgb,var(--accent-cyan) 24%,transparent)}
-.planet__glow{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 200deg,#ff6a8a,#ffb457,#7fe6dc,#7aa8ff,#b06cff,#ff6ad0,#ff6a8a);filter:blur(32px) saturate(1.55) brightness(1.16);opacity:.95;-webkit-mask:radial-gradient(circle at 50% 50%,transparent 74%,#000 92%,#000 100%);mask:radial-gradient(circle at 50% 50%,transparent 74%,#000 92%,#000 100%);animation:pspin 40s linear infinite}
-.planet__rim{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 200deg,#ffd6de,#ffe9c2,#bff0ea,#d2e2ff,#e6ccff,#ffd2f0,#ffd6de);filter:blur(6px) brightness(1.3);-webkit-mask:radial-gradient(circle at 50% 50%,transparent 93%,#000 97.5%,#000 100%);mask:radial-gradient(circle at 50% 50%,transparent 93%,#000 97.5%,#000 100%);animation:pspin 30s linear infinite}
-.planet__sheen{position:absolute;inset:0;border-radius:50%;mix-blend-mode:screen;background:radial-gradient(48% 32% at 50% -2%,rgba(255,255,255,.55),transparent 72%)}
+/* giant planet: dark elegant surface + one crisp glowing iridescent limb (site palette) */
+.planet{position:absolute;z-index:1;left:50%;top:8%;width:150vw;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;overflow:hidden;background:radial-gradient(circle at 50% 50%,#0b0714 54%,#161029 84%,#231a3c 96%,#30234f 100%);box-shadow:0 -30px 150px 16px color-mix(in srgb,var(--accent-2) 36%,transparent),0 -14px 84px 4px color-mix(in srgb,var(--accent) 30%,transparent),0 -8px 46px 0 color-mix(in srgb,var(--accent-3) 22%,transparent),0 -6px 34px 0 color-mix(in srgb,var(--accent-cyan) 18%,transparent)}
+.planet__glow{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 200deg,#ff6a8a,#ffb457,#7fe6dc,#7aa8ff,#b06cff,#ff6ad0,#ff6a8a);filter:blur(22px) saturate(1.5) brightness(1.1);opacity:.72;-webkit-mask:radial-gradient(circle at 50% 50%,transparent 86%,#000 95%,#000 100%);mask:radial-gradient(circle at 50% 50%,transparent 86%,#000 95%,#000 100%);animation:pspin 42s linear infinite}
+.planet__rim{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 200deg,#fff0f4,#fff1d2,#d8fbf6,#e4edff,#f1e2ff,#ffe2f3,#fff0f4);filter:blur(2px) brightness(1.22);-webkit-mask:radial-gradient(circle at 50% 50%,transparent 96.4%,#000 98.6%,#000 99.7%,transparent 100%);mask:radial-gradient(circle at 50% 50%,transparent 96.4%,#000 98.6%,#000 99.7%,transparent 100%);animation:pspin 30s linear infinite}
+.planet__sheen{position:absolute;inset:0;border-radius:50%;mix-blend-mode:screen;background:radial-gradient(40% 24% at 50% -1%,rgba(255,255,255,.42),transparent 72%)}
 .hero h1,.hero .al{color:#fff}
 .hero h1{text-shadow:0 2px 34px rgba(0,0,0,.6),0 1px 3px rgba(0,0,0,.5)}
 .hero .al{text-shadow:0 2px 22px rgba(0,0,0,.72),0 1px 2px rgba(0,0,0,.6)}
+.hero h1 .grad-text{background:linear-gradient(100deg,#ffb4c6,#ffe0a8 48%,#bcd6ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 1px 2px rgba(0,0,0,.45)) drop-shadow(0 0 26px rgba(255,130,190,.5))}
 .hero .hero__sub{color:rgba(255,255,255,.82)}
 .hero .badge{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.18);color:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .hero .badge b{color:#fff}
