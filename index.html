@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Монета — видно, куда уходят деньги</title>
-<meta name="description" content="Монета — приложение для личных финансов. Автоматический учёт трат, бюджеты по категориям, цели-копилки и подписки — всё в тенге, в одном экране.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23b8edda'/%3E%3Cstop offset='.5' stop-color='%235fd0b6'/%3E%3Cstop offset='1' stop-color='%230fa98e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='26' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-size='52' font-weight='800' text-anchor='middle' fill='%230b4f42' font-family='Arial'%3E%E2%82%B8%3C/text%3E%3C/svg%3E">
+<title>Тропа — авторские туры по Казахстану</title>
+<meta name="description" content="Тропа — авторские туры по горам, каньонам и озёрам Казахстана. Малые группы, местные гиды, всё включено. Кольсай, Чарын, Большое Алматинское озеро, Шымбулак.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237fd8c4'/%3E%3Cstop offset='1' stop-color='%230e8f7e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='26' fill='url(%23g)'/%3E%3Cpath d='M18 74 42 34l16 24 10-14 14 30z' fill='%23093f38'/%3E%3Ccircle cx='70' cy='30' r='8' fill='%23fff' opacity='.9'/%3E%3C/svg%3E">
 <style>
 /* reset */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -16,274 +16,189 @@ a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 
 /* tokens */
-:root{color-scheme:light dark;--bg:#fff;--bg-soft:#f4f7f5;--surface:#fff;--surface-2:#f7fbf9;--border:#e9efec;--border-strong:#dbe6e1;--ink:#12191a;--ink-soft:#51605c;--ink-faint:#8a9995;--pill:#12191a;--pill-ink:#fff;--pill-hover:#243230;--accent:#0fa98e;--accent-deep:#0b7d69;--pos:#16a34a;--neg:#e05a4b;--ring:rgba(15,169,142,.32);--g-rose:#ffc9d6;--g-peach:#ffe1c4;--g-lilac:#dccbff;--g-sky:#c6e2ff;--g-mint:#b8edda;--g-teal:#5fd0b6;--grain:.5;--shadow-sm:0 1px 2px rgba(16,32,28,.05),0 4px 12px -6px rgba(16,32,28,.10);--shadow-md:0 2px 4px rgba(16,32,28,.04),0 18px 48px -18px rgba(16,32,28,.20);--shadow-lg:0 30px 80px -30px rgba(12,40,32,.30);--font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Inter",system-ui,"Helvetica Neue",Arial,"Apple Color Emoji",sans-serif;--font-mono:"SF Mono","JetBrains Mono","Cascadia Code",ui-monospace,"Consolas","Liberation Mono",monospace;--wrap:1180px;--r-lg:26px;--r-xl:34px}
-@media (prefers-color-scheme:dark){:root{--bg:#0a0f0e;--bg-soft:#0d1413;--surface:#131a19;--surface-2:#18211f;--border:#242e2c;--border-strong:#2f3b38;--ink:#eef4f2;--ink-soft:#a4b3af;--ink-faint:#75837f;--pill:#eef4f2;--pill-ink:#111817;--pill-hover:#dde6e3;--accent:#34d6b7;--accent-deep:#79f0d6;--pos:#4ade80;--neg:#ff7a6d;--ring:rgba(52,214,183,.34);--grain:.85;--shadow-sm:0 1px 2px rgba(0,0,0,.4),0 6px 16px -8px rgba(0,0,0,.6);--shadow-md:0 2px 6px rgba(0,0,0,.4),0 24px 60px -22px rgba(0,0,0,.7);--shadow-lg:0 40px 90px -30px rgba(0,0,0,.75)}}
-:root[data-theme="light"]{color-scheme:light;--bg:#fff;--bg-soft:#f4f7f5;--surface:#fff;--surface-2:#f7fbf9;--border:#e9efec;--border-strong:#dbe6e1;--ink:#12191a;--ink-soft:#51605c;--ink-faint:#8a9995;--pill:#12191a;--pill-ink:#fff;--pill-hover:#243230;--accent:#0fa98e;--accent-deep:#0b7d69;--pos:#16a34a;--neg:#e05a4b;--ring:rgba(15,169,142,.32);--grain:.5;--shadow-sm:0 1px 2px rgba(16,32,28,.05),0 4px 12px -6px rgba(16,32,28,.10);--shadow-md:0 2px 4px rgba(16,32,28,.04),0 18px 48px -18px rgba(16,32,28,.20);--shadow-lg:0 30px 80px -30px rgba(12,40,32,.30)}
-:root[data-theme="dark"]{color-scheme:dark;--bg:#0a0f0e;--bg-soft:#0d1413;--surface:#131a19;--surface-2:#18211f;--border:#242e2c;--border-strong:#2f3b38;--ink:#eef4f2;--ink-soft:#a4b3af;--ink-faint:#75837f;--pill:#eef4f2;--pill-ink:#111817;--pill-hover:#dde6e3;--accent:#34d6b7;--accent-deep:#79f0d6;--pos:#4ade80;--neg:#ff7a6d;--ring:rgba(52,214,183,.34);--grain:.85;--shadow-sm:0 1px 2px rgba(0,0,0,.4),0 6px 16px -8px rgba(0,0,0,.6);--shadow-md:0 2px 6px rgba(0,0,0,.4),0 24px 60px -22px rgba(0,0,0,.7);--shadow-lg:0 40px 90px -30px rgba(0,0,0,.75)}
+:root{color-scheme:light dark;--bg:#fbfaf6;--bg-soft:#f2efe7;--surface:#fff;--surface-2:#f7f4ec;--border:#e8e3d7;--border-strong:#dcd5c5;--ink:#1a1c19;--ink-soft:#585c52;--ink-faint:#8f9387;--pill:#1a1c19;--pill-ink:#fff;--pill-hover:#2e322b;--accent:#0e8f7e;--accent-deep:#0b6f62;--sun:#e8843c;--ring:rgba(14,143,126,.3);--sand:#e6d3b3;--sky:#bfe0e6;--leaf:#a9d6a3;--water:#8fcfd0;--stone:#c9c2b2;--shadow-sm:0 1px 2px rgba(26,28,20,.05),0 6px 16px -8px rgba(26,28,20,.14);--shadow-md:0 4px 8px rgba(26,28,20,.05),0 22px 50px -20px rgba(26,28,20,.28);--shadow-lg:0 40px 90px -34px rgba(20,30,20,.4);--font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Inter",system-ui,"Helvetica Neue",Arial,"Apple Color Emoji",sans-serif;--font-mono:"SF Mono","JetBrains Mono","Cascadia Code",ui-monospace,"Consolas",monospace;--wrap:1200px;--r:16px;--r-lg:24px;--r-xl:34px}
+@media (prefers-color-scheme:dark){:root{--bg:#0e120f;--bg-soft:#121712;--surface:#161c17;--surface-2:#1b221c;--border:#26302a;--border-strong:#334037;--ink:#eef2ea;--ink-soft:#a7b0a3;--ink-faint:#767f74;--pill:#eef2ea;--pill-ink:#111713;--pill-hover:#dbe2d6;--accent:#2fc7ad;--accent-deep:#7fecd7;--sun:#f39a58;--ring:rgba(47,199,173,.34);--shadow-sm:0 1px 2px rgba(0,0,0,.45),0 6px 16px -8px rgba(0,0,0,.65);--shadow-md:0 4px 10px rgba(0,0,0,.45),0 26px 60px -22px rgba(0,0,0,.75);--shadow-lg:0 46px 100px -34px rgba(0,0,0,.8)}}
+:root[data-theme="light"]{color-scheme:light;--bg:#fbfaf6;--bg-soft:#f2efe7;--surface:#fff;--surface-2:#f7f4ec;--border:#e8e3d7;--border-strong:#dcd5c5;--ink:#1a1c19;--ink-soft:#585c52;--ink-faint:#8f9387;--pill:#1a1c19;--pill-ink:#fff;--pill-hover:#2e322b;--accent:#0e8f7e;--accent-deep:#0b6f62;--sun:#e8843c;--ring:rgba(14,143,126,.3);--shadow-sm:0 1px 2px rgba(26,28,20,.05),0 6px 16px -8px rgba(26,28,20,.14);--shadow-md:0 4px 8px rgba(26,28,20,.05),0 22px 50px -20px rgba(26,28,20,.28);--shadow-lg:0 40px 90px -34px rgba(20,30,20,.4)}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e120f;--bg-soft:#121712;--surface:#161c17;--surface-2:#1b221c;--border:#26302a;--border-strong:#334037;--ink:#eef2ea;--ink-soft:#a7b0a3;--ink-faint:#767f74;--pill:#eef2ea;--pill-ink:#111713;--pill-hover:#dbe2d6;--accent:#2fc7ad;--accent-deep:#7fecd7;--sun:#f39a58;--ring:rgba(47,199,173,.34);--shadow-sm:0 1px 2px rgba(0,0,0,.45),0 6px 16px -8px rgba(0,0,0,.65);--shadow-md:0 4px 10px rgba(0,0,0,.45),0 26px 60px -22px rgba(0,0,0,.75);--shadow-lg:0 46px 100px -34px rgba(0,0,0,.8)}
 
 /* base */
 body{font-family:var(--font-sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
 .wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:24px}
-.section{padding-block:clamp(72px,11vw,128px)}
-.eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);font-weight:600;display:inline-flex;align-items:center;gap:8px}
-.eyebrow::before{content:"";width:22px;height:1.5px;background:currentColor;opacity:.6}
-h1,h2,h3{line-height:1.05;letter-spacing:-.03em;font-weight:800;text-wrap:balance;color:var(--ink)}
-h1{font-size:clamp(2.4rem,6vw,4.3rem)}
-h2{font-size:clamp(2rem,4.2vw,3.1rem)}
-h3{font-size:1.2rem;letter-spacing:-.02em;font-weight:750}
+.section{padding-block:clamp(70px,10vw,120px)}
+.eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);font-weight:600;display:inline-flex;align-items:center;gap:9px}
+.eyebrow::before{content:"";width:22px;height:1.5px;background:currentColor;opacity:.7}
+h1,h2,h3{line-height:1.04;letter-spacing:-.03em;font-weight:800;text-wrap:balance;color:var(--ink)}
+h1{font-size:clamp(2.6rem,6.4vw,4.8rem)}
+h2{font-size:clamp(2rem,4.4vw,3.3rem)}
+h3{font-size:1.24rem;letter-spacing:-.02em;font-weight:750}
 p{color:var(--ink-soft)}
-.lead{font-size:clamp(1.05rem,1.7vw,1.26rem);color:var(--ink-soft);text-wrap:pretty;max-width:54ch}
+.lead{font-size:clamp(1.06rem,1.7vw,1.3rem);color:var(--ink-soft);text-wrap:pretty;max-width:56ch}
 .num{font-variant-numeric:tabular-nums}
 
 /* buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;height:50px;padding:0 24px;border-radius:14px;font-weight:650;font-size:.98rem;letter-spacing:-.01em;white-space:nowrap;transition:transform .18s cubic-bezier(.2,.7,.3,1),background .2s,box-shadow .25s,border-color .2s;will-change:transform}
-.btn--primary{background:var(--pill);color:var(--pill-ink);box-shadow:var(--shadow-sm)}
-.btn--primary:hover{background:var(--pill-hover);transform:translateY(-2px);box-shadow:var(--shadow-md)}
-.btn--primary:active{transform:translateY(0)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;height:52px;padding:0 26px;border-radius:999px;font-weight:650;font-size:1rem;letter-spacing:-.01em;white-space:nowrap;transition:transform .18s cubic-bezier(.2,.7,.3,1),background .2s,box-shadow .25s,border-color .2s,color .2s;will-change:transform}
+.btn--primary{background:var(--accent);color:#fff;box-shadow:0 8px 24px -10px var(--ring)}
+.btn--primary:hover{background:var(--accent-deep);transform:translateY(-2px);box-shadow:0 14px 34px -12px var(--ring)}
+.btn--dark{background:var(--pill);color:var(--pill-ink)}
+.btn--dark:hover{background:var(--pill-hover);transform:translateY(-2px);box-shadow:var(--shadow-md)}
 .btn--ghost{background:transparent;color:var(--ink);border:1.5px solid var(--border-strong)}
 .btn--ghost:hover{border-color:var(--ink);transform:translateY(-2px);background:var(--surface-2)}
-.btn--sm{height:42px;padding:0 18px;font-size:.92rem;border-radius:11px}
-.btn .arw{transition:transform .2s}
-.btn:hover .arw{transform:translateX(3px)}
-/* store badges */
-.stores{display:flex;gap:12px;flex-wrap:wrap}
-.store{display:inline-flex;align-items:center;gap:11px;height:54px;padding:0 20px 0 17px;border-radius:15px;background:var(--pill);color:var(--pill-ink);transition:transform .18s,box-shadow .25s}
-.store:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
-.store svg{width:24px;height:24px;flex:none}
-.store small{display:block;font-size:.66rem;opacity:.7;line-height:1.1}
-.store b{font-size:1rem;font-weight:700;letter-spacing:-.01em;line-height:1.1}
+.btn--light{background:#fff;color:#16201c}
+.btn--light:hover{transform:translateY(-2px);box-shadow:0 16px 40px -14px rgba(0,0,0,.4)}
+.btn--sm{height:44px;padding:0 20px;font-size:.94rem}
+.btn .arw{transition:transform .2s}.btn:hover .arw{transform:translateX(3px)}
+
+/* photo with graceful fallback */
+.ph{position:relative;overflow:hidden;background:linear-gradient(150deg,var(--water),var(--leaf) 52%,var(--accent))}
+.ph>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s ease}
+.ph>img.on{opacity:1}
 
 /* nav */
-.nav{position:sticky;top:0;z-index:60;transition:background .3s,border-color .3s,box-shadow .3s}
-.nav::before{content:"";position:absolute;inset:0;backdrop-filter:blur(0);transition:backdrop-filter .3s;pointer-events:none}
-.nav.scrolled{background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--border);box-shadow:var(--shadow-sm)}
-.nav.scrolled::before{backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4)}
-.nav__in{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px;position:relative}
-.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.16rem;letter-spacing:-.03em}
-.brand__mark{width:32px;height:32px;border-radius:10px;background:linear-gradient(140deg,var(--g-mint),var(--g-teal) 55%,var(--accent));position:relative;box-shadow:var(--shadow-sm);flex:none;display:grid;place-items:center;color:#0b4f42;font-weight:800;font-size:1rem}
-.nav__links{display:flex;gap:6px;align-items:center}
-.nav__links a{padding:8px 13px;border-radius:9px;color:var(--ink-soft);font-size:.95rem;font-weight:520;transition:color .2s,background .2s}
-.nav__links a:hover{color:var(--ink);background:var(--surface-2)}
-.nav__cta{display:flex;gap:8px;align-items:center}
-.iconbtn{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;color:var(--ink-soft);border:1.5px solid var(--border);transition:.2s}
-.iconbtn:hover{color:var(--ink);border-color:var(--border-strong);background:var(--surface-2)}
+.nav{position:sticky;top:0;z-index:70;color:#fff;transition:color .3s}
+.nav::before{content:"";position:absolute;inset:0;background:transparent;border-bottom:1px solid transparent;backdrop-filter:blur(0);transition:background .3s,border-color .3s,backdrop-filter .3s;pointer-events:none}
+.nav.scrolled{color:var(--ink)}
+.nav.scrolled::before{background:color-mix(in srgb,var(--bg) 80%,transparent);border-bottom-color:var(--border);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);box-shadow:var(--shadow-sm)}
+.nav__in{position:relative;display:flex;align-items:center;justify-content:space-between;height:74px;gap:24px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.2rem;letter-spacing:-.03em}
+.brand__mark{width:34px;height:34px;border-radius:11px;background:linear-gradient(140deg,var(--water),var(--accent));position:relative;flex:none;box-shadow:var(--shadow-sm)}
+.brand__mark svg{position:absolute;inset:0;margin:auto;width:22px;height:22px}
+.nav__links{display:flex;gap:4px;align-items:center}
+.nav__links a{padding:9px 14px;border-radius:10px;font-size:.96rem;font-weight:550;color:currentColor;opacity:.82;transition:opacity .2s,background .2s}
+.nav__links a:hover{opacity:1;background:color-mix(in srgb,currentColor 12%,transparent)}
+.nav__cta{display:flex;gap:9px;align-items:center}
+.iconbtn{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:currentColor;border:1.5px solid color-mix(in srgb,currentColor 30%,transparent);transition:.2s}
+.iconbtn:hover{background:color-mix(in srgb,currentColor 12%,transparent)}
 
 /* hero */
-.hero{position:relative;overflow:hidden;padding-top:clamp(30px,5vw,60px);padding-bottom:clamp(56px,8vw,96px)}
-.hero__mesh{position:absolute;inset:-25% -10% auto;height:150%;z-index:-2;filter:blur(8px)}
-.hero__veil{position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(70% 60% at 30% 30%,var(--bg) 6%,color-mix(in srgb,var(--bg) 40%,transparent) 46%,transparent 76%)}
-.mesh{position:absolute;inset:0}
-.mesh b{position:absolute;border-radius:50%;filter:blur(64px);opacity:.5;mix-blend-mode:multiply}
-@media (prefers-color-scheme:dark){.mesh b{mix-blend-mode:screen;opacity:.5}}
-:root[data-theme="light"] .mesh b{mix-blend-mode:multiply;opacity:.5}
-:root[data-theme="dark"] .mesh b{mix-blend-mode:screen;opacity:.5}
-.mesh .b1{width:42vw;height:42vw;left:-8%;top:-6%;background:var(--g-mint);animation:drift1 22s ease-in-out infinite}
-.mesh .b2{width:38vw;height:38vw;right:-6%;top:-12%;background:var(--g-lilac);animation:drift2 26s ease-in-out infinite}
-.mesh .b3{width:44vw;height:44vw;left:30%;top:26%;background:var(--g-teal);animation:drift3 24s ease-in-out infinite}
-.mesh .b4{width:26vw;height:26vw;right:24%;top:6%;background:var(--g-sky);animation:drift1 30s ease-in-out infinite reverse}
-.hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,56px);align-items:center}
-.badge{display:inline-flex;align-items:center;gap:9px;padding:7px 15px 7px 8px;border-radius:999px;background:color-mix(in srgb,var(--surface) 86%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--border-strong);box-shadow:var(--shadow-sm);font-size:.85rem;color:var(--ink-soft);font-weight:520;margin-bottom:24px}
-.badge b{color:var(--ink);font-weight:700}
-.badge .dot{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,var(--g-mint),var(--accent));display:grid;place-items:center;font-size:11px;color:#0b4f42}
-.hero h1{max-width:14ch}
-.hero .lead{margin-top:22px}
-.hero__cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px;align-items:center}
-.hero__trust{margin-top:20px;font-size:.85rem;font-weight:500;color:var(--ink-soft);display:flex;gap:16px;flex-wrap:wrap}
-.hero__trust span{display:inline-flex;align-items:center;gap:6px}
-.hero__trust .ok{color:var(--accent-deep)}
-.hero__art{position:relative;display:flex;justify-content:center;align-items:center;min-height:520px}
+.hero{position:relative;min-height:min(88vh,780px);display:flex;align-items:flex-end;margin-top:-74px;padding-top:74px;overflow:hidden}
+.hero__bg{position:absolute;inset:0;z-index:-2;background:linear-gradient(150deg,#5a7d78,#37504a)}
+.hero__bg img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s ease}
+.hero__bg img.on{opacity:1}
+.hero__scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,16,14,.55) 0%,rgba(10,16,14,.15) 34%,rgba(10,16,14,.35) 70%,rgba(10,16,14,.82) 100%)}
+.hero__in{width:100%;max-width:var(--wrap);margin-inline:auto;padding:0 24px clamp(40px,6vw,72px);color:#fff}
+.hero .eyebrow{color:#bff0e4}
+.hero h1{color:#fff;max-width:16ch;margin-top:16px;text-shadow:0 2px 30px rgba(0,0,0,.3)}
+.hero__sub{color:rgba(255,255,255,.9);font-size:clamp(1.06rem,1.7vw,1.3rem);max-width:52ch;margin-top:20px;text-wrap:pretty}
+/* finder bar */
+.finder{margin-top:32px;background:color-mix(in srgb,#fff 92%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:18px;padding:10px;display:flex;gap:8px;box-shadow:var(--shadow-md);max-width:720px;flex-wrap:wrap}
+.finder__f{flex:1;min-width:150px;display:flex;flex-direction:column;gap:2px;padding:8px 14px;border-radius:12px;transition:background .2s;cursor:pointer}
+.finder__f:hover{background:var(--surface-2)}
+.finder__f small{font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint)}
+.finder__f b{font-size:.98rem;font-weight:650;color:var(--ink);display:flex;align-items:center;gap:6px}
+.finder .btn{flex:none}
+.hero__trust{margin-top:22px;display:flex;gap:22px;flex-wrap:wrap;font-size:.9rem;color:rgba(255,255,255,.9);font-weight:500}
+.hero__trust span{display:inline-flex;align-items:center;gap:7px}
+.hero__trust b{color:#fff;font-weight:800}
 
-/* phone mockup */
-.phone{position:relative;width:clamp(240px,26vw,290px);aspect-ratio:9/19;background:#0c100f;border-radius:40px;padding:11px;box-shadow:var(--shadow-lg),0 0 0 1px rgba(0,0,0,.25);z-index:2}
-:root[data-theme="dark"] .phone{box-shadow:var(--shadow-lg),0 0 0 1px #2a3532}
-.phone::before{content:"";position:absolute;top:16px;left:50%;transform:translateX(-50%);width:64px;height:6px;border-radius:6px;background:#000;opacity:.55;z-index:3}
-.screen{height:100%;border-radius:30px;overflow:hidden;background:var(--surface);display:flex;flex-direction:column;position:relative}
-.sbar{display:flex;align-items:center;justify-content:space-between;padding:12px 18px 4px;font-size:.66rem;font-weight:700;color:var(--ink)}
-.sbar .dots{display:flex;gap:3px}.sbar .dots i{width:4px;height:4px;border-radius:50%;background:var(--ink);opacity:.5}
-.scr-pad{padding:6px 16px 14px;display:flex;flex-direction:column;gap:12px;overflow:hidden}
-.bal{}
-.bal small{font-size:.64rem;color:var(--ink-faint);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
-.bal .amt{font-size:1.7rem;font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-top:2px}
-.bal .chg{font-size:.68rem;font-weight:700;color:var(--pos);margin-top:1px}
-.ringrow{display:flex;align-items:center;gap:14px;background:var(--surface-2);border:1px solid var(--border);border-radius:16px;padding:13px}
-.donut{width:82px;height:82px;flex:none;position:relative}
-.donut svg{transform:rotate(-90deg)}
-.donut .mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.donut .mid small{font-size:.5rem;color:var(--ink-faint);font-weight:600}
-.donut .mid b{font-size:.72rem;font-weight:800;letter-spacing:-.02em}
-.legend{display:flex;flex-direction:column;gap:5px;font-size:.62rem;flex:1;min-width:0}
-.legend div{display:flex;align-items:center;gap:6px;color:var(--ink-soft);font-weight:600}
-.legend i{width:8px;height:8px;border-radius:3px;flex:none}
-.legend span{margin-left:auto;color:var(--ink);font-weight:700}
-.txs{display:flex;flex-direction:column;gap:9px}
-.txs>small{font-size:.6rem;color:var(--ink-faint);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
-.tx{display:flex;align-items:center;gap:10px}
-.tx .ic{width:30px;height:30px;border-radius:9px;flex:none;display:grid;place-items:center;font-size:.9rem}
-.tx .nm{flex:1;min-width:0}
-.tx .nm b{display:block;font-size:.72rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tx .nm small{font-size:.58rem;color:var(--ink-faint)}
-.tx .val{font-size:.74rem;font-weight:700;white-space:nowrap}
+/* stats strip */
+.strip{background:var(--ink);color:#fff}
+:root[data-theme="dark"] .strip{background:#060a08;border-block:1px solid var(--border)}
+.strip__in{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding-block:34px}
+.strip .st{text-align:center;border-left:1px solid rgba(255,255,255,.14)}
+.strip .st:first-child{border-left:none}
+.strip .st b{display:block;font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;letter-spacing:-.03em;color:#fff}
+.strip .st span{font-size:.86rem;color:rgba(255,255,255,.7)}
 
-/* floating widgets near phone */
-.fw{position:absolute;z-index:3;background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow-md);padding:13px 15px}
-.fw.goal{left:-6%;top:16%;width:190px}
-.fw.subs{right:-4%;bottom:14%;width:200px}
-.fw h5{font-size:.72rem;font-weight:700;display:flex;align-items:center;gap:7px}
-.fw .sub{font-size:.62rem;color:var(--ink-faint);margin-top:1px}
-.ring{width:44px;height:44px;flex:none}
-.ring svg{transform:rotate(-90deg)}
-.ring .valc{stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 1.3s cubic-bezier(.2,.7,.3,1)}
-.in .ring .valc{stroke-dashoffset:var(--v)}
-.goal .row{display:flex;align-items:center;gap:11px;margin-top:8px}
-.goal .row b{font-size:1.05rem;font-weight:800;letter-spacing:-.02em}
-.subrow{display:flex;align-items:center;gap:9px;margin-top:9px}
-.subrow i{width:22px;height:22px;border-radius:6px;flex:none;display:grid;place-items:center;font-size:.62rem;font-weight:800}
-.subrow b{font-size:.68rem;font-weight:700}
-.subrow span{margin-left:auto;font-size:.68rem;font-weight:700;color:var(--neg)}
+/* section head */
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:44px;flex-wrap:wrap}
+.head h2{margin-top:14px}
+.head p{max-width:44ch;margin-top:10px}
 
-/* feature cards */
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px;box-shadow:var(--shadow-sm);transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,border-color .3s}
-.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:var(--border-strong)}
-.card__ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px}
-.card:nth-child(1) .card__ic{background:color-mix(in srgb,var(--g-teal) 40%,var(--surface))}
-.card:nth-child(2) .card__ic{background:color-mix(in srgb,var(--g-lilac) 40%,var(--surface))}
-.card:nth-child(3) .card__ic{background:color-mix(in srgb,var(--g-peach) 45%,var(--surface))}
-.card:nth-child(4) .card__ic{background:color-mix(in srgb,var(--g-sky) 45%,var(--surface))}
-.card__ic svg{width:24px;height:24px}
-.card h3{margin-bottom:8px}
-.card p{font-size:.94rem}
+/* tours */
+.tours{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.tour{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s;display:flex;flex-direction:column}
+.tour:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+.tour__ph{aspect-ratio:4/3.4;position:relative}
+.tour__ph .tag{position:absolute;left:12px;top:12px;z-index:2;background:color-mix(in srgb,#fff 90%,transparent);color:#16201c;font-size:.72rem;font-weight:700;padding:5px 11px;border-radius:999px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.tour__ph .fav{position:absolute;right:12px;top:12px;z-index:2;width:34px;height:34px;border-radius:50%;background:color-mix(in srgb,#fff 88%,transparent);display:grid;place-items:center;color:#16201c}
+.tour__b{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1}
+.tour__b h3{margin-bottom:5px}
+.tour__loc{font-size:.85rem;color:var(--ink-faint);display:flex;align-items:center;gap:5px;margin-bottom:14px}
+.tour__meta{display:flex;gap:14px;font-size:.82rem;color:var(--ink-soft);margin-top:auto;padding-top:14px;border-top:1px solid var(--border)}
+.tour__meta span{display:inline-flex;align-items:center;gap:5px}
+.tour__foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
+.tour__price b{font-size:1.15rem;font-weight:800;letter-spacing:-.02em}
+.tour__price small{font-size:.78rem;color:var(--ink-faint)}
+.stars{color:var(--sun);font-size:.82rem;letter-spacing:1px}
+.stars b{color:var(--ink);font-weight:700}
 
-/* band */
-.band{position:relative;border-radius:var(--r-xl);padding:clamp(40px,6vw,72px);overflow:hidden;text-align:center;box-shadow:var(--shadow-md)}
-.band__bg{position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 90% at 14% 14%,var(--g-mint),transparent 60%),radial-gradient(60% 90% at 86% 10%,var(--g-sky),transparent 55%),radial-gradient(80% 120% at 80% 100%,var(--g-teal),transparent 60%),radial-gradient(90% 120% at 20% 100%,var(--g-lilac),transparent 62%),var(--surface-2)}
-:root[data-theme="dark"] .band__bg{opacity:.85}
-.band h2{max-width:20ch;margin:14px auto 0}
-.band .lead{margin:16px auto 0;text-align:center}
-.band .btn{margin-top:28px}
-.band .eyebrow{color:var(--ink);opacity:.8}
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:16px}
+.gcell{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm)}
+.gcell .ph{position:absolute;inset:0}
+.gcell::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(8,14,12,.62));z-index:1;opacity:.85;transition:opacity .3s}
+.gcell:hover::after{opacity:1}
+.gcell figcaption{position:absolute;z-index:2;left:16px;bottom:14px;color:#fff}
+.gcell figcaption b{display:block;font-size:1rem;font-weight:750;letter-spacing:-.01em}
+.gcell figcaption span{font-size:.78rem;opacity:.85}
+.gcell img{transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+.gcell:hover img{transform:scale(1.06)}
+.g-a{grid-column:span 2;grid-row:span 2}
+.g-d{grid-column:span 2}
 
-/* banks marquee */
-.logos{text-align:center}
-.logos__t{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
-.marquee{margin-top:24px;position:relative;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-.marquee__row{display:flex;gap:52px;width:max-content;animation:scrollx 30s linear infinite}
-.marquee:hover .marquee__row{animation-play-state:paused}
-.bank{display:flex;align-items:center;gap:9px;color:var(--ink-faint);font-weight:750;font-size:1.1rem;letter-spacing:-.02em;white-space:nowrap;transition:color .3s;opacity:.75}
-.bank:hover{color:var(--ink);opacity:1}
-.bank .bm{width:24px;height:24px;border-radius:7px;flex:none}
+/* why */
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.why .f{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:26px;box-shadow:var(--shadow-sm);transition:transform .3s,box-shadow .3s}
+.why .f:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.why .fi{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px}
+.why .f:nth-child(1) .fi{background:color-mix(in srgb,var(--leaf) 45%,var(--surface))}
+.why .f:nth-child(2) .fi{background:color-mix(in srgb,var(--water) 45%,var(--surface))}
+.why .f:nth-child(3) .fi{background:color-mix(in srgb,var(--sand) 55%,var(--surface))}
+.why .f:nth-child(4) .fi{background:color-mix(in srgb,var(--sky) 55%,var(--surface))}
+.why .fi svg{width:26px;height:26px}
+.why .f h3{margin-bottom:8px}
+.why .f p{font-size:.93rem}
 
-/* feature rows */
-.feature{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center}
-.feature--rev .feature__media{order:-1}
-.feature h2{margin:16px 0 0}
-.feature .lead{margin-top:18px;font-size:1.06rem}
-.flist{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:13px}
-.flist li{display:flex;gap:12px;align-items:flex-start;color:var(--ink-soft);font-size:1rem}
-.flist .tick{flex:none;width:24px;height:24px;border-radius:8px;background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent-deep);display:grid;place-items:center;margin-top:1px}
-.flist .tick svg{width:14px;height:14px}
-.feature .btn{margin-top:30px}
+/* featured */
+.feat{position:relative;border-radius:var(--r-xl);overflow:hidden;background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-md);display:grid;grid-template-columns:1.1fr .9fr}
+.feat__ph{position:relative;min-height:440px}
+.feat__ph .ph{position:absolute;inset:0}
+.feat__ph .badge{position:absolute;left:20px;top:20px;z-index:2;background:var(--sun);color:#fff;font-size:.78rem;font-weight:700;padding:7px 14px;border-radius:999px;box-shadow:var(--shadow-sm)}
+.feat__b{padding:clamp(30px,4vw,52px)}
+.feat__b .eyebrow{color:var(--accent-deep)}
+.feat__b h2{margin:14px 0 12px;font-size:clamp(1.7rem,3vw,2.4rem)}
+.days{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:16px}
+.days li{display:flex;gap:16px}
+.days .d{flex:none;width:52px;font-family:var(--font-mono);font-size:.72rem;font-weight:700;letter-spacing:.05em;color:var(--accent-deep);padding-top:2px}
+.days .dt b{display:block;font-size:.98rem;font-weight:700;margin-bottom:2px}
+.days .dt p{font-size:.88rem}
+.days .ln{position:relative}
+.days li:not(:last-child) .d::after{content:"";position:absolute;left:5px;top:20px;bottom:-16px;width:1.5px;background:var(--border)}
+.feat__foot{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:30px;flex-wrap:wrap}
+.feat__price b{font-size:1.5rem;font-weight:800;letter-spacing:-.03em}
+.feat__price small{font-size:.82rem;color:var(--ink-faint)}
 
-/* app-panel mockups (dashboard / goals) */
-.panel{background:var(--surface);border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow-lg);padding:24px;position:relative}
-.panel__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
-.panel__head b{font-size:1.02rem;font-weight:750}
-.panel__head span{font-family:var(--font-mono);font-size:.66rem;color:var(--ink-faint);background:var(--surface-2);border:1px solid var(--border);padding:4px 9px;border-radius:8px}
-.bars{display:flex;align-items:flex-end;gap:10px;height:150px;padding-bottom:22px;position:relative}
-.bars::after{content:"";position:absolute;left:0;right:0;bottom:22px;height:1px;background:var(--border)}
-.bars .bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;height:100%}
-.bars .bar i{width:100%;max-width:34px;border-radius:7px 7px 0 0;background:color-mix(in srgb,var(--g-teal) 55%,var(--surface));transition:height 1s cubic-bezier(.2,.7,.3,1)}
-.bars .bar.on i{background:linear-gradient(180deg,var(--accent),var(--g-teal))}
-.bars .bar small{font-size:.62rem;color:var(--ink-faint);font-weight:600}
-.catlist{display:flex;flex-direction:column;gap:12px;margin-top:6px}
-.catrow{display:flex;align-items:center;gap:12px}
-.catrow .ci{width:34px;height:34px;border-radius:10px;flex:none;display:grid;place-items:center;font-size:1rem}
-.catrow .cn{flex:1;min-width:0}
-.catrow .cn b{font-size:.86rem;font-weight:700}
-.catrow .track{height:6px;border-radius:6px;background:var(--border);margin-top:5px;overflow:hidden}
-.catrow .track i{display:block;height:100%;border-radius:6px;background:var(--accent);width:0;transition:width 1.1s cubic-bezier(.2,.7,.3,1)}
-.in .catrow .track i{width:var(--w)}
-.catrow .cv{font-size:.84rem;font-weight:750;white-space:nowrap;font-variant-numeric:tabular-nums}
-/* goals */
-.goals-grid{display:flex;flex-direction:column;gap:14px}
-.goalcard{display:flex;align-items:center;gap:16px;background:var(--surface-2);border:1px solid var(--border);border-radius:16px;padding:16px}
-.goalcard .gr{width:58px;height:58px;flex:none}
-.goalcard .gr svg{transform:rotate(-90deg)}
-.goalcard .gr .valc{stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 1.3s cubic-bezier(.2,.7,.3,1)}
-.in .goalcard .gr .valc{stroke-dashoffset:var(--v)}
-.goalcard .gi{flex:1;min-width:0}
-.goalcard .gi b{font-size:.98rem;font-weight:750;display:block}
-.goalcard .gi small{font-size:.8rem;color:var(--ink-faint)}
-.goalcard .gp{text-align:right}
-.goalcard .gp b{font-size:1.05rem;font-weight:800;letter-spacing:-.02em}
-.goalcard .gp small{font-size:.72rem;color:var(--ink-faint);display:block}
+/* guides */
+.guides{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.guide{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .3s,box-shadow .3s}
+.guide:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.guide__ph{aspect-ratio:4/3.6;position:relative}
+.guide__b{padding:20px}
+.guide__b b{font-size:1.08rem;font-weight:750;letter-spacing:-.01em}
+.guide__b .role{font-size:.86rem;color:var(--accent-deep);font-weight:600;margin:2px 0 10px}
+.guide__b p{font-size:.9rem}
 
-/* categories grid */
-.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.cat{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:22px;box-shadow:var(--shadow-sm);transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s}
-.cat:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
-.cat__top{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.cat__ic{width:44px;height:44px;border-radius:13px;flex:none;display:grid;place-items:center;font-size:1.3rem}
-.cat__top b{font-size:1.02rem;font-weight:750}
-.cat__top small{display:block;font-size:.78rem;color:var(--ink-faint);font-weight:500}
-.cat__amt{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.cat__bud{display:flex;justify-content:space-between;font-size:.76rem;color:var(--ink-faint);margin:12px 0 6px}
-.cat__track{height:7px;border-radius:7px;background:var(--border);overflow:hidden}
-.cat__track i{display:block;height:100%;border-radius:7px;width:0;transition:width 1.1s cubic-bezier(.2,.7,.3,1)}
-.in .cat__track i{width:var(--w)}
-
-/* security */
-.secure{position:relative;border-radius:var(--r-xl);overflow:hidden;background:var(--surface-2);border:1px solid var(--border);padding:clamp(36px,5vw,56px)}
-.secure__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);align-items:center}
-.sfeats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
-.sfeat{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px}
-.sfeat .si{width:40px;height:40px;border-radius:11px;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent-deep);display:grid;place-items:center;margin-bottom:12px}
-.sfeat .si svg{width:20px;height:20px}
-.sfeat b{font-size:.96rem;font-weight:700;display:block;margin-bottom:4px}
-.sfeat p{font-size:.85rem}
-.shield{display:grid;place-items:center}
-.shield svg{width:min(300px,70%);height:auto;filter:drop-shadow(0 20px 50px rgba(15,169,142,.25))}
-
-/* steps */
-.steps__head{text-align:center;max-width:46ch;margin:0 auto 52px}
-.steps__head .lead{margin:16px auto 0}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:s}
-.step{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:30px 26px 28px;box-shadow:var(--shadow-sm);transition:transform .3s,box-shadow .3s}
-.step:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
-.step__n{counter-increment:s;font-family:var(--font-mono);font-size:.8rem;font-weight:600;letter-spacing:.08em;color:var(--accent-deep)}
-.step__n::before{content:"0" counter(s)}
-.step__line{height:1px;background:var(--border);margin:14px 0 18px;position:relative;overflow:hidden}
-.step__line::after{content:"";position:absolute;left:0;top:0;height:100%;width:38%;background:linear-gradient(90deg,var(--g-mint),var(--accent))}
-.step:nth-child(2) .step__line::after{width:66%}
-.step:nth-child(3) .step__line::after{width:100%}
-.step h3{margin-bottom:9px}
-.step p{font-size:.95rem}
-
-/* stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
-.stat__n{font-size:clamp(2.1rem,4vw,3rem);font-weight:800;letter-spacing:-.04em;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1;background:linear-gradient(120deg,var(--ink),var(--accent-deep));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.stat__l{margin-top:10px;font-size:.92rem;color:var(--ink-soft)}
-.stats .stat{padding:8px 4px;border-left:1px solid var(--border)}
-.stats .stat:first-child{border-left:none}
-
-/* quote */
-.quote{max-width:820px;margin-inline:auto;text-align:center}
-.quote__mark{font-size:3.2rem;line-height:.4;color:var(--accent);opacity:.4;font-family:Georgia,serif}
-.quote blockquote{font-size:clamp(1.3rem,2.6vw,1.85rem);font-weight:600;letter-spacing:-.02em;line-height:1.35;color:var(--ink);text-wrap:balance;margin:14px 0 24px}
-.quote__by{display:flex;gap:13px;align-items:center;justify-content:center}
-.quote__av{width:48px;height:48px;border-radius:50%;overflow:hidden;flex:none;box-shadow:var(--shadow-sm);background:linear-gradient(135deg,var(--g-mint),var(--g-teal),var(--accent))}
-.quote__av img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s}
-.quote__av img.on{opacity:1}
-.quote__by b{display:block;color:var(--ink);font-weight:700;font-size:.98rem}
-.quote__by span{font-size:.86rem;color:var(--ink-faint)}
+/* reviews */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.review{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:26px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:16px}
+.review .rs{color:var(--sun);letter-spacing:2px}
+.review p{color:var(--ink);font-size:1rem;line-height:1.55;flex:1}
+.review .who{display:flex;align-items:center;gap:12px}
+.review .av{width:46px;height:46px;border-radius:50%;overflow:hidden;flex:none;background:linear-gradient(135deg,var(--water),var(--accent))}
+.review .who b{display:block;font-size:.94rem;font-weight:700}
+.review .who span{font-size:.82rem;color:var(--ink-faint)}
 
 /* cta */
-.cta{position:relative;border-radius:var(--r-xl);overflow:hidden;text-align:center;padding:clamp(48px,7vw,88px) 24px;box-shadow:var(--shadow-lg)}
-.cta__bg{position:absolute;inset:0;z-index:-1;background:radial-gradient(70% 120% at 15% 0%,var(--g-mint),transparent 55%),radial-gradient(70% 120% at 85% 10%,var(--g-sky),transparent 55%),radial-gradient(90% 130% at 50% 120%,var(--g-teal),transparent 60%),var(--surface-2)}
-.cta h2{max-width:18ch;margin:14px auto 0}
-.cta .lead{margin:16px auto 0;text-align:center}
-.cta .stores{justify-content:center;margin-top:30px}
-.cta__note{margin-top:16px;font-size:.82rem;color:var(--ink-faint)}
+.cta{position:relative;border-radius:var(--r-xl);overflow:hidden;min-height:420px;display:flex;align-items:center;box-shadow:var(--shadow-lg)}
+.cta__ph{position:absolute;inset:0;z-index:-2;background:linear-gradient(150deg,#4a6b64,#2c4640)}
+.cta__ph img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s}
+.cta__ph img.on{opacity:1}
+.cta__scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(9,16,13,.82),rgba(9,16,13,.4) 70%,rgba(9,16,13,.2))}
+.cta__in{padding:clamp(40px,6vw,72px);color:#fff;max-width:660px}
+.cta .eyebrow{color:#bff0e4}
+.cta h2{color:#fff;margin:14px 0 0}
+.cta p{color:rgba(255,255,255,.9);margin-top:16px;font-size:1.1rem;max-width:46ch}
+.cta__btns{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
 
 /* footer */
 .foot{border-top:1px solid var(--border);background:var(--bg-soft)}
@@ -298,7 +213,7 @@ p{color:var(--ink-soft)}
 .foot__col a:hover{color:var(--ink)}
 .foot__bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:22px;border-top:1px solid var(--border);font-size:.86rem;color:var(--ink-faint)}
 .foot__bar .made{display:inline-flex;align-items:center;gap:7px}
-.heart{color:var(--g-rose)}
+.heart{color:var(--sun)}
 
 /* reveal */
 .rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
@@ -306,47 +221,37 @@ p{color:var(--ink-soft)}
 .rv-d1{transition-delay:.06s}.rv-d2{transition-delay:.12s}.rv-d3{transition-delay:.18s}.rv-d4{transition-delay:.24s}
 
 /* keyframes */
-@keyframes drift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(6%,4%) scale(1.12)}}
-@keyframes drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-5%,6%) scale(1.08)}}
-@keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(4%,-5%) scale(1.15)}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-@keyframes scrollx{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.fw.goal{animation:float 7s ease-in-out infinite}
-.fw.subs{animation:float 8s ease-in-out infinite reverse}
+@keyframes drop{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.hero__in>*{animation:drop .9s cubic-bezier(.2,.7,.3,1) backwards}
+.hero__in .eyebrow{animation-delay:.05s}.hero h1{animation-delay:.12s}.hero__sub{animation-delay:.2s}.finder{animation-delay:.28s}.hero__trust{animation-delay:.36s}
 
 /* responsive */
-@media (max-width:960px){
-  .hero__grid{grid-template-columns:1fr;gap:36px}
-  .hero__art{min-height:0;margin-top:8px}
-  .fw.goal{left:2%}.fw.subs{right:2%}
-  .cards{grid-template-columns:repeat(2,1fr)}
-  .cats{grid-template-columns:repeat(2,1fr)}
-  .steps{grid-template-columns:1fr;max-width:520px;margin-inline:auto}
-  .stats{grid-template-columns:repeat(2,1fr);gap:28px 20px}
-  .stats .stat:nth-child(3){border-left:none}
-  .feature{grid-template-columns:1fr;gap:40px}
-  .feature--rev .feature__media{order:0}
-  .secure__grid{grid-template-columns:1fr;gap:32px}
-  .shield{order:-1}
-  .foot__grid{grid-template-columns:1fr 1fr;gap:34px}
-  .foot__brand{grid-column:1/-1}
+@media (max-width:1000px){
+  .tours{grid-template-columns:repeat(2,1fr)}
+  .why{grid-template-columns:repeat(2,1fr)}
+  .guides{grid-template-columns:1fr}
+  .reviews{grid-template-columns:1fr}
+  .feat{grid-template-columns:1fr}
+  .feat__ph{min-height:300px}
+  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}
+  .g-a{grid-column:span 2;grid-row:span 1}
+  .g-d{grid-column:span 2}
+  .strip__in{grid-template-columns:repeat(2,1fr);gap:26px 20px}
+  .strip .st:nth-child(3){border-left:none}
   .nav__links{display:none}
 }
 @media (max-width:560px){
-  .cards{grid-template-columns:1fr}
-  .cats{grid-template-columns:1fr}
-  .stats{grid-template-columns:1fr 1fr}
-  .sfeats{grid-template-columns:1fr}
-  .foot__grid{grid-template-columns:1fr 1fr}
-  .fw{display:none}
-  .stores{width:100%}.store{flex:1}
+  .tours{grid-template-columns:1fr}
+  .why{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr;grid-auto-rows:200px}
+  .g-a,.g-d{grid-column:span 1;grid-row:span 1}
+  .strip__in{grid-template-columns:1fr 1fr}
+  .finder__f{min-width:0;flex:1 1 40%}
+  .hero{min-height:80vh}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
-  .rv{opacity:1;transform:none}
-  .quote__av img{opacity:1}
-  .ring .valc,.goalcard .gr .valc{stroke-dashoffset:var(--v)}
-  .catrow .track i,.cat__track i{width:var(--w)}
+  .rv{opacity:1;transform:none}.ph>img,.hero__bg img,.cta__ph img{opacity:1}
 }
 </style>
 </head>
@@ -354,17 +259,16 @@ p{color:var(--ink-soft)}
 
 <header class="nav" id="nav">
   <div class="wrap nav__in">
-    <a class="brand" href="#top" aria-label="Монета — на главную"><span class="brand__mark" aria-hidden="true">₸</span> Монета</a>
+    <a class="brand" href="#top" aria-label="Тропа — на главную"><span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 19 9 8l4 6 2.5-3.5L21 19z" fill="currentColor" opacity=".9"/><circle cx="16.5" cy="7" r="2.2" fill="currentColor"/></svg></span> Тропа</a>
     <nav class="nav__links" aria-label="Основное меню">
-      <a href="#features">Возможности</a>
-      <a href="#categories">Категории</a>
-      <a href="#security">Безопасность</a>
-      <a href="#how">Как это работает</a>
+      <a href="#tours">Туры</a>
+      <a href="#gallery">Направления</a>
+      <a href="#guides">Гиды</a>
+      <a href="#reviews">Отзывы</a>
     </nav>
     <div class="nav__cta">
       <button class="iconbtn" id="themeBtn" aria-label="Переключить тему" title="Светлая / тёмная тема"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></button>
-      <a class="btn btn--ghost btn--sm" href="#">Войти</a>
-      <a class="btn btn--primary btn--sm" href="#get">Скачать</a>
+      <a class="btn btn--light btn--sm" href="#book">Забронировать</a>
     </div>
   </div>
 </header>
@@ -373,308 +277,176 @@ p{color:var(--ink-soft)}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero__mesh" aria-hidden="true"><div class="mesh"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></div></div>
-  <div class="hero__veil" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="hero__grid">
-      <div class="hero__text">
-        <span class="badge rv"><span class="dot">✦</span> <b>Монета&nbsp;3.0</b> — теперь с кэшбэк-советами</span>
-        <h1 class="rv rv-d1">Видно, куда уходят деньги — до последней тенге</h1>
-        <p class="lead rv rv-d2">Монета сама раскладывает траты по категориям, держит бюджеты и подсказывает, сколько откладывать на цель. Никаких таблиц — просто подключите карту.</p>
-        <div class="hero__cta rv rv-d3">
-          <div class="stores">
-            <a class="store" href="#get"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12.6c0-2 1.6-3 1.7-3-.9-1.4-2.4-1.6-2.9-1.6-1.2-.1-2.4.7-3 .7-.6 0-1.6-.7-2.6-.7-1.3 0-2.6.8-3.3 2-1.4 2.4-.4 6 1 8 .7 1 1.4 2 2.5 2 1 0 1.3-.6 2.5-.6s1.5.6 2.5.6 1.7-.9 2.4-1.9c.7-1 1-2 1-2.1-.1 0-2.3-.9-2.3-3zM14.6 6.2c.5-.7.9-1.6.8-2.5-.8 0-1.8.5-2.4 1.2-.5.6-1 1.5-.8 2.4.9 0 1.8-.5 2.4-1.1z"/></svg><span><small>Загрузите в</small><b>App Store</b></span></a>
-            <a class="store" href="#get"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 2.5c-.3.2-.5.6-.5 1.1v16.8c0 .5.2.9.5 1.1l9.2-9.5L4 2.5zm10.3 8.5 2.4-2.5-9.9-5.6c-.4-.2-.8-.2-1 0l8.5 8.1zm0 2-8.5 8.1c.2.2.6.2 1 0l9.9-5.6-2.4-2.5zm5.4-3.4-2.1-1.2-2.7 2.6 2.7 2.6 2.1-1.2c.7-.4.7-1.2 0-1.6z"/></svg><span><small>Доступно в</small><b>Google Play</b></span></a>
-          </div>
-        </div>
-        <div class="hero__trust rv rv-d3">
-          <span><span class="ok">✓</span> Бесплатно навсегда</span>
-          <span><span class="ok">✓</span> Данные не продаём</span>
-          <span><span class="ok">✓</span> Face ID и шифрование</span>
-        </div>
-      </div>
-
-      <div class="hero__art rv rv-d2">
-        <!-- floating goal widget -->
-        <div class="fw goal">
-          <h5>🎯 Цель: Отпуск в Грузии</h5>
-          <div class="sub">осталось 240 000 ₸</div>
-          <div class="row">
-            <span class="ring" aria-hidden="true" style="--v:32"><svg viewBox="0 0 42 42"><circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--border)" stroke-width="5"/><circle class="valc" cx="21" cy="21" r="15.915" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/></svg></span>
-            <b class="num">68%</b>
-          </div>
-        </div>
-
-        <!-- phone -->
-        <div class="phone" aria-label="Экран приложения Монета">
-          <div class="screen">
-            <div class="sbar"><span>9:41</span><span class="dots"><i></i><i></i><i></i></span></div>
-            <div class="scr-pad">
-              <div class="bal">
-                <small>Общий баланс</small>
-                <div class="amt num">1 248 500 ₸</div>
-                <div class="chg num">▲ 2,4% за июль</div>
-              </div>
-              <div class="ringrow">
-                <div class="donut" aria-hidden="true">
-                  <svg viewBox="0 0 42 42" width="82" height="82">
-                    <circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--border)" stroke-width="6"/>
-                    <circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--g-teal)" stroke-width="6" stroke-dasharray="34 66" stroke-dashoffset="25"/>
-                    <circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--g-lilac)" stroke-width="6" stroke-dasharray="22 78" stroke-dashoffset="-9"/>
-                    <circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--g-peach)" stroke-width="6" stroke-dasharray="16 84" stroke-dashoffset="-31"/>
-                    <circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--g-sky)" stroke-width="6" stroke-dasharray="28 72" stroke-dashoffset="-47"/>
-                  </svg>
-                  <div class="mid"><small>июль</small><b class="num">312к ₸</b></div>
-                </div>
-                <div class="legend">
-                  <div><i style="background:var(--g-teal)"></i>Продукты <span class="num">34%</span></div>
-                  <div><i style="background:var(--g-lilac)"></i>Кафе <span class="num">22%</span></div>
-                  <div><i style="background:var(--g-peach)"></i>Транспорт <span class="num">16%</span></div>
-                  <div><i style="background:var(--g-sky)"></i>Прочее <span class="num">28%</span></div>
-                </div>
-              </div>
-              <div class="txs">
-                <small>Последние операции</small>
-                <div class="tx"><span class="ic" style="background:color-mix(in srgb,var(--g-teal) 55%,var(--surface))">🛒</span><span class="nm"><b>Magnum</b><small>Продукты</small></span><span class="val num">−8 640 ₸</span></div>
-                <div class="tx"><span class="ic" style="background:color-mix(in srgb,var(--g-lilac) 55%,var(--surface))">☕</span><span class="nm"><b>Wolt</b><small>Кафе и рестораны</small></span><span class="val num">−4 200 ₸</span></div>
-                <div class="tx"><span class="ic" style="background:color-mix(in srgb,var(--g-peach) 55%,var(--surface))">🚕</span><span class="nm"><b>Яндекс Go</b><small>Транспорт</small></span><span class="val num">−1 980 ₸</span></div>
-                <div class="tx"><span class="ic" style="background:color-mix(in srgb,var(--g-mint) 60%,var(--surface))">💸</span><span class="nm"><b>Зарплата</b><small>Доход</small></span><span class="val num" style="color:var(--pos)">+520 000 ₸</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- floating subscriptions widget -->
-        <div class="fw subs">
-          <h5>🔁 Подписки в этом месяце</h5>
-          <div class="sub">5 активных · 12 400 ₸/мес</div>
-          <div class="subrow"><i style="background:#e50914;color:#fff">N</i><b>Netflix</b><span class="num">−4 990 ₸</span></div>
-          <div class="subrow"><i style="background:#1db954;color:#fff">♪</i><b>Spotify</b><span class="num">−2 290 ₸</span></div>
-          <div class="subrow"><i style="background:color-mix(in srgb,var(--g-sky) 60%,#fff);color:#0b4f42">☁</i><b>iCloud</b><span class="num">−1 300 ₸</span></div>
-        </div>
-      </div>
+  <div class="hero__bg"><img src="https://loremflickr.com/1600/900/mountain,lake,landscape?lock=101" alt="Горное озеро в Казахстане"></div>
+  <div class="hero__scrim" aria-hidden="true"></div>
+  <div class="hero__in">
+    <span class="eyebrow">Авторские туры по Казахстану</span>
+    <h1>Горы, каньоны и озёра — по-настоящему</h1>
+    <p class="hero__sub">Малые группы, местные гиды и продуманный маршрут. Вы просто приезжаете — а рюкзак забот несём мы.</p>
+    <div class="finder" role="group" aria-label="Подбор тура">
+      <div class="finder__f"><small>Направление</small><b>🏔 Горы Алматы</b></div>
+      <div class="finder__f"><small>Даты</small><b>📅 Июль — Август</b></div>
+      <div class="finder__f"><small>Формат</small><b>👣 1–3 дня</b></div>
+      <a class="btn btn--primary" href="#tours">Найти тур</a>
+    </div>
+    <div class="hero__trust">
+      <span>⭐ <b>4,9</b> из 5 · 2 100 отзывов</span>
+      <span>👣 <b>140+</b> маршрутов</span>
+      <span>🛡 Лицензированные гиды</span>
     </div>
   </div>
 </section>
 
-<!-- BANKS -->
-<section class="section logos" style="padding-block:clamp(30px,5vw,52px)">
-  <div class="wrap"><p class="logos__t rv">Подключается к вашим счетам за минуту</p></div>
-  <div class="marquee rv" aria-hidden="true"><div class="marquee__row">
-    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#ff2d2d,#ff5c5c)"></span>Kaspi</span>
-    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#0a7d3c,#37c26e)"></span>Halyk</span>
-    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#7b2ff7,#a56bff)"></span>Jusan</span>
-    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#0b6bcb,#3ba0ff)"></span>Freedom</span>
-    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#c0392b,#e67e22)"></span>ForteBank</span>
-    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#0f766e,#2dd4bf)"></span>Bereke</span>
-    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#ff2d2d,#ff5c5c)"></span>Kaspi</span>
-    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#0a7d3c,#37c26e)"></span>Halyk</span>
-    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#7b2ff7,#a56bff)"></span>Jusan</span>
-    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#0b6bcb,#3ba0ff)"></span>Freedom</span>
-    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#c0392b,#e67e22)"></span>ForteBank</span>
-    <span class="bank"><span class="bm" style="background:linear-gradient(135deg,#0f766e,#2dd4bf)"></span>Bereke</span>
-  </div></div>
+<!-- STATS STRIP -->
+<section class="strip">
+  <div class="wrap strip__in">
+    <div class="st"><b class="num" data-to="12000" data-suffix="+">0</b><span>довольных путешественников</span></div>
+    <div class="st"><b class="num" data-to="140" data-suffix="+">0</b><span>маршрутов по стране</span></div>
+    <div class="st"><b class="num" data-to="9" data-suffix=" лет">0</b><span>водим в горы</span></div>
+    <div class="st"><b class="num" data-to="4.9" data-suffix="★">0</b><span>средняя оценка</span></div>
+  </div>
 </section>
 
-<!-- FEATURE CARDS -->
-<section class="section" id="features" style="padding-top:clamp(40px,6vw,72px)">
+<!-- TOURS -->
+<section class="section" id="tours">
   <div class="wrap">
-    <div class="steps__head rv" style="text-align:center;max-width:52ch">
-      <span class="eyebrow" style="justify-content:center">Что умеет</span>
-      <h2 style="margin-top:14px">Все финансы — в одном спокойном экране</h2>
+    <div class="head rv">
+      <div>
+        <span class="eyebrow">Популярное</span>
+        <h2>Туры этого сезона</h2>
+        <p>Собрали маршруты, куда возвращаются чаще всего — от лёгкой прогулки до похода с ночёвкой.</p>
+      </div>
+      <a class="btn btn--ghost" href="#book">Все 140 маршрутов <span class="arw" aria-hidden="true">→</span></a>
     </div>
-    <div class="cards">
-      <article class="card rv rv-d1"><div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="#0b7d69" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 4-5"/></svg></div><h3>Автоучёт трат</h3><p>Каждая покупка сама попадает в нужную категорию. Вручную ничего вносить не нужно.</p></article>
-      <article class="card rv rv-d2"><div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="#6a4bd6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 10h18M7 15h5"/></svg></div><h3>Бюджеты по категориям</h3><p>Задайте лимит на кафе или такси — Монета мягко предупредит, когда он подходит к концу.</p></article>
-      <article class="card rv rv-d3"><div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="#c26a2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 21a7 7 0 100-14 7 7 0 000 14z"/><path d="M12 11v3l2 1"/></svg></div><h3>Цели-копилки</h3><p>Отпуск, ноутбук, подушка безопасности. Монета посчитает, сколько откладывать в месяц.</p></article>
-      <article class="card rv rv-d4"><div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2b74c2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 019-9 9 9 0 019 9M21 12a9 9 0 01-9 9 9 9 0 01-9-9"/><path d="M16 8l-8 8M8 8h4M16 12v4"/></svg></div><h3>Подписки под контролем</h3><p>Все автосписания в одном списке — видно, за что платите, и что пора отменить.</p></article>
+    <div class="tours">
+      <article class="tour rv rv-d1">
+        <div class="tour__ph ph"><span class="tag">Хит сезона</span><span class="fav" aria-hidden="true">♡</span><img loading="lazy" src="https://loremflickr.com/500/440/lake,forest,turquoise?lock=111" alt="Кольсайские озёра"></div>
+        <div class="tour__b"><h3>Кольсайские озёра</h3><div class="tour__loc">📍 Алматинская область</div>
+          <div class="tour__meta"><span>🕑 2 дня</span><span>👣 Средне</span><span>👥 до 12</span></div>
+          <div class="tour__foot"><div class="tour__price"><b class="num">от 34 900 ₸</b><small> / чел.</small></div><div class="stars">★ <b>4,9</b></div></div>
+        </div>
+      </article>
+      <article class="tour rv rv-d2">
+        <div class="tour__ph ph"><span class="tag">1 день</span><span class="fav" aria-hidden="true">♡</span><img loading="lazy" src="https://loremflickr.com/500/440/canyon,desert,rocks?lock=112" alt="Чарынский каньон"></div>
+        <div class="tour__b"><h3>Чарынский каньон</h3><div class="tour__loc">📍 Долина замков</div>
+          <div class="tour__meta"><span>🕑 1 день</span><span>👣 Легко</span><span>👥 до 16</span></div>
+          <div class="tour__foot"><div class="tour__price"><b class="num">от 18 500 ₸</b><small> / чел.</small></div><div class="stars">★ <b>4,8</b></div></div>
+        </div>
+      </article>
+      <article class="tour rv rv-d3">
+        <div class="tour__ph ph"><span class="tag">Фаворит</span><span class="fav" aria-hidden="true">♡</span><img loading="lazy" src="https://loremflickr.com/500/440/mountain,lake,alpine?lock=113" alt="Большое Алматинское озеро"></div>
+        <div class="tour__b"><h3>Большое Алматинское озеро</h3><div class="tour__loc">📍 Иле-Алатау</div>
+          <div class="tour__meta"><span>🕑 1 день</span><span>👣 Легко</span><span>👥 до 14</span></div>
+          <div class="tour__foot"><div class="tour__price"><b class="num">от 15 900 ₸</b><small> / чел.</small></div><div class="stars">★ <b>5,0</b></div></div>
+        </div>
+      </article>
+      <article class="tour rv rv-d4">
+        <div class="tour__ph ph"><span class="tag">Актив</span><span class="fav" aria-hidden="true">♡</span><img loading="lazy" src="https://loremflickr.com/500/440/mountains,snow,peak?lock=114" alt="Шымбулак и пик Талгар"></div>
+        <div class="tour__b"><h3>Шымбулак — перевалы</h3><div class="tour__loc">📍 Медеу · Шымбулак</div>
+          <div class="tour__meta"><span>🕑 3 дня</span><span>👣 Сложно</span><span>👥 до 10</span></div>
+          <div class="tour__foot"><div class="tour__price"><b class="num">от 62 000 ₸</b><small> / чел.</small></div><div class="stars">★ <b>4,9</b></div></div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- FEATURE ROW A: dashboard -->
-<section class="section" style="padding-bottom:0">
+<!-- GALLERY -->
+<section class="section" id="gallery" style="padding-top:0">
   <div class="wrap">
-    <div class="feature">
-      <div class="feature__text rv">
-        <span class="eyebrow">Аналитика</span>
-        <h2>Куда уходят деньги — видно сразу</h2>
-        <p class="lead">Понятные графики вместо простыней из выписки. Смотрите траты по месяцам и категориям, сравнивайте с прошлым и ловите, где утекает больше, чем кажется.</p>
-        <ul class="flist">
-          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Разбивка по категориям и месяцам</li>
-          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Прогресс по бюджету в реальном времени</li>
-          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Умные советы: где можно сэкономить</li>
+    <div class="head rv">
+      <div><span class="eyebrow">Направления</span><h2>Казахстан, которого вы не видели</h2><p>От бирюзовых озёр до красных каньонов и бесконечной степи.</p></div>
+    </div>
+    <div class="gallery">
+      <figure class="gcell g-a rv"><div class="ph"><img loading="lazy" src="https://loremflickr.com/900/900/mountain,lake,valley?lock=121" alt="Горная долина"></div><figcaption><b>Кольсай и Каинды</b><span>Затонувший лес и три озера</span></figcaption></figure>
+      <figure class="gcell rv rv-d1"><div class="ph"><img loading="lazy" src="https://loremflickr.com/500/500/waterfall,forest?lock=122" alt="Водопад"></div><figcaption><b>Бутаковка</b><span>Водопады у города</span></figcaption></figure>
+      <figure class="gcell rv rv-d2"><div class="ph"><img loading="lazy" src="https://loremflickr.com/500/500/canyon,rocks,sunset?lock=123" alt="Каньон на закате"></div><figcaption><b>Чарын</b><span>Долина замков</span></figcaption></figure>
+      <figure class="gcell g-d rv rv-d1"><div class="ph"><img loading="lazy" src="https://loremflickr.com/900/450/steppe,field,mountains?lock=124" alt="Степь и горы"></div><figcaption><b>Ассы-Тургень</b><span>Плато и звёздное небо</span></figcaption></figure>
+      <figure class="gcell rv rv-d2"><div class="ph"><img loading="lazy" src="https://loremflickr.com/500/500/camping,tent,night?lock=125" alt="Лагерь в горах"></div><figcaption><b>Ночёвки</b><span>Кемпинг под звёздами</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section" style="background:var(--bg-soft);border-block:1px solid var(--border)">
+  <div class="wrap">
+    <div class="head rv" style="justify-content:center;text-align:center;flex-direction:column;align-items:center;margin-bottom:52px">
+      <span class="eyebrow" style="justify-content:center">Почему Тропа</span>
+      <h2 style="max-width:20ch">Всё продумано — вам остаётся только идти</h2>
+    </div>
+    <div class="why">
+      <div class="f rv rv-d1"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="#0b6f62" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.7-7-11a7 7 0 0114 0c0 5.3-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>Местные гиды</h3><p>Знают каждую тропу, погоду и лучшие точки для кадра. И спасут, если что.</p></div>
+      <div class="f rv rv-d2"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="#0b6f62" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 20c0-2 .6-3.6 1.6-4.7"/></svg></div><h3>Малые группы</h3><p>До 12–16 человек. Без толкучки — только вы, горы и тишина.</p></div>
+      <div class="f rv rv-d3"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="#a35a1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l8-4 8 4v10l-8 4-8-4z"/><path d="M4 7l8 4 8-4M12 11v10"/></svg></div><h3>Всё включено</h3><p>Трансфер, снаряжение, перекусы и вход в парки. Считать ничего не нужно.</p></div>
+      <div class="f rv rv-d4"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="#2b6ca3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Безопасность</h3><p>Страховка, аптечка и связь на маршруте. Гиды с сертификатом первой помощи.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section class="section" id="featured">
+  <div class="wrap">
+    <div class="feat rv">
+      <div class="feat__ph"><span class="badge">🔥 Осталось 4 места</span><div class="ph"><img loading="lazy" src="https://loremflickr.com/800/900/hiking,trail,mountain,alpine?lock=131" alt="Поход по хребту Кольсай"></div></div>
+      <div class="feat__b">
+        <span class="eyebrow">Тур недели</span>
+        <h2>Три озера Кольсая + озеро Каинды</h2>
+        <p>Два дня по самому живописному хребту Заилийского Алатау: бирюзовые озёра, затонувший еловый лес и ночёвка в юрточном лагере с видом на пик.</p>
+        <ul class="days">
+          <li><span class="d">День 1</span><span class="ln"></span><div class="dt"><b>Алматы → Нижний Кольсай</b><p>Трансфер, лёгкий трек к первому озеру, ужин у костра и ночёвка.</p></div></li>
+          <li><span class="d">День 2</span><span class="ln"></span><div class="dt"><b>Средний Кольсай → Каинды</b><p>Подъём ко второму озеру, переезд к затонувшему лесу, возвращение в город.</p></div></li>
         </ul>
-        <a class="btn btn--ghost" href="#get">Попробовать бесплатно <span class="arw" aria-hidden="true">→</span></a>
-      </div>
-      <div class="feature__media rv rv-d2">
-        <div class="panel">
-          <div class="panel__head"><b>Траты по месяцам</b><span>2024</span></div>
-          <div class="bars" aria-hidden="true">
-            <div class="bar"><i style="height:48%"></i><small>Фев</small></div>
-            <div class="bar"><i style="height:62%"></i><small>Мар</small></div>
-            <div class="bar"><i style="height:40%"></i><small>Апр</small></div>
-            <div class="bar"><i style="height:72%"></i><small>Май</small></div>
-            <div class="bar"><i style="height:55%"></i><small>Июн</small></div>
-            <div class="bar on"><i style="height:88%"></i><small>Июл</small></div>
-          </div>
-          <div class="catlist">
-            <div class="catrow" style="--w:78%"><span class="ci" style="background:color-mix(in srgb,var(--g-teal) 55%,var(--surface))">🛒</span><div class="cn"><b>Продукты</b><div class="track"><i></i></div></div><span class="cv num">106 200 ₸</span></div>
-            <div class="catrow" style="--w:54%"><span class="ci" style="background:color-mix(in srgb,var(--g-lilac) 55%,var(--surface))">☕</span><div class="cn"><b>Кафе и рестораны</b><div class="track"><i></i></div></div><span class="cv num">68 400 ₸</span></div>
-            <div class="catrow" style="--w:38%"><span class="ci" style="background:color-mix(in srgb,var(--g-peach) 55%,var(--surface))">🚕</span><div class="cn"><b>Транспорт</b><div class="track"><i></i></div></div><span class="cv num">49 900 ₸</span></div>
-          </div>
+        <div class="feat__foot">
+          <div class="feat__price"><b class="num">от 34 900 ₸</b><small> / человек · всё включено</small></div>
+          <a class="btn btn--primary" href="#book">Забронировать место</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FEATURE ROW B: goals -->
-<section class="section">
+<!-- GUIDES -->
+<section class="section" id="guides" style="padding-top:0">
   <div class="wrap">
-    <div class="feature feature--rev">
-      <div class="feature__text rv">
-        <span class="eyebrow">Цели</span>
-        <h2>Копите на мечту без напряга</h2>
-        <p class="lead">Поставьте цель и срок — Монета сама рассчитает комфортный ежемесячный взнос и будет откладывать понемногу, чтобы вы даже не заметили.</p>
-        <ul class="flist">
-          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Автопополнение в удобном ритме</li>
-          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Прогресс и дата достижения цели</li>
-          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Несколько целей одновременно</li>
-        </ul>
-        <a class="btn btn--primary" href="#get">Поставить первую цель</a>
-      </div>
-      <div class="feature__media rv rv-d2">
-        <div class="panel">
-          <div class="panel__head"><b>Мои цели</b><span>3 активные</span></div>
-          <div class="goals-grid">
-            <div class="goalcard" style="--v:32"><span class="gr" aria-hidden="true"><svg viewBox="0 0 42 42" width="58" height="58"><circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--border)" stroke-width="5"/><circle class="valc" cx="21" cy="21" r="15.915" fill="none" stroke="var(--g-teal)" stroke-width="5" stroke-linecap="round"/></svg></span><div class="gi"><b>Отпуск в Грузии</b><small>из 750 000 ₸</small></div><div class="gp"><b class="num">68%</b><small>к маю</small></div></div>
-            <div class="goalcard" style="--v:60"><span class="gr" aria-hidden="true"><svg viewBox="0 0 42 42" width="58" height="58"><circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--border)" stroke-width="5"/><circle class="valc" cx="21" cy="21" r="15.915" fill="none" stroke="var(--g-lilac)" stroke-width="5" stroke-linecap="round"/></svg></span><div class="gi"><b>Новый ноутбук</b><small>из 620 000 ₸</small></div><div class="gp"><b class="num">40%</b><small>к августу</small></div></div>
-            <div class="goalcard" style="--v:15"><span class="gr" aria-hidden="true"><svg viewBox="0 0 42 42" width="58" height="58"><circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--border)" stroke-width="5"/><circle class="valc" cx="21" cy="21" r="15.915" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/></svg></span><div class="gi"><b>Подушка безопасности</b><small>из 1 500 000 ₸</small></div><div class="gp"><b class="num">85%</b><small>почти</small></div></div>
-          </div>
-        </div>
-      </div>
+    <div class="head rv"><div><span class="eyebrow">Команда</span><h2>Вас поведут те, кто здесь вырос</h2><p>Гиды-инструкторы с опытом от 6 лет и любовью к этим горам.</p></div></div>
+    <div class="guides">
+      <article class="guide rv rv-d1"><div class="guide__ph ph"><img loading="lazy" src="https://i.pravatar.cc/500?img=12" alt="Ерлан"></div><div class="guide__b"><b>Ерлан Сапаров</b><div class="role">Старший гид · альпинизм</div><p>15 лет в горах Алатау, спасатель-инструктор. Знает Кольсай как свой двор.</p></div></article>
+      <article class="guide rv rv-d2"><div class="guide__ph ph"><img loading="lazy" src="https://i.pravatar.cc/500?img=45" alt="Аружан"></div><div class="guide__b"><b>Аружан Ким</b><div class="role">Гид · треккинг и фото</div><p>Покажет лучшие ракурсы и расскажет легенды каждого перевала.</p></div></article>
+      <article class="guide rv rv-d3"><div class="guide__ph ph"><img loading="lazy" src="https://i.pravatar.cc/500?img=68" alt="Данияр"></div><div class="guide__b"><b>Данияр Оспанов</b><div class="role">Гид · кемпинг и выживание</div><p>Ставит лагерь за 10 минут и готовит лучший плов на высоте 2 500 м.</p></div></article>
     </div>
   </div>
 </section>
 
-<!-- BAND -->
-<section class="section" style="padding-block:0">
+<!-- REVIEWS -->
+<section class="section" id="reviews" style="background:var(--bg-soft);border-block:1px solid var(--border)">
   <div class="wrap">
-    <div class="band rv">
-      <div class="band__bg" aria-hidden="true"></div>
-      <span class="eyebrow">Спокойнее с деньгами</span>
-      <h2>Меньше тревоги в конце месяца — больше денег к цели</h2>
-      <p class="lead">В среднем за первые три месяца пользователи Монеты находят 42 000 ₸ «утекающих» трат и перенаправляют их на цели.</p>
-      <a class="btn btn--primary" href="#get">Скачать Монету</a>
+    <div class="head rv" style="justify-content:center;text-align:center;flex-direction:column;align-items:center;margin-bottom:48px">
+      <span class="eyebrow" style="justify-content:center">Отзывы</span>
+      <h2>4,9 из 5 — и 2 100 историй</h2>
+    </div>
+    <div class="reviews">
+      <article class="review rv rv-d1"><div class="rs">★★★★★</div><p>«Ехали на один день на БАО, а получили лучший выходной за год. Гид Ерлан — отдельная любовь, столько всего рассказал. Вернёмся на Кольсай!»</p><div class="who"><span class="av"><img loading="lazy" src="https://i.pravatar.cc/128?img=32" alt="Динара"></span><div><b>Динара А.</b><span>Алматы · июнь 2026</span></div></div></article>
+      <article class="review rv rv-d2"><div class="rs">★★★★★</div><p>«Первый поход с ночёвкой — боялась, что не потяну. Малая группа, всё снаряжение дали, шли в своём темпе. Юрточный лагерь — сказка.»</p><div class="who"><span class="av"><img loading="lazy" src="https://i.pravatar.cc/128?img=47" alt="Мария"></span><div><b>Мария Т.</b><span>Астана · май 2026</span></div></div></article>
+      <article class="review rv rv-d3"><div class="rs">★★★★★</div><p>«Возили корпоратив на Чарын — 16 человек, всё чётко: трансфер вовремя, перекусы, фото. Организация на 10 из 10, коллеги в восторге.»</p><div class="who"><span class="av"><img loading="lazy" src="https://i.pravatar.cc/128?img=13" alt="Тимур"></span><div><b>Тимур Ж.</b><span>Алматы · июль 2026</span></div></div></article>
     </div>
   </div>
 </section>
 
-<!-- CATEGORIES -->
-<section class="section" id="categories">
-  <div class="wrap">
-    <div class="steps__head rv">
-      <span class="eyebrow" style="justify-content:center">Категории</span>
-      <h2 style="margin-top:14px">Каждая тенге — на своём месте</h2>
-      <p class="lead">Монета сама узнаёт магазины и сервисы и раскладывает траты. Бюджет по каждой категории — перед глазами.</p>
-    </div>
-    <div class="cats">
-      <article class="cat rv rv-d1" style="--w:71%"><div class="cat__top"><span class="cat__ic" style="background:color-mix(in srgb,var(--g-teal) 45%,var(--surface))">🛒</span><span><b>Продукты</b><small>Magnum, Small, Galmart</small></span></div><div class="cat__amt num">106 200 ₸</div><div class="cat__bud"><span>Бюджет 150 000 ₸</span><span class="num">71%</span></div><div class="cat__track"><i style="background:var(--g-teal)"></i></div></article>
-      <article class="cat rv rv-d2" style="--w:91%"><div class="cat__top"><span class="cat__ic" style="background:color-mix(in srgb,var(--g-lilac) 45%,var(--surface))">🍽️</span><span><b>Кафе и рестораны</b><small>Wolt, Glovo, кофейни</small></span></div><div class="cat__amt num">68 400 ₸</div><div class="cat__bud"><span>Бюджет 75 000 ₸</span><span class="num" style="color:var(--neg)">91%</span></div><div class="cat__track"><i style="background:var(--g-lilac)"></i></div></article>
-      <article class="cat rv rv-d3" style="--w:50%"><div class="cat__top"><span class="cat__ic" style="background:color-mix(in srgb,var(--g-peach) 50%,var(--surface))">🚕</span><span><b>Транспорт</b><small>Яндекс Go, InDrive, АЗС</small></span></div><div class="cat__amt num">49 900 ₸</div><div class="cat__bud"><span>Бюджет 100 000 ₸</span><span class="num">50%</span></div><div class="cat__track"><i style="background:var(--g-peach)"></i></div></article>
-      <article class="cat rv rv-d1" style="--w:38%"><div class="cat__top"><span class="cat__ic" style="background:color-mix(in srgb,var(--g-sky) 50%,var(--surface))">🎬</span><span><b>Развлечения</b><small>Кино, игры, подписки</small></span></div><div class="cat__amt num">22 700 ₸</div><div class="cat__bud"><span>Бюджет 60 000 ₸</span><span class="num">38%</span></div><div class="cat__track"><i style="background:var(--g-sky)"></i></div></article>
-      <article class="cat rv rv-d2" style="--w:24%"><div class="cat__top"><span class="cat__ic" style="background:color-mix(in srgb,var(--g-mint) 55%,var(--surface))">💊</span><span><b>Здоровье</b><small>Аптеки, клиники</small></span></div><div class="cat__amt num">14 300 ₸</div><div class="cat__bud"><span>Бюджет 60 000 ₸</span><span class="num">24%</span></div><div class="cat__track"><i style="background:var(--g-mint)"></i></div></article>
-      <article class="cat rv rv-d3" style="--w:62%"><div class="cat__top"><span class="cat__ic" style="background:color-mix(in srgb,var(--g-rose) 45%,var(--surface))">🏠</span><span><b>Дом и связь</b><small>Коммуналка, интернет</small></span></div><div class="cat__amt num">37 100 ₸</div><div class="cat__bud"><span>Бюджет 60 000 ₸</span><span class="num">62%</span></div><div class="cat__track"><i style="background:var(--g-rose)"></i></div></article>
-    </div>
-  </div>
-</section>
-
-<!-- SECURITY -->
-<section class="section" id="security">
-  <div class="wrap">
-    <div class="secure">
-      <div class="secure__grid">
-        <div class="rv">
-          <span class="eyebrow">Безопасность</span>
-          <h2 style="margin-top:14px">Ваши деньги видите только вы</h2>
-          <p class="lead" style="margin-top:16px">Монета читает операции только на просмотр и никогда не может ими двигать. Мы не храним данные карт и не продаём вашу историю — на этом просто не зарабатываем.</p>
-          <div class="sfeats">
-            <div class="sfeat"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></div><b>Шифрование банков</b><p>AES-256 и защищённое соединение, как в вашем банке.</p></div>
-            <div class="sfeat"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg></div><b>Face ID и код</b><p>Вход только по вашему лицу или отпечатку.</p></div>
-            <div class="sfeat"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><b>Только чтение</b><p>Мы видим траты, но не можем ничего списать.</p></div>
-            <div class="sfeat"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/><circle cx="12" cy="12" r="10"/></svg></div><b>Никакой рекламы</b><p>Не продаём и не показываем ваши данные третьим.</p></div>
-          </div>
-        </div>
-        <div class="shield rv rv-d2" aria-hidden="true">
-          <svg viewBox="0 0 220 240" fill="none">
-            <defs><linearGradient id="sh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--g-mint)"/><stop offset=".55" stop-color="var(--g-teal)"/><stop offset="1" stop-color="var(--accent)"/></linearGradient></defs>
-            <path d="M110 12 202 44v78c0 60-44 96-92 106-48-10-92-46-92-106V44z" fill="url(#sh)"/>
-            <path d="M110 12 202 44v78c0 60-44 96-92 106-48-10-92-46-92-106V44z" fill="#0b4f42" opacity=".08"/>
-            <path d="M74 120l24 24 48-56" stroke="#083f35" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
-            <text x="110" y="210" text-anchor="middle" font-size="20" font-weight="800" fill="#083f35" opacity=".8" font-family="Arial">₸</text>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STEPS -->
-<section class="section" id="how" style="background:var(--bg-soft);border-block:1px solid var(--border)">
-  <div class="wrap">
-    <div class="steps__head rv">
-      <span class="eyebrow" style="justify-content:center">Три шага</span>
-      <h2 style="margin-top:14px">От установки до первого инсайта — 5 минут</h2>
-      <p class="lead">Не нужно ничего заполнять руками. Монета всё поймёт сама.</p>
-    </div>
-    <div class="steps">
-      <article class="step rv rv-d1"><div class="step__n"></div><div class="step__line"></div><h3>Подключите счёт</h3><p>Выберите банк и войдите — безопасно, только на чтение операций.</p></article>
-      <article class="step rv rv-d2"><div class="step__n"></div><div class="step__line"></div><h3>Смотрите аналитику</h3><p>Монета раскладывает траты по категориям и показывает, куда уходят деньги.</p></article>
-      <article class="step rv rv-d3"><div class="step__n"></div><div class="step__line"></div><h3>Достигайте целей</h3><p>Ставьте бюджеты и цели — приложение подсказывает, сколько откладывать.</p></article>
-    </div>
-  </div>
-</section>
-
-<!-- STATS -->
-<section class="section">
-  <div class="wrap">
-    <div class="stats">
-      <div class="stat rv rv-d1"><div class="stat__n" data-to="180" data-suffix="к">0</div><div class="stat__l">пользователей в Казахстане</div></div>
-      <div class="stat rv rv-d2"><div class="stat__n" data-to="42000" data-suffix=" ₸">0</div><div class="stat__l">экономии за 3 месяца</div></div>
-      <div class="stat rv rv-d3"><div class="stat__n" data-to="6" data-suffix="">0</div><div class="stat__l">банков подключается</div></div>
-      <div class="stat rv rv-d4"><div class="stat__n" data-to="4.9" data-suffix="★">0</div><div class="stat__l">в App Store и Google Play</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- QUOTE -->
-<section class="section" style="padding-top:0">
-  <div class="wrap">
-    <div class="quote rv">
-      <div class="quote__mark" aria-hidden="true">“</div>
-      <blockquote>Думала, что и так знаю свои траты. Монета за неделю показала, что на доставку еды уходит как на аренду. Теперь коплю на отпуск — с тех же денег.</blockquote>
-      <div class="quote__by">
-        <div class="quote__av"><img src="https://i.pravatar.cc/128?img=32" alt="Динара Ахметова"></div>
-        <div style="text-align:left"><b>Динара Ахметова</b><span>дизайнер, Алматы</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="section" id="get">
+<!-- CTA / BOOK -->
+<section class="section" id="book">
   <div class="wrap">
     <div class="cta rv">
-      <div class="cta__bg" aria-hidden="true"></div>
-      <span class="eyebrow" style="justify-content:center">Бесплатно</span>
-      <h2>Начните видеть свои деньги уже сегодня</h2>
-      <p class="lead">Скачайте Монету, подключите счёт за минуту — и посмотрите, куда на самом деле уходит зарплата.</p>
-      <div class="stores">
-        <a class="store" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12.6c0-2 1.6-3 1.7-3-.9-1.4-2.4-1.6-2.9-1.6-1.2-.1-2.4.7-3 .7-.6 0-1.6-.7-2.6-.7-1.3 0-2.6.8-3.3 2-1.4 2.4-.4 6 1 8 .7 1 1.4 2 2.5 2 1 0 1.3-.6 2.5-.6s1.5.6 2.5.6 1.7-.9 2.4-1.9c.7-1 1-2 1-2.1-.1 0-2.3-.9-2.3-3zM14.6 6.2c.5-.7.9-1.6.8-2.5-.8 0-1.8.5-2.4 1.2-.5.6-1 1.5-.8 2.4.9 0 1.8-.5 2.4-1.1z"/></svg><span><small>Загрузите в</small><b>App Store</b></span></a>
-        <a class="store" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 2.5c-.3.2-.5.6-.5 1.1v16.8c0 .5.2.9.5 1.1l9.2-9.5L4 2.5zm10.3 8.5 2.4-2.5-9.9-5.6c-.4-.2-.8-.2-1 0l8.5 8.1zm0 2-8.5 8.1c.2.2.6.2 1 0l9.9-5.6-2.4-2.5zm5.4-3.4-2.1-1.2-2.7 2.6 2.7 2.6 2.1-1.2c.7-.4.7-1.2 0-1.6z"/></svg><span><small>Доступно в</small><b>Google Play</b></span></a>
+      <div class="cta__ph"><img loading="lazy" src="https://loremflickr.com/1400/700/mountains,sunrise,fog?lock=141" alt="Рассвет в горах"></div>
+      <div class="cta__scrim" aria-hidden="true"></div>
+      <div class="cta__in">
+        <span class="eyebrow">Свободные даты каждую неделю</span>
+        <h2>Горы ближе, чем кажется</h2>
+        <p>Напишите нам — подберём маршрут под вашу компанию, форму и настроение. Бронь за 2 минуты, оплата на месте или онлайн.</p>
+        <div class="cta__btns">
+          <a class="btn btn--light" href="#">Подобрать тур</a>
+          <a class="btn btn--ghost" href="#" style="color:#fff;border-color:rgba(255,255,255,.5)">Написать в WhatsApp</a>
+        </div>
       </div>
-      <p class="cta__note">Бесплатно навсегда · Премиум от 990 ₸/мес · Отмена в один клик</p>
     </div>
   </div>
 </section>
@@ -685,19 +457,19 @@ p{color:var(--ink-soft)}
   <div class="wrap">
     <div class="foot__grid">
       <div class="foot__brand">
-        <a class="brand" href="#top"><span class="brand__mark" aria-hidden="true">₸</span> Монета</a>
-        <p>Приложение для личных финансов. Видно, куда уходят деньги — и как накопить на то, что важно.</p>
+        <a class="brand" href="#top"><span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 19 9 8l4 6 2.5-3.5L21 19z" fill="currentColor" opacity=".9"/><circle cx="16.5" cy="7" r="2.2" fill="currentColor"/></svg></span> Тропа</a>
+        <p>Авторские туры по горам, каньонам и озёрам Казахстана. Малые группы, местные гиды, всё включено.</p>
         <div class="foot__soc">
           <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M21.9 4.3 18.7 19c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-4.9 9-8.1c.4-.3-.1-.5-.6-.2L6.3 12.9l-4.8-1.5c-1-.3-1-1 .2-1.5l18.7-7.2c.9-.3 1.6.2 1.3 1.6z"/></svg></a>
           <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
           <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12s0-3.3-.4-4.9c-.2-.9-.9-1.5-1.7-1.7C18.3 5 12 5 12 5s-6.3 0-7.9.4c-.8.2-1.5.8-1.7 1.7C2 8.7 2 12 2 12s0 3.3.4 4.9c.2.9.9 1.5 1.7 1.7C5.7 19 12 19 12 19s6.3 0 7.9-.4c.8-.2 1.5-.8 1.7-1.7.4-1.6.4-4.9.4-4.9zM10 15V9l5 3z"/></svg></a>
         </div>
       </div>
-      <div class="foot__col"><h4>Продукт</h4><a href="#features">Возможности</a><a href="#categories">Категории</a><a href="#security">Безопасность</a><a href="#get">Тарифы</a></div>
-      <div class="foot__col"><h4>Компания</h4><a href="#">О нас</a><a href="#">Блог</a><a href="#">Вакансии</a><a href="#">Контакты</a></div>
-      <div class="foot__col"><h4>Поддержка</h4><a href="#">Помощь</a><a href="#">Статус</a><a href="#">Условия</a><a href="#">Конфиденциальность</a></div>
+      <div class="foot__col"><h4>Туры</h4><a href="#tours">Горы Алматы</a><a href="#tours">Каньоны</a><a href="#tours">Озёра</a><a href="#tours">Многодневные</a></div>
+      <div class="foot__col"><h4>Компания</h4><a href="#guides">Гиды</a><a href="#reviews">Отзывы</a><a href="#">О нас</a><a href="#">Блог</a></div>
+      <div class="foot__col"><h4>Помощь</h4><a href="#">Как собраться</a><a href="#">Безопасность</a><a href="#">Оплата и возврат</a><a href="#book">Контакты</a></div>
     </div>
-    <div class="foot__bar"><span>© 2026 Монета. Все права защищены.</span><span class="made">Сделано с <span class="heart">♥</span> в Алматы</span></div>
+    <div class="foot__bar"><span>© 2026 Тропа. Все права защищены.</span><span class="made">Сделано с <span class="heart">♥</span> в Алматы</span></div>
   </div>
 </footer>
 
@@ -706,29 +478,29 @@ p{color:var(--ink-soft)}
   "use strict";
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* avatar with graceful fallback */
-  document.querySelectorAll(".quote__av img").forEach(function(img, idx){
+  /* photos: loremflickr -> picsum -> gradient, with fade-in */
+  document.querySelectorAll(".ph>img, .hero__bg img, .cta__ph img").forEach(function(img, idx){
     function ok(){ img.style.visibility="visible"; img.classList.add("on"); }
     function fail(){ img.classList.remove("on"); img.style.visibility="hidden"; }
-    function onerr(){ if(!img.dataset.fb){ img.dataset.fb="1"; img.classList.remove("on"); img.src="https://picsum.photos/seed/coin"+idx+"/160/160"; } else { fail(); } }
+    function onerr(){ if(!img.dataset.fb){ img.dataset.fb="1"; img.classList.remove("on"); img.src="https://picsum.photos/seed/tropa"+idx+"/800/600"; } else { fail(); } }
     img.addEventListener("load", ok); img.addEventListener("error", onerr);
     if(img.complete){ img.naturalWidth ? ok() : onerr(); }
   });
 
   /* theme */
   var root = document.documentElement, tbtn = document.getElementById("themeBtn");
-  try{ var saved = localStorage.getItem("moneta-theme"); if(saved) root.setAttribute("data-theme", saved); }catch(e){}
+  try{ var saved = localStorage.getItem("tropa-theme"); if(saved) root.setAttribute("data-theme", saved); }catch(e){}
   tbtn.addEventListener("click", function(){
     var cur = root.getAttribute("data-theme");
     if(!cur){ cur = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; }
     var next = cur === "dark" ? "light" : "dark";
     root.setAttribute("data-theme", next);
-    try{ localStorage.setItem("moneta-theme", next); }catch(e){}
+    try{ localStorage.setItem("tropa-theme", next); }catch(e){}
   });
 
-  /* nav shadow */
+  /* nav solid on scroll */
   var nav = document.getElementById("nav");
-  var onScroll = function(){ nav.classList.toggle("scrolled", window.scrollY > 12); };
+  var onScroll = function(){ nav.classList.toggle("scrolled", window.scrollY > 40); };
   onScroll(); window.addEventListener("scroll", onScroll, {passive:true});
 
   /* reveal */
@@ -742,23 +514,16 @@ p{color:var(--ink-soft)}
   function fmt(v, dec){ return dec ? v.toFixed(1).replace(".",",") : Math.round(v).toLocaleString("ru-RU"); }
   function animateStat(el){
     var to = parseFloat(el.getAttribute("data-to")), suffix = el.getAttribute("data-suffix") || "", dec = (to % 1 !== 0) ? 1 : 0;
-    var kilo = suffix === "к";
     if(reduce){ el.textContent = fmt(to, dec) + suffix; return; }
     var start = null;
     function fr(t){ if(!start) start = t; var p = Math.min((t - start)/1500, 1), val = to * (1 - Math.pow(1 - p, 3)); el.textContent = fmt(val, dec) + suffix; if(p < 1) requestAnimationFrame(fr); }
     requestAnimationFrame(fr);
   }
-  var stated = false, statEls = document.querySelectorAll(".stat__n");
+  var stated = false, statEls = document.querySelectorAll(".strip .num");
   if("IntersectionObserver" in window){
-    var sio = new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting && !stated){ stated = true; statEls.forEach(animateStat); sio.disconnect(); } }); }, {threshold:0.4});
-    var host = document.querySelector(".stats"); if(host) sio.observe(host);
+    var sio = new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting && !stated){ stated = true; statEls.forEach(animateStat); sio.disconnect(); } }); }, {threshold:0.3});
+    var host = document.querySelector(".strip"); if(host) sio.observe(host);
   } else { statEls.forEach(animateStat); }
-
-  /* hero parallax */
-  var mesh = document.querySelector(".mesh");
-  if(mesh && !reduce && window.matchMedia("(pointer:fine)").matches){
-    window.addEventListener("mousemove", function(ev){ mesh.style.transform = "translate(" + ((ev.clientX/window.innerWidth-0.5)*16) + "px," + ((ev.clientY/window.innerHeight-0.5)*16) + "px)"; }, {passive:true});
-  }
 })();
 </script>
 </body>
