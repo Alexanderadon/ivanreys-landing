@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Тропа — авторские туры по Казахстану</title>
-<meta name="description" content="Тропа — авторские туры по горам, каньонам и озёрам Казахстана. Малые группы, местные гиды, всё включено. Кольсай, Чарын, Большое Алматинское озеро, Шымбулак.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237fd8c4'/%3E%3Cstop offset='1' stop-color='%230e8f7e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='26' fill='url(%23g)'/%3E%3Cpath d='M18 74 42 34l16 24 10-14 14 30z' fill='%23093f38'/%3E%3Ccircle cx='70' cy='30' r='8' fill='%23fff' opacity='.9'/%3E%3C/svg%3E">
+<title>Бриз — соберите сайт из одной фразы</title>
+<meta name="description" content="Бриз — ИИ-конструктор сайтов. Опишите идею словами, и через минуту у вас готовый лендинг: тексты, блоки, свой домен. Без кода и дизайнеров.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ffc9d6'/%3E%3Cstop offset='.5' stop-color='%23dcccff'/%3E%3Cstop offset='1' stop-color='%235fd0b6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='26' fill='url(%23g)'/%3E%3Cpath d='M30 62c14 8 26 8 40 0M28 46c16 9 30 9 46 0M32 32c10 6 18 6 30 1' stroke='%2315141a' stroke-width='6' stroke-linecap='round' fill='none' opacity='.75'/%3E%3C/svg%3E">
 <style>
-/* reset */
+/* ============ reset ============ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 img,svg{display:block;max-width:100%}
@@ -15,192 +15,326 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 
-/* tokens */
-:root{color-scheme:light dark;--bg:#fbfaf6;--bg-soft:#f2efe7;--surface:#fff;--surface-2:#f7f4ec;--border:#e8e3d7;--border-strong:#dcd5c5;--ink:#1a1c19;--ink-soft:#585c52;--ink-faint:#8f9387;--pill:#1a1c19;--pill-ink:#fff;--pill-hover:#2e322b;--accent:#0e8f7e;--accent-deep:#0b6f62;--sun:#e8843c;--ring:rgba(14,143,126,.3);--sand:#e6d3b3;--sky:#bfe0e6;--leaf:#a9d6a3;--water:#8fcfd0;--stone:#c9c2b2;--shadow-sm:0 1px 2px rgba(26,28,20,.05),0 6px 16px -8px rgba(26,28,20,.14);--shadow-md:0 4px 8px rgba(26,28,20,.05),0 22px 50px -20px rgba(26,28,20,.28);--shadow-lg:0 40px 90px -34px rgba(20,30,20,.4);--font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Inter",system-ui,"Helvetica Neue",Arial,"Apple Color Emoji",sans-serif;--font-mono:"SF Mono","JetBrains Mono","Cascadia Code",ui-monospace,"Consolas",monospace;--wrap:1200px;--r:16px;--r-lg:24px;--r-xl:34px}
-@media (prefers-color-scheme:dark){:root{--bg:#0e120f;--bg-soft:#121712;--surface:#161c17;--surface-2:#1b221c;--border:#26302a;--border-strong:#334037;--ink:#eef2ea;--ink-soft:#a7b0a3;--ink-faint:#767f74;--pill:#eef2ea;--pill-ink:#111713;--pill-hover:#dbe2d6;--accent:#2fc7ad;--accent-deep:#7fecd7;--sun:#f39a58;--ring:rgba(47,199,173,.34);--shadow-sm:0 1px 2px rgba(0,0,0,.45),0 6px 16px -8px rgba(0,0,0,.65);--shadow-md:0 4px 10px rgba(0,0,0,.45),0 26px 60px -22px rgba(0,0,0,.75);--shadow-lg:0 46px 100px -34px rgba(0,0,0,.8)}}
-:root[data-theme="light"]{color-scheme:light;--bg:#fbfaf6;--bg-soft:#f2efe7;--surface:#fff;--surface-2:#f7f4ec;--border:#e8e3d7;--border-strong:#dcd5c5;--ink:#1a1c19;--ink-soft:#585c52;--ink-faint:#8f9387;--pill:#1a1c19;--pill-ink:#fff;--pill-hover:#2e322b;--accent:#0e8f7e;--accent-deep:#0b6f62;--sun:#e8843c;--ring:rgba(14,143,126,.3);--shadow-sm:0 1px 2px rgba(26,28,20,.05),0 6px 16px -8px rgba(26,28,20,.14);--shadow-md:0 4px 8px rgba(26,28,20,.05),0 22px 50px -20px rgba(26,28,20,.28);--shadow-lg:0 40px 90px -34px rgba(20,30,20,.4)}
-:root[data-theme="dark"]{color-scheme:dark;--bg:#0e120f;--bg-soft:#121712;--surface:#161c17;--surface-2:#1b221c;--border:#26302a;--border-strong:#334037;--ink:#eef2ea;--ink-soft:#a7b0a3;--ink-faint:#767f74;--pill:#eef2ea;--pill-ink:#111713;--pill-hover:#dbe2d6;--accent:#2fc7ad;--accent-deep:#7fecd7;--sun:#f39a58;--ring:rgba(47,199,173,.34);--shadow-sm:0 1px 2px rgba(0,0,0,.45),0 6px 16px -8px rgba(0,0,0,.65);--shadow-md:0 4px 10px rgba(0,0,0,.45),0 26px 60px -22px rgba(0,0,0,.75);--shadow-lg:0 46px 100px -34px rgba(0,0,0,.8)}
+/* ============ tokens ============ */
+:root{
+  color-scheme:light dark;
+  --bg:#ffffff;
+  --bg-soft:#f6f5fb;
+  --surface:#ffffff;
+  --surface-2:#faf9ff;
+  --border:#ececf3;
+  --border-strong:#e0dfea;
+  --ink:#15141a;
+  --ink-soft:#55535f;
+  --ink-faint:#8d8a99;
+  --pill:#16151b;
+  --pill-ink:#ffffff;
+  --pill-hover:#2a2833;
+  --accent:#0fa98e;
+  --accent-deep:#0b7d69;
+  --ring:rgba(15,169,142,.32);
+  --g-rose:#ffc9d6; --g-peach:#ffe1c4; --g-lilac:#dccbff;
+  --g-sky:#c6e2ff;  --g-mint:#b8edda;  --g-teal:#5fd0b6;
+  --grain:.5;
+  --shadow-sm:0 1px 2px rgba(20,19,26,.05), 0 4px 12px -6px rgba(20,19,26,.10);
+  --shadow-md:0 2px 4px rgba(20,19,26,.04), 0 18px 48px -18px rgba(20,19,26,.20);
+  --shadow-lg:0 30px 80px -30px rgba(30,24,60,.28);
+  --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Inter",system-ui,"Helvetica Neue",Arial,"Apple Color Emoji",sans-serif;
+  --font-mono:"SF Mono","JetBrains Mono","Cascadia Code",ui-monospace,"Consolas","Liberation Mono",monospace;
+  --wrap:1180px;
+  --r-sm:12px; --r:18px; --r-lg:26px; --r-xl:34px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0c0b10;
+    --bg-soft:#100f17;
+    --surface:#151420;
+    --surface-2:#1a1826;
+    --border:#262433;
+    --border-strong:#312e40;
+    --ink:#f4f3f8;
+    --ink-soft:#adaabb;
+    --ink-faint:#7d7a8c;
+    --pill:#f4f3f8;
+    --pill-ink:#141320;
+    --pill-hover:#e3e1ee;
+    --accent:#38d4b6;
+    --accent-deep:#7defd3;
+    --ring:rgba(56,212,182,.34);
+    --grain:.85;
+    --shadow-sm:0 1px 2px rgba(0,0,0,.4), 0 6px 16px -8px rgba(0,0,0,.6);
+    --shadow-md:0 2px 6px rgba(0,0,0,.4), 0 24px 60px -22px rgba(0,0,0,.7);
+    --shadow-lg:0 40px 90px -30px rgba(0,0,0,.75);
+  }
+}
+:root[data-theme="light"]{
+  color-scheme:light;
+  --bg:#ffffff; --bg-soft:#f6f5fb; --surface:#ffffff; --surface-2:#faf9ff;
+  --border:#ececf3; --border-strong:#e0dfea;
+  --ink:#15141a; --ink-soft:#55535f; --ink-faint:#8d8a99;
+  --pill:#16151b; --pill-ink:#ffffff; --pill-hover:#2a2833;
+  --accent:#0fa98e; --accent-deep:#0b7d69; --ring:rgba(15,169,142,.32);
+  --grain:.5;
+  --shadow-sm:0 1px 2px rgba(20,19,26,.05), 0 4px 12px -6px rgba(20,19,26,.10);
+  --shadow-md:0 2px 4px rgba(20,19,26,.04), 0 18px 48px -18px rgba(20,19,26,.20);
+  --shadow-lg:0 30px 80px -30px rgba(30,24,60,.28);
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0c0b10; --bg-soft:#100f17; --surface:#151420; --surface-2:#1a1826;
+  --border:#262433; --border-strong:#312e40;
+  --ink:#f4f3f8; --ink-soft:#adaabb; --ink-faint:#7d7a8c;
+  --pill:#f4f3f8; --pill-ink:#141320; --pill-hover:#e3e1ee;
+  --accent:#38d4b6; --accent-deep:#7defd3; --ring:rgba(56,212,182,.34);
+  --grain:.85;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.4), 0 6px 16px -8px rgba(0,0,0,.6);
+  --shadow-md:0 2px 6px rgba(0,0,0,.4), 0 24px 60px -22px rgba(0,0,0,.7);
+  --shadow-lg:0 40px 90px -30px rgba(0,0,0,.75);
+}
 
-/* base */
-body{font-family:var(--font-sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+/* ============ base ============ */
+body{
+  font-family:var(--font-sans);
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
 .wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:24px}
-.section{padding-block:clamp(70px,10vw,120px)}
-.eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);font-weight:600;display:inline-flex;align-items:center;gap:9px}
-.eyebrow::before{content:"";width:22px;height:1.5px;background:currentColor;opacity:.7}
-h1,h2,h3{line-height:1.04;letter-spacing:-.03em;font-weight:800;text-wrap:balance;color:var(--ink)}
-h1{font-size:clamp(2.6rem,6.4vw,4.8rem)}
-h2{font-size:clamp(2rem,4.4vw,3.3rem)}
-h3{font-size:1.24rem;letter-spacing:-.02em;font-weight:750}
+.section{padding-block:clamp(72px,11vw,132px)}
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent-deep);font-weight:600;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.eyebrow::before{content:"";width:22px;height:1.5px;background:currentColor;opacity:.6}
+h1,h2,h3{line-height:1.05;letter-spacing:-.03em;font-weight:800;text-wrap:balance;color:var(--ink)}
+h1{font-size:clamp(2.5rem,6.4vw,4.55rem)}
+h2{font-size:clamp(2rem,4.2vw,3.15rem)}
+h3{font-size:1.22rem;letter-spacing:-.02em;font-weight:750}
 p{color:var(--ink-soft)}
-.lead{font-size:clamp(1.06rem,1.7vw,1.3rem);color:var(--ink-soft);text-wrap:pretty;max-width:56ch}
-.num{font-variant-numeric:tabular-nums}
+.lead{font-size:clamp(1.05rem,1.7vw,1.28rem);color:var(--ink-soft);text-wrap:pretty;max-width:56ch}
 
-/* buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;height:52px;padding:0 26px;border-radius:999px;font-weight:650;font-size:1rem;letter-spacing:-.01em;white-space:nowrap;transition:transform .18s cubic-bezier(.2,.7,.3,1),background .2s,box-shadow .25s,border-color .2s,color .2s;will-change:transform}
-.btn--primary{background:var(--accent);color:#fff;box-shadow:0 8px 24px -10px var(--ring)}
-.btn--primary:hover{background:var(--accent-deep);transform:translateY(-2px);box-shadow:0 14px 34px -12px var(--ring)}
-.btn--dark{background:var(--pill);color:var(--pill-ink)}
-.btn--dark:hover{background:var(--pill-hover);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+/* ============ buttons ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  height:50px;padding:0 24px;border-radius:999px;font-weight:650;font-size:.98rem;
+  letter-spacing:-.01em;white-space:nowrap;
+  transition:transform .18s cubic-bezier(.2,.7,.3,1),background .2s,box-shadow .25s,border-color .2s;
+  will-change:transform;
+}
+.btn--primary{background:var(--pill);color:var(--pill-ink);box-shadow:var(--shadow-sm)}
+.btn--primary:hover{background:var(--pill-hover);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.btn--primary:active{transform:translateY(0)}
 .btn--ghost{background:transparent;color:var(--ink);border:1.5px solid var(--border-strong)}
 .btn--ghost:hover{border-color:var(--ink);transform:translateY(-2px);background:var(--surface-2)}
-.btn--light{background:#fff;color:#16201c}
-.btn--light:hover{transform:translateY(-2px);box-shadow:0 16px 40px -14px rgba(0,0,0,.4)}
-.btn--sm{height:44px;padding:0 20px;font-size:.94rem}
-.btn .arw{transition:transform .2s}.btn:hover .arw{transform:translateX(3px)}
+.btn--sm{height:42px;padding:0 18px;font-size:.92rem}
+.btn .arw{transition:transform .2s}
+.btn:hover .arw{transform:translateX(3px)}
 
-/* photo with graceful fallback */
-.ph{position:relative;overflow:hidden;background:linear-gradient(150deg,var(--water),var(--leaf) 52%,var(--accent))}
-.ph>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s ease}
-.ph>img.on{opacity:1}
-
-/* nav */
-.nav{position:sticky;top:0;z-index:70;color:#fff;transition:color .3s}
-.nav::before{content:"";position:absolute;inset:0;background:transparent;border-bottom:1px solid transparent;backdrop-filter:blur(0);transition:background .3s,border-color .3s,backdrop-filter .3s;pointer-events:none}
-.nav.scrolled{color:var(--ink)}
-.nav.scrolled::before{background:color-mix(in srgb,var(--bg) 80%,transparent);border-bottom-color:var(--border);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);box-shadow:var(--shadow-sm)}
-.nav__in{position:relative;display:flex;align-items:center;justify-content:space-between;height:74px;gap:24px}
-.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.2rem;letter-spacing:-.03em}
-.brand__mark{width:34px;height:34px;border-radius:11px;background:linear-gradient(140deg,var(--water),var(--accent));position:relative;flex:none;box-shadow:var(--shadow-sm)}
+/* ============ nav ============ */
+.nav{position:sticky;top:0;z-index:60;transition:background .3s,border-color .3s,box-shadow .3s}
+.nav::before{content:"";position:absolute;inset:0;backdrop-filter:blur(0);transition:backdrop-filter .3s;pointer-events:none}
+.nav.scrolled{background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--border);box-shadow:var(--shadow-sm)}
+.nav.scrolled::before{backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4)}
+.nav__in{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px;position:relative}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.16rem;letter-spacing:-.03em}
+.brand__mark{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,var(--g-rose),var(--g-lilac) 46%,var(--g-teal));position:relative;box-shadow:var(--shadow-sm);flex:none}
 .brand__mark svg{position:absolute;inset:0;margin:auto;width:22px;height:22px}
-.nav__links{display:flex;gap:4px;align-items:center}
-.nav__links a{padding:9px 14px;border-radius:10px;font-size:.96rem;font-weight:550;color:currentColor;opacity:.82;transition:opacity .2s,background .2s}
-.nav__links a:hover{opacity:1;background:color-mix(in srgb,currentColor 12%,transparent)}
-.nav__cta{display:flex;gap:9px;align-items:center}
-.iconbtn{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:currentColor;border:1.5px solid color-mix(in srgb,currentColor 30%,transparent);transition:.2s}
-.iconbtn:hover{background:color-mix(in srgb,currentColor 12%,transparent)}
+.nav__links{display:flex;gap:6px;align-items:center}
+.nav__links a{padding:8px 13px;border-radius:9px;color:var(--ink-soft);font-size:.95rem;font-weight:520;transition:color .2s,background .2s}
+.nav__links a:hover{color:var(--ink);background:var(--surface-2)}
+.nav__cta{display:flex;gap:8px;align-items:center}
+.iconbtn{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;color:var(--ink-soft);border:1.5px solid var(--border);transition:.2s}
+.iconbtn:hover{color:var(--ink);border-color:var(--border-strong);background:var(--surface-2)}
+.nav__burger{display:none}
 
-/* hero */
-.hero{position:relative;min-height:min(88vh,780px);display:flex;align-items:flex-end;margin-top:-74px;padding-top:74px;overflow:hidden}
-.hero__bg{position:absolute;inset:0;z-index:-2;background:linear-gradient(150deg,#5a7d78,#37504a)}
-.hero__bg img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s ease}
-.hero__bg img.on{opacity:1}
-.hero__scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,16,14,.55) 0%,rgba(10,16,14,.15) 34%,rgba(10,16,14,.35) 70%,rgba(10,16,14,.82) 100%)}
-.hero__in{width:100%;max-width:var(--wrap);margin-inline:auto;padding:0 24px clamp(40px,6vw,72px);color:#fff}
-.hero .eyebrow{color:#bff0e4}
-.hero h1{color:#fff;max-width:16ch;margin-top:16px;text-shadow:0 2px 30px rgba(0,0,0,.3)}
-.hero__sub{color:rgba(255,255,255,.9);font-size:clamp(1.06rem,1.7vw,1.3rem);max-width:52ch;margin-top:20px;text-wrap:pretty}
-/* finder bar */
-.finder{margin-top:32px;background:color-mix(in srgb,#fff 92%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:18px;padding:10px;display:flex;gap:8px;box-shadow:var(--shadow-md);max-width:720px;flex-wrap:wrap}
-.finder__f{flex:1;min-width:150px;display:flex;flex-direction:column;gap:2px;padding:8px 14px;border-radius:12px;transition:background .2s;cursor:pointer}
-.finder__f:hover{background:var(--surface-2)}
-.finder__f small{font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint)}
-.finder__f b{font-size:.98rem;font-weight:650;color:var(--ink);display:flex;align-items:center;gap:6px}
-.finder .btn{flex:none}
-.hero__trust{margin-top:22px;display:flex;gap:22px;flex-wrap:wrap;font-size:.9rem;color:rgba(255,255,255,.9);font-weight:500}
-.hero__trust span{display:inline-flex;align-items:center;gap:7px}
-.hero__trust b{color:#fff;font-weight:800}
+/* ============ hero ============ */
+.hero{position:relative;text-align:center;padding-top:clamp(48px,7vw,86px);padding-bottom:clamp(56px,8vw,96px);overflow:hidden}
+.hero__mesh{position:absolute;inset:-20% -10% auto;height:135%;z-index:-2;filter:blur(8px)}
+.hero__veil{position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(64% 52% at 50% 37%,var(--bg) 8%,color-mix(in srgb,var(--bg) 42%,transparent) 44%,transparent 74%)}
+.mesh{position:absolute;inset:0}
+.mesh b{position:absolute;border-radius:50%;filter:blur(64px);opacity:.5;mix-blend-mode:multiply}
+:root[data-theme="dark"] .mesh b,
+.mesh b.dk{mix-blend-mode:screen}
+@media (prefers-color-scheme:dark){.mesh b{mix-blend-mode:screen;opacity:.55}}
+:root[data-theme="light"] .mesh b{mix-blend-mode:multiply;opacity:.5}
+:root[data-theme="dark"] .mesh b{mix-blend-mode:screen;opacity:.55}
+.mesh .b1{width:44vw;height:44vw;left:-6%;top:-8%;background:var(--g-rose);animation:drift1 22s ease-in-out infinite}
+.mesh .b2{width:40vw;height:40vw;right:-4%;top:-14%;background:var(--g-lilac);animation:drift2 26s ease-in-out infinite}
+.mesh .b3{width:46vw;height:46vw;left:22%;top:24%;background:var(--g-teal);animation:drift3 24s ease-in-out infinite}
+.mesh .b4{width:30vw;height:30vw;right:14%;top:30%;background:var(--g-peach);animation:drift1 30s ease-in-out infinite reverse}
+.grain{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:var(--grain);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  mix-blend-mode:soft-light}
+.badge{display:inline-flex;align-items:center;gap:9px;padding:7px 15px 7px 8px;border-radius:999px;background:color-mix(in srgb,var(--surface) 86%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--border-strong);box-shadow:var(--shadow-md);font-size:.86rem;color:var(--ink-soft);font-weight:520;margin-bottom:26px}
+.badge b{color:var(--ink);font-weight:700}
+.badge .dot{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,var(--g-rose),var(--g-teal));display:grid;place-items:center;font-size:11px}
+.hero h1{margin-inline:auto;max-width:15ch}
+.hero .lead{margin:22px auto 0;text-align:center}
+.hero__cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.hero__trust{margin-top:18px;font-size:.85rem;font-weight:500;color:var(--ink-soft);display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.hero__trust span{display:inline-flex;align-items:center;gap:6px}
+.hero__trust .ok{color:var(--accent-deep)}
 
-/* stats strip */
-.strip{background:var(--ink);color:#fff}
-:root[data-theme="dark"] .strip{background:#060a08;border-block:1px solid var(--border)}
-.strip__in{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding-block:34px}
-.strip .st{text-align:center;border-left:1px solid rgba(255,255,255,.14)}
-.strip .st:first-child{border-left:none}
-.strip .st b{display:block;font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;letter-spacing:-.03em;color:#fff}
-.strip .st span{font-size:.86rem;color:rgba(255,255,255,.7)}
+/* prompt demo */
+.demo{max-width:760px;margin:44px auto 0;text-align:left}
+.prompt{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--border-strong);border-radius:16px;padding:12px 12px 12px 18px;box-shadow:var(--shadow-md);position:relative}
+.prompt::after{content:"";position:absolute;inset:-1px;border-radius:17px;padding:1px;background:linear-gradient(120deg,var(--g-rose),var(--g-lilac),var(--g-teal));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .3s;pointer-events:none}
+.prompt:focus-within::after{opacity:.9}
+.prompt__spark{color:var(--accent);flex:none;font-size:1.05rem}
+.prompt__text{flex:1;font-size:1.02rem;color:var(--ink);min-height:1.5em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prompt__text .ph{color:var(--ink-faint)}
+.caret{display:inline-block;width:2px;height:1.05em;background:var(--accent);vertical-align:-2px;margin-left:1px;animation:blink 1.05s steps(1) infinite}
+.prompt__go{flex:none}
+.preview{margin-top:14px;border:1px solid var(--border);border-radius:16px;background:var(--surface-2);overflow:hidden;height:0;opacity:0;transition:height .5s cubic-bezier(.2,.7,.3,1),opacity .4s}
+.preview.on{height:232px;opacity:1}
+.preview__bar{height:34px;display:flex;align-items:center;gap:6px;padding:0 14px;border-bottom:1px solid var(--border);background:var(--surface)}
+.preview__bar i{width:9px;height:9px;border-radius:50%;background:var(--border-strong)}
+.preview__bar .url{margin-left:10px;font-family:var(--font-mono);font-size:11px;color:var(--ink-faint)}
+.preview__body{padding:16px;position:relative;height:198px}
+.sk{position:absolute;inset:16px;display:flex;flex-direction:column;gap:11px;transition:opacity .35s}
+.sk i{display:block;border-radius:7px;background:linear-gradient(100deg,var(--border) 30%,var(--surface) 50%,var(--border) 70%);background-size:220% 100%;animation:shimmer 1.25s linear infinite}
+.sk i:nth-child(1){width:38%;height:16px}
+.sk i:nth-child(2){width:70%;height:26px}
+.sk i:nth-child(3){width:52%;height:14px}
+.sk .row{display:flex;gap:11px;margin-top:4px}
+.sk .row i{flex:1;height:58px;animation-delay:.1s}
+.mock{position:absolute;inset:16px;opacity:0;transform:translateY(8px) scale(.98);transition:opacity .5s .05s,transform .5s .05s;display:flex;flex-direction:column;gap:10px}
+.mock .m-tag{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep)}
+.mock .m-h{font-weight:800;font-size:1.15rem;letter-spacing:-.02em;line-height:1.1;max-width:80%}
+.mock .m-p{font-size:.8rem;color:var(--ink-faint);max-width:88%}
+.mock .m-cards{display:flex;gap:10px;margin-top:auto}
+.mock .m-cards i{flex:1;height:52px;border-radius:9px;position:relative;overflow:hidden}
+.mock .m-cards i:nth-child(1){background:linear-gradient(135deg,var(--g-rose),#fff0)}
+.mock .m-cards i:nth-child(2){background:linear-gradient(135deg,var(--g-lilac),#fff0)}
+.mock .m-cards i:nth-child(3){background:linear-gradient(135deg,var(--g-mint),#fff0)}
+.preview.done .sk{opacity:0}
+.preview.done .mock{opacity:1;transform:none}
 
-/* section head */
-.head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:44px;flex-wrap:wrap}
-.head h2{margin-top:14px}
-.head p{max-width:44ch;margin-top:10px}
+/* ============ card row ============ */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px;box-shadow:var(--shadow-sm);transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,border-color .3s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:var(--border-strong)}
+.card__art{height:118px;border-radius:16px;margin-bottom:20px;position:relative;overflow:hidden}
+.card__art .chip{position:absolute;border-radius:7px;box-shadow:0 6px 16px -6px rgba(20,19,26,.35);animation:float 6s ease-in-out infinite}
+.card:nth-child(1) .card__art{background:linear-gradient(150deg,var(--g-mint),color-mix(in srgb,var(--g-mint) 30%,var(--surface)))}
+.card:nth-child(2) .card__art{background:linear-gradient(150deg,var(--g-lilac),color-mix(in srgb,var(--g-lilac) 30%,var(--surface)))}
+.card:nth-child(3) .card__art{background:linear-gradient(150deg,var(--g-peach),color-mix(in srgb,var(--g-peach) 30%,var(--surface)))}
+.card:nth-child(4) .card__art{background:linear-gradient(150deg,var(--g-sky),color-mix(in srgb,var(--g-sky) 30%,var(--surface)))}
+.card__ic{position:absolute;left:16px;top:16px;width:38px;height:38px;border-radius:11px;background:var(--surface);display:grid;place-items:center;box-shadow:var(--shadow-sm)}
+.card__ic svg{width:20px;height:20px}
+.card h3{margin-bottom:8px}
+.card p{font-size:.94rem}
+.card__art .c1{width:44px;height:44px;right:18px;top:20px;background:#fff;opacity:.75}
+.card__art .c2{width:60px;height:14px;right:34px;bottom:22px;background:#fff;opacity:.6;animation-delay:1s}
 
-/* tours */
-.tours{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.tour{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s;display:flex;flex-direction:column}
-.tour:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
-.tour__ph{aspect-ratio:4/3.4;position:relative}
-.tour__ph .tag{position:absolute;left:12px;top:12px;z-index:2;background:color-mix(in srgb,#fff 90%,transparent);color:#16201c;font-size:.72rem;font-weight:700;padding:5px 11px;border-radius:999px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-.tour__ph .fav{position:absolute;right:12px;top:12px;z-index:2;width:34px;height:34px;border-radius:50%;background:color-mix(in srgb,#fff 88%,transparent);display:grid;place-items:center;color:#16201c}
-.tour__b{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1}
-.tour__b h3{margin-bottom:5px}
-.tour__loc{font-size:.85rem;color:var(--ink-faint);display:flex;align-items:center;gap:5px;margin-bottom:14px}
-.tour__meta{display:flex;gap:14px;font-size:.82rem;color:var(--ink-soft);margin-top:auto;padding-top:14px;border-top:1px solid var(--border)}
-.tour__meta span{display:inline-flex;align-items:center;gap:5px}
-.tour__foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
-.tour__price b{font-size:1.15rem;font-weight:800;letter-spacing:-.02em}
-.tour__price small{font-size:.78rem;color:var(--ink-faint)}
-.stars{color:var(--sun);font-size:.82rem;letter-spacing:1px}
-.stars b{color:var(--ink);font-weight:700}
+/* ============ gradient band ============ */
+.band{position:relative;border-radius:var(--r-xl);padding:clamp(40px,6vw,72px);overflow:hidden;text-align:center;box-shadow:var(--shadow-md)}
+.band__bg{position:absolute;inset:0;z-index:-1;background:
+  radial-gradient(60% 90% at 12% 12%,var(--g-rose),transparent 60%),
+  radial-gradient(60% 90% at 88% 8%,var(--g-peach),transparent 55%),
+  radial-gradient(80% 120% at 78% 100%,var(--g-teal),transparent 60%),
+  radial-gradient(90% 120% at 20% 100%,var(--g-lilac),transparent 62%),
+  var(--surface-2)}
+:root[data-theme="dark"] .band__bg{opacity:.85}
+.band h2{max-width:18ch;margin:14px auto 0;color:var(--ink)}
+.band .lead{margin:16px auto 0;text-align:center}
+.band .btn{margin-top:28px}
+.band .eyebrow{color:var(--ink);opacity:.8}
 
-/* gallery */
-.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:16px}
-.gcell{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm)}
-.gcell .ph{position:absolute;inset:0}
-.gcell::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(8,14,12,.62));z-index:1;opacity:.85;transition:opacity .3s}
-.gcell:hover::after{opacity:1}
-.gcell figcaption{position:absolute;z-index:2;left:16px;bottom:14px;color:#fff}
-.gcell figcaption b{display:block;font-size:1rem;font-weight:750;letter-spacing:-.01em}
-.gcell figcaption span{font-size:.78rem;opacity:.85}
-.gcell img{transition:transform .6s cubic-bezier(.2,.7,.3,1)}
-.gcell:hover img{transform:scale(1.06)}
-.g-a{grid-column:span 2;grid-row:span 2}
-.g-d{grid-column:span 2}
+/* ============ logos ============ */
+.logos{text-align:center}
+.logos__t{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.marquee{margin-top:26px;position:relative;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marquee__row{display:flex;gap:60px;width:max-content;animation:scrollx 32s linear infinite}
+.marquee:hover .marquee__row{animation-play-state:paused}
+.logo{display:flex;align-items:center;gap:9px;color:var(--ink-faint);font-weight:750;font-size:1.18rem;letter-spacing:-.02em;white-space:nowrap;transition:color .3s;opacity:.72}
+.logo:hover{color:var(--ink);opacity:1}
+.logo svg{width:22px;height:22px}
 
-/* why */
-.why{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.why .f{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:26px;box-shadow:var(--shadow-sm);transition:transform .3s,box-shadow .3s}
-.why .f:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
-.why .fi{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px}
-.why .f:nth-child(1) .fi{background:color-mix(in srgb,var(--leaf) 45%,var(--surface))}
-.why .f:nth-child(2) .fi{background:color-mix(in srgb,var(--water) 45%,var(--surface))}
-.why .f:nth-child(3) .fi{background:color-mix(in srgb,var(--sand) 55%,var(--surface))}
-.why .f:nth-child(4) .fi{background:color-mix(in srgb,var(--sky) 55%,var(--surface))}
-.why .fi svg{width:26px;height:26px}
-.why .f h3{margin-bottom:8px}
-.why .f p{font-size:.93rem}
+/* ============ feature rows ============ */
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center}
+.feature--rev .feature__media{order:-1}
+.feature h2{margin:16px 0 0}
+.feature .lead{margin-top:18px;font-size:1.08rem}
+.flist{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:13px}
+.flist li{display:flex;gap:12px;align-items:flex-start;color:var(--ink-soft);font-size:1rem}
+.flist .tick{flex:none;width:24px;height:24px;border-radius:8px;background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent-deep);display:grid;place-items:center;margin-top:1px}
+.flist .tick svg{width:14px;height:14px}
+.feature .btn{margin-top:30px}
+.media{position:relative;aspect-ratio:5/4.2;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid var(--border)}
+.media__grad{position:absolute;inset:0}
+.media--a .media__grad{background:
+  radial-gradient(70% 80% at 20% 20%,var(--g-lilac),transparent 60%),
+  radial-gradient(80% 90% at 90% 30%,var(--g-rose),transparent 55%),
+  conic-gradient(from 200deg at 60% 100%,var(--g-teal),var(--g-sky),var(--g-lilac),var(--g-teal))}
+.media--b .media__grad{background:
+  radial-gradient(60% 70% at 80% 20%,var(--g-peach),transparent 60%),
+  radial-gradient(90% 90% at 15% 80%,var(--g-teal),transparent 60%),
+  conic-gradient(from 40deg at 30% 30%,var(--g-rose),var(--g-lilac),var(--g-sky),var(--g-rose))}
+.media__grain{position:absolute;inset:0;opacity:calc(var(--grain) * .8);mix-blend-mode:soft-light;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* floating UI chips inside media */
+.uichip{position:absolute;background:var(--surface);border:1px solid var(--border);border-radius:13px;box-shadow:var(--shadow-md);padding:12px 14px;display:flex;align-items:center;gap:10px;font-size:.85rem;font-weight:600;color:var(--ink)}
+.uichip .k{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex:none}
+.uichip small{display:block;font-weight:500;color:var(--ink-faint);font-size:.74rem}
+.media--a .u1{left:18px;top:22px;animation:float 7s ease-in-out infinite}
+.media--a .u2{right:18px;bottom:24px;animation:float 8s ease-in-out infinite reverse}
+.media--b .u1{right:20px;top:26px;animation:float 7.5s ease-in-out infinite}
+.media--b .u2{left:20px;bottom:26px;animation:float 8.5s ease-in-out infinite reverse}
+.media--b .u3{left:50%;top:16px;transform:translateX(-50%);animation:float 6.5s ease-in-out infinite}
 
-/* featured */
-.feat{position:relative;border-radius:var(--r-xl);overflow:hidden;background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-md);display:grid;grid-template-columns:1.1fr .9fr}
-.feat__ph{position:relative;min-height:440px}
-.feat__ph .ph{position:absolute;inset:0}
-.feat__ph .badge{position:absolute;left:20px;top:20px;z-index:2;background:var(--sun);color:#fff;font-size:.78rem;font-weight:700;padding:7px 14px;border-radius:999px;box-shadow:var(--shadow-sm)}
-.feat__b{padding:clamp(30px,4vw,52px)}
-.feat__b .eyebrow{color:var(--accent-deep)}
-.feat__b h2{margin:14px 0 12px;font-size:clamp(1.7rem,3vw,2.4rem)}
-.days{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:16px}
-.days li{display:flex;gap:16px}
-.days .d{flex:none;width:52px;font-family:var(--font-mono);font-size:.72rem;font-weight:700;letter-spacing:.05em;color:var(--accent-deep);padding-top:2px}
-.days .dt b{display:block;font-size:.98rem;font-weight:700;margin-bottom:2px}
-.days .dt p{font-size:.88rem}
-.days .ln{position:relative}
-.days li:not(:last-child) .d::after{content:"";position:absolute;left:5px;top:20px;bottom:-16px;width:1.5px;background:var(--border)}
-.feat__foot{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:30px;flex-wrap:wrap}
-.feat__price b{font-size:1.5rem;font-weight:800;letter-spacing:-.03em}
-.feat__price small{font-size:.82rem;color:var(--ink-faint)}
+/* ============ steps ============ */
+.steps__head{text-align:center;max-width:46ch;margin:0 auto 52px}
+.steps__head .lead{margin:16px auto 0}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:s}
+.step{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:30px 26px 28px;box-shadow:var(--shadow-sm);transition:transform .3s,box-shadow .3s}
+.step:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.step__n{counter-increment:s;font-family:var(--font-mono);font-size:.8rem;font-weight:600;letter-spacing:.08em;color:var(--accent-deep)}
+.step__n::before{content:"0" counter(s)}
+.step__line{height:1px;background:var(--border);margin:14px 0 18px;position:relative;overflow:hidden}
+.step__line::after{content:"";position:absolute;left:0;top:0;height:100%;width:38%;background:linear-gradient(90deg,var(--g-rose),var(--g-teal))}
+.step:nth-child(2) .step__line::after{width:66%}
+.step:nth-child(3) .step__line::after{width:100%}
+.step h3{margin-bottom:9px}
+.step p{font-size:.95rem}
 
-/* guides */
-.guides{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.guide{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .3s,box-shadow .3s}
-.guide:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
-.guide__ph{aspect-ratio:4/3.6;position:relative}
-.guide__b{padding:20px}
-.guide__b b{font-size:1.08rem;font-weight:750;letter-spacing:-.01em}
-.guide__b .role{font-size:.86rem;color:var(--accent-deep);font-weight:600;margin:2px 0 10px}
-.guide__b p{font-size:.9rem}
+/* ============ stats ============ */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.stat__n{font-size:clamp(2.1rem,4vw,3rem);font-weight:800;letter-spacing:-.04em;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1;background:linear-gradient(120deg,var(--ink),var(--accent-deep));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat__l{margin-top:10px;font-size:.92rem;color:var(--ink-soft)}
+.stats .stat{padding:8px 4px;border-left:1px solid var(--border)}
+.stats .stat:first-child{border-left:none}
 
-/* reviews */
-.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.review{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:26px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:16px}
-.review .rs{color:var(--sun);letter-spacing:2px}
-.review p{color:var(--ink);font-size:1rem;line-height:1.55;flex:1}
-.review .who{display:flex;align-items:center;gap:12px}
-.review .av{width:46px;height:46px;border-radius:50%;overflow:hidden;flex:none;background:linear-gradient(135deg,var(--water),var(--accent))}
-.review .who b{display:block;font-size:.94rem;font-weight:700}
-.review .who span{font-size:.82rem;color:var(--ink-faint)}
+/* ============ quote ============ */
+.quote{max-width:820px;margin-inline:auto;text-align:center}
+.quote__mark{font-size:3.2rem;line-height:.4;color:var(--accent);opacity:.4;font-family:Georgia,serif}
+.quote blockquote{font-size:clamp(1.3rem,2.6vw,1.85rem);font-weight:600;letter-spacing:-.02em;line-height:1.35;color:var(--ink);text-wrap:balance;margin:14px 0 24px}
+.quote__by{display:flex;gap:13px;align-items:center;justify-content:center}
+.quote__av{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--g-rose),var(--g-lilac),var(--g-teal));flex:none;box-shadow:var(--shadow-sm)}
+.quote__by b{display:block;color:var(--ink);font-weight:700;font-size:.98rem}
+.quote__by span{font-size:.86rem;color:var(--ink-faint)}
 
-/* cta */
-.cta{position:relative;border-radius:var(--r-xl);overflow:hidden;min-height:420px;display:flex;align-items:center;box-shadow:var(--shadow-lg)}
-.cta__ph{position:absolute;inset:0;z-index:-2;background:linear-gradient(150deg,#4a6b64,#2c4640)}
-.cta__ph img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s}
-.cta__ph img.on{opacity:1}
-.cta__scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(9,16,13,.82),rgba(9,16,13,.4) 70%,rgba(9,16,13,.2))}
-.cta__in{padding:clamp(40px,6vw,72px);color:#fff;max-width:660px}
-.cta .eyebrow{color:#bff0e4}
-.cta h2{color:#fff;margin:14px 0 0}
-.cta p{color:rgba(255,255,255,.9);margin-top:16px;font-size:1.1rem;max-width:46ch}
-.cta__btns{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+/* ============ final cta ============ */
+.cta{position:relative;border-radius:var(--r-xl);overflow:hidden;text-align:center;padding:clamp(48px,7vw,88px) 24px;box-shadow:var(--shadow-lg)}
+.cta__bg{position:absolute;inset:0;z-index:-1;background:
+  radial-gradient(70% 120% at 15% 0%,var(--g-rose),transparent 55%),
+  radial-gradient(70% 120% at 85% 10%,var(--g-lilac),transparent 55%),
+  radial-gradient(90% 130% at 50% 120%,var(--g-teal),transparent 60%),
+  var(--surface-2)}
+.cta__grain{position:absolute;inset:0;z-index:-1;opacity:var(--grain);mix-blend-mode:soft-light;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.cta h2{max-width:16ch;margin:14px auto 0;color:var(--ink)}
+.cta .lead{margin:16px auto 0;text-align:center}
+.cta__form{margin:30px auto 0;max-width:460px;display:flex;gap:8px;background:var(--surface);border:1px solid var(--border-strong);border-radius:14px;padding:7px 7px 7px 16px;box-shadow:var(--shadow-md)}
+.cta__form input{flex:1;border:none;background:none;font:inherit;font-size:.98rem;color:var(--ink);outline:none;min-width:0}
+.cta__form input::placeholder{color:var(--ink-faint)}
+.cta__note{margin-top:14px;font-size:.82rem;color:var(--ink-faint)}
 
-/* footer */
+/* ============ footer ============ */
 .foot{border-top:1px solid var(--border);background:var(--bg-soft)}
 .foot__grid{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:40px;padding-block:64px 40px}
 .foot__brand .brand{margin-bottom:16px}
@@ -213,62 +347,72 @@ p{color:var(--ink-soft)}
 .foot__col a:hover{color:var(--ink)}
 .foot__bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:22px;border-top:1px solid var(--border);font-size:.86rem;color:var(--ink-faint)}
 .foot__bar .made{display:inline-flex;align-items:center;gap:7px}
-.heart{color:var(--sun)}
+.heart{color:var(--g-rose)}
 
-/* reveal */
+/* ============ reveal ============ */
 .rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
 .rv.in{opacity:1;transform:none}
 .rv-d1{transition-delay:.06s}.rv-d2{transition-delay:.12s}.rv-d3{transition-delay:.18s}.rv-d4{transition-delay:.24s}
 
-/* keyframes */
-@keyframes drop{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-.hero__in>*{animation:drop .9s cubic-bezier(.2,.7,.3,1) backwards}
-.hero__in .eyebrow{animation-delay:.05s}.hero h1{animation-delay:.12s}.hero__sub{animation-delay:.2s}.finder{animation-delay:.28s}.hero__trust{animation-delay:.36s}
+/* ============ keyframes ============ */
+@keyframes drift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(6%,4%) scale(1.12)}}
+@keyframes drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-5%,6%) scale(1.08)}}
+@keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(4%,-5%) scale(1.15)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes shimmer{0%{background-position:220% 0}100%{background-position:-120% 0}}
+@keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
+@keyframes scrollx{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* responsive */
-@media (max-width:1000px){
-  .tours{grid-template-columns:repeat(2,1fr)}
-  .why{grid-template-columns:repeat(2,1fr)}
-  .guides{grid-template-columns:1fr}
-  .reviews{grid-template-columns:1fr}
-  .feat{grid-template-columns:1fr}
-  .feat__ph{min-height:300px}
-  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}
-  .g-a{grid-column:span 2;grid-row:span 1}
-  .g-d{grid-column:span 2}
-  .strip__in{grid-template-columns:repeat(2,1fr);gap:26px 20px}
-  .strip .st:nth-child(3){border-left:none}
+/* ============ responsive ============ */
+@media (max-width:960px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr;max-width:520px;margin-inline:auto}
+  .stats{grid-template-columns:repeat(2,1fr);gap:28px 20px}
+  .stats .stat:nth-child(3){border-left:none}
+  .feature{grid-template-columns:1fr;gap:34px}
+  .feature--rev .feature__media{order:0}
+  .foot__grid{grid-template-columns:1fr 1fr;gap:34px}
+  .foot__brand{grid-column:1/-1}
   .nav__links{display:none}
 }
 @media (max-width:560px){
-  .tours{grid-template-columns:1fr}
-  .why{grid-template-columns:1fr}
-  .gallery{grid-template-columns:1fr;grid-auto-rows:200px}
-  .g-a,.g-d{grid-column:span 1;grid-row:span 1}
-  .strip__in{grid-template-columns:1fr 1fr}
-  .finder__f{min-width:0;flex:1 1 40%}
-  .hero{min-height:80vh}
+  .cards{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .foot__grid{grid-template-columns:1fr 1fr}
+  .btn{height:48px}
+  .hero__cta .btn{flex:1;min-width:150px}
+  .prompt{flex-wrap:wrap}
+  .prompt__go{width:100%}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
-  .rv{opacity:1;transform:none}.ph>img,.hero__bg img,.cta__ph img{opacity:1}
+  .rv{opacity:1;transform:none}
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <header class="nav" id="nav">
   <div class="wrap nav__in">
-    <a class="brand" href="#top" aria-label="Тропа — на главную"><span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 19 9 8l4 6 2.5-3.5L21 19z" fill="currentColor" opacity=".9"/><circle cx="16.5" cy="7" r="2.2" fill="currentColor"/></svg></span> Тропа</a>
+    <a class="brand" href="#top" aria-label="Бриз — на главную">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#15141a" stroke-width="2.1" stroke-linecap="round"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h15a3 3 0 1 1-3 3"/><path d="M3 16h8"/></svg>
+      </span>
+      Бриз
+    </a>
     <nav class="nav__links" aria-label="Основное меню">
-      <a href="#tours">Туры</a>
-      <a href="#gallery">Направления</a>
-      <a href="#guides">Гиды</a>
-      <a href="#reviews">Отзывы</a>
+      <a href="#features">Возможности</a>
+      <a href="#how">Как это работает</a>
+      <a href="#examples">Примеры</a>
+      <a href="#pricing">Тарифы</a>
     </nav>
     <div class="nav__cta">
-      <button class="iconbtn" id="themeBtn" aria-label="Переключить тему" title="Светлая / тёмная тема"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg></button>
-      <a class="btn btn--light btn--sm" href="#book">Забронировать</a>
+      <button class="iconbtn" id="themeBtn" aria-label="Переключить тему" title="Светлая / тёмная тема">
+        <svg class="ic-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg>
+      </button>
+      <a class="btn btn--ghost btn--sm" href="#">Войти</a>
+      <a class="btn btn--primary btn--sm" href="#cta">Начать бесплатно</a>
     </div>
   </div>
 </header>
@@ -277,199 +421,298 @@ p{color:var(--ink-soft)}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero__bg"><img src="https://loremflickr.com/1600/900/mountain,lake,landscape?lock=101" alt="Горное озеро в Казахстане"></div>
-  <div class="hero__scrim" aria-hidden="true"></div>
-  <div class="hero__in">
-    <span class="eyebrow">Авторские туры по Казахстану</span>
-    <h1>Горы, каньоны и озёра — по-настоящему</h1>
-    <p class="hero__sub">Малые группы, местные гиды и продуманный маршрут. Вы просто приезжаете — а рюкзак забот несём мы.</p>
-    <div class="finder" role="group" aria-label="Подбор тура">
-      <div class="finder__f"><small>Направление</small><b>🏔 Горы Алматы</b></div>
-      <div class="finder__f"><small>Даты</small><b>📅 Июль — Август</b></div>
-      <div class="finder__f"><small>Формат</small><b>👣 1–3 дня</b></div>
-      <a class="btn btn--primary" href="#tours">Найти тур</a>
-    </div>
-    <div class="hero__trust">
-      <span>⭐ <b>4,9</b> из 5 · 2 100 отзывов</span>
-      <span>👣 <b>140+</b> маршрутов</span>
-      <span>🛡 Лицензированные гиды</span>
-    </div>
+  <div class="hero__mesh" id="mesh" aria-hidden="true">
+    <div class="mesh"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></div>
   </div>
-</section>
-
-<!-- STATS STRIP -->
-<section class="strip">
-  <div class="wrap strip__in">
-    <div class="st"><b class="num" data-to="12000" data-suffix="+">0</b><span>довольных путешественников</span></div>
-    <div class="st"><b class="num" data-to="140" data-suffix="+">0</b><span>маршрутов по стране</span></div>
-    <div class="st"><b class="num" data-to="9" data-suffix=" лет">0</b><span>водим в горы</span></div>
-    <div class="st"><b class="num" data-to="4.9" data-suffix="★">0</b><span>средняя оценка</span></div>
-  </div>
-</section>
-
-<!-- TOURS -->
-<section class="section" id="tours">
+  <div class="hero__veil" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="head rv">
-      <div>
-        <span class="eyebrow">Популярное</span>
-        <h2>Туры этого сезона</h2>
-        <p>Собрали маршруты, куда возвращаются чаще всего — от лёгкой прогулки до похода с ночёвкой.</p>
+    <span class="badge rv"><span class="dot">✦</span> <b>Бриз&nbsp;2.0</b> — теперь с генерацией картинок</span>
+    <h1 class="rv rv-d1">Опишите идею словами — а сайт соберём мы</h1>
+    <p class="lead rv rv-d2">Никакого кода и дизайнеров. Расскажите Бризу, что вы делаете, — и через минуту получите готовый лендинг: тексты, блоки, картинки и свой домен.</p>
+
+    <div class="demo rv rv-d2">
+      <div class="prompt">
+        <span class="prompt__spark" aria-hidden="true">✦</span>
+        <span class="prompt__text" id="promptText" aria-live="polite"><span class="ph">кофейня в центре Алматы</span></span><span class="caret" id="caret" aria-hidden="true"></span>
+        <button class="btn btn--primary btn--sm prompt__go" id="promptGo">Собрать сайт</button>
       </div>
-      <a class="btn btn--ghost" href="#book">Все 140 маршрутов <span class="arw" aria-hidden="true">→</span></a>
+      <div class="preview" id="preview" aria-hidden="true">
+        <div class="preview__bar"><i></i><i></i><i></i><span class="url">briz.site/новый-проект</span></div>
+        <div class="preview__body">
+          <div class="sk"><i></i><i></i><i></i><div class="row"><i></i><i></i><i></i></div></div>
+          <div class="mock">
+            <span class="m-tag">Обжарка с 2019 года</span>
+            <div class="m-h">Кофе, который будит район</div>
+            <p class="m-p">Специализированный кофе и свежая выпечка каждое утро в самом центре Алматы.</p>
+            <div class="m-cards"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="tours">
-      <article class="tour rv rv-d1">
-        <div class="tour__ph ph"><span class="tag">Хит сезона</span><span class="fav" aria-hidden="true">♡</span><img loading="lazy" src="https://loremflickr.com/500/440/lake,forest,turquoise?lock=111" alt="Кольсайские озёра"></div>
-        <div class="tour__b"><h3>Кольсайские озёра</h3><div class="tour__loc">📍 Алматинская область</div>
-          <div class="tour__meta"><span>🕑 2 дня</span><span>👣 Средне</span><span>👥 до 12</span></div>
-          <div class="tour__foot"><div class="tour__price"><b class="num">от 34 900 ₸</b><small> / чел.</small></div><div class="stars">★ <b>4,9</b></div></div>
+
+    <div class="hero__cta rv rv-d3">
+      <a class="btn btn--primary" href="#cta">Попробовать бесплатно</a>
+      <a class="btn btn--ghost" href="#how">Смотреть демо <span class="arw" aria-hidden="true">→</span></a>
+    </div>
+    <div class="hero__trust rv rv-d3">
+      <span><span class="ok">✓</span> 14 дней бесплатно</span>
+      <span><span class="ok">✓</span> Без банковской карты</span>
+      <span><span class="ok">✓</span> Отмена в один клик</span>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE CARDS -->
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="steps__head rv" style="text-align:center;max-width:52ch">
+      <span class="eyebrow">Что внутри</span>
+      <h2 style="margin-top:14px">Всё для запуска — в одном окне</h2>
+    </div>
+    <div class="cards">
+      <article class="card rv rv-d1">
+        <div class="card__art"><span class="chip c1"></span><span class="chip c2"></span>
+          <div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="#0b7d69" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 4 3.5 7 8 8 4.5-1 8-4 8-8V7z"/><path d="m9 12 2 2 4-4"/></svg></div>
         </div>
+        <h3>ИИ пишет тексты</h3>
+        <p>Заголовки, описания и кнопки под вашу нишу — на грамотном русском, а не переводом с английского.</p>
       </article>
-      <article class="tour rv rv-d2">
-        <div class="tour__ph ph"><span class="tag">1 день</span><span class="fav" aria-hidden="true">♡</span><img loading="lazy" src="https://loremflickr.com/500/440/canyon,desert,rocks?lock=112" alt="Чарынский каньон"></div>
-        <div class="tour__b"><h3>Чарынский каньон</h3><div class="tour__loc">📍 Долина замков</div>
-          <div class="tour__meta"><span>🕑 1 день</span><span>👣 Легко</span><span>👥 до 16</span></div>
-          <div class="tour__foot"><div class="tour__price"><b class="num">от 18 500 ₸</b><small> / чел.</small></div><div class="stars">★ <b>4,8</b></div></div>
+      <article class="card rv rv-d2">
+        <div class="card__art"><span class="chip c1"></span><span class="chip c2"></span>
+          <div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="#6a4bd6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="5" rx="2"/><rect x="13" y="10" width="8" height="11" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/></svg></div>
         </div>
+        <h3>200+ готовых блоков</h3>
+        <p>Соберите страницу из секций, как из кубиков. Меняйте порядок и содержимое в один клик.</p>
       </article>
-      <article class="tour rv rv-d3">
-        <div class="tour__ph ph"><span class="tag">Фаворит</span><span class="fav" aria-hidden="true">♡</span><img loading="lazy" src="https://loremflickr.com/500/440/mountain,lake,alpine?lock=113" alt="Большое Алматинское озеро"></div>
-        <div class="tour__b"><h3>Большое Алматинское озеро</h3><div class="tour__loc">📍 Иле-Алатау</div>
-          <div class="tour__meta"><span>🕑 1 день</span><span>👣 Легко</span><span>👥 до 14</span></div>
-          <div class="tour__foot"><div class="tour__price"><b class="num">от 15 900 ₸</b><small> / чел.</small></div><div class="stars">★ <b>5,0</b></div></div>
+      <article class="card rv rv-d3">
+        <div class="card__art"><span class="chip c1"></span><span class="chip c2"></span>
+          <div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="#c26a2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 4 9-.2 3.2-1.5 6.5-4 9-2.5-2.5-3.8-5.8-4-9 .2-3.2 1.5-6.5 4-9z"/></svg></div>
         </div>
+        <h3>Свой домен за минуту</h3>
+        <p>Подключите свой домен или возьмите бесплатный адрес *.briz.site — SSL настроится сам.</p>
       </article>
-      <article class="tour rv rv-d4">
-        <div class="tour__ph ph"><span class="tag">Актив</span><span class="fav" aria-hidden="true">♡</span><img loading="lazy" src="https://loremflickr.com/500/440/mountains,snow,peak?lock=114" alt="Шымбулак и пик Талгар"></div>
-        <div class="tour__b"><h3>Шымбулак — перевалы</h3><div class="tour__loc">📍 Медеу · Шымбулак</div>
-          <div class="tour__meta"><span>🕑 3 дня</span><span>👣 Сложно</span><span>👥 до 10</span></div>
-          <div class="tour__foot"><div class="tour__price"><b class="num">от 62 000 ₸</b><small> / чел.</small></div><div class="stars">★ <b>4,9</b></div></div>
+      <article class="card rv rv-d4">
+        <div class="card__art"><span class="chip c1"></span><span class="chip c2"></span>
+          <div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2b74c2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
         </div>
+        <h3>Аналитика и A/B</h3>
+        <p>Смотрите, какие блоки работают, и тестируйте два варианта без сторонних сервисов.</p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- GALLERY -->
-<section class="section" id="gallery" style="padding-top:0">
+<!-- GRADIENT BAND -->
+<section class="section" style="padding-block:0">
   <div class="wrap">
-    <div class="head rv">
-      <div><span class="eyebrow">Направления</span><h2>Казахстан, которого вы не видели</h2><p>От бирюзовых озёр до красных каньонов и бесконечной степи.</p></div>
-    </div>
-    <div class="gallery">
-      <figure class="gcell g-a rv"><div class="ph"><img loading="lazy" src="https://loremflickr.com/900/900/mountain,lake,valley?lock=121" alt="Горная долина"></div><figcaption><b>Кольсай и Каинды</b><span>Затонувший лес и три озера</span></figcaption></figure>
-      <figure class="gcell rv rv-d1"><div class="ph"><img loading="lazy" src="https://loremflickr.com/500/500/waterfall,forest?lock=122" alt="Водопад"></div><figcaption><b>Бутаковка</b><span>Водопады у города</span></figcaption></figure>
-      <figure class="gcell rv rv-d2"><div class="ph"><img loading="lazy" src="https://loremflickr.com/500/500/canyon,rocks,sunset?lock=123" alt="Каньон на закате"></div><figcaption><b>Чарын</b><span>Долина замков</span></figcaption></figure>
-      <figure class="gcell g-d rv rv-d1"><div class="ph"><img loading="lazy" src="https://loremflickr.com/900/450/steppe,field,mountains?lock=124" alt="Степь и горы"></div><figcaption><b>Ассы-Тургень</b><span>Плато и звёздное небо</span></figcaption></figure>
-      <figure class="gcell rv rv-d2"><div class="ph"><img loading="lazy" src="https://loremflickr.com/500/500/camping,tent,night?lock=125" alt="Лагерь в горах"></div><figcaption><b>Ночёвки</b><span>Кемпинг под звёздами</span></figcaption></figure>
+    <div class="band rv">
+      <div class="band__bg" aria-hidden="true"></div>
+      <span class="eyebrow">Растёт вместе с вами</span>
+      <h2>Сайт на минуту сегодня — витрина на тысячи клиентов завтра</h2>
+      <p class="lead">Начните с одного лендинга. Добавляйте страницы, блог, каталог и формы, когда будете готовы. Бриз не заставит переезжать.</p>
+      <a class="btn btn--primary" href="#cta">Собрать свой сайт</a>
     </div>
   </div>
 </section>
 
-<!-- WHY -->
-<section class="section" style="background:var(--bg-soft);border-block:1px solid var(--border)">
+<!-- LOGOS -->
+<section class="section logos" style="padding-block:clamp(48px,7vw,76px)">
   <div class="wrap">
-    <div class="head rv" style="justify-content:center;text-align:center;flex-direction:column;align-items:center;margin-bottom:52px">
-      <span class="eyebrow" style="justify-content:center">Почему Тропа</span>
-      <h2 style="max-width:20ch">Всё продумано — вам остаётся только идти</h2>
-    </div>
-    <div class="why">
-      <div class="f rv rv-d1"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="#0b6f62" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.7-7-11a7 7 0 0114 0c0 5.3-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>Местные гиды</h3><p>Знают каждую тропу, погоду и лучшие точки для кадра. И спасут, если что.</p></div>
-      <div class="f rv rv-d2"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="#0b6f62" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 20c0-2 .6-3.6 1.6-4.7"/></svg></div><h3>Малые группы</h3><p>До 12–16 человек. Без толкучки — только вы, горы и тишина.</p></div>
-      <div class="f rv rv-d3"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="#a35a1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l8-4 8 4v10l-8 4-8-4z"/><path d="M4 7l8 4 8-4M12 11v10"/></svg></div><h3>Всё включено</h3><p>Трансфер, снаряжение, перекусы и вход в парки. Считать ничего не нужно.</p></div>
-      <div class="f rv rv-d4"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="#2b6ca3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Безопасность</h3><p>Страховка, аптечка и связь на маршруте. Гиды с сертификатом первой помощи.</p></div>
+    <p class="logos__t rv">Более 4 000 команд уже запустились на Бризе</p>
+  </div>
+  <div class="marquee rv" aria-hidden="true">
+    <div class="marquee__row" id="mrow">
+      <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/></svg>Фотон</span>
+      <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18 12 4l8 14z"/></svg>Меркурий</span>
+      <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="5"/></svg>Тёплый хлеб</span>
+      <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 3 12l9 9 9-9z"/></svg>Север</span>
+      <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="12" r="5"/><circle cx="16" cy="12" r="5"/></svg>Атлас</span>
+      <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M12 4v16" stroke-linecap="round"/></svg>Гринлайт</span>
+      <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/></svg>Фотон</span>
+      <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18 12 4l8 14z"/></svg>Меркурий</span>
+      <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="5"/></svg>Тёплый хлеб</span>
+      <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 3 12l9 9 9-9z"/></svg>Север</span>
+      <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="12" r="5"/><circle cx="16" cy="12" r="5"/></svg>Атлас</span>
+      <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M12 4v16" stroke-linecap="round"/></svg>Гринлайт</span>
     </div>
   </div>
 </section>
 
-<!-- FEATURED -->
-<section class="section" id="featured">
+<!-- FEATURE ROW A -->
+<section class="section" id="examples">
   <div class="wrap">
-    <div class="feat rv">
-      <div class="feat__ph"><span class="badge">🔥 Осталось 4 места</span><div class="ph"><img loading="lazy" src="https://loremflickr.com/800/900/hiking,trail,mountain,alpine?lock=131" alt="Поход по хребту Кольсай"></div></div>
-      <div class="feat__b">
-        <span class="eyebrow">Тур недели</span>
-        <h2>Три озера Кольсая + озеро Каинды</h2>
-        <p>Два дня по самому живописному хребту Заилийского Алатау: бирюзовые озёра, затонувший еловый лес и ночёвка в юрточном лагере с видом на пик.</p>
-        <ul class="days">
-          <li><span class="d">День 1</span><span class="ln"></span><div class="dt"><b>Алматы → Нижний Кольсай</b><p>Трансфер, лёгкий трек к первому озеру, ужин у костра и ночёвка.</p></div></li>
-          <li><span class="d">День 2</span><span class="ln"></span><div class="dt"><b>Средний Кольсай → Каинды</b><p>Подъём ко второму озеру, переезд к затонувшему лесу, возвращение в город.</p></div></li>
+    <div class="feature">
+      <div class="feature__text rv">
+        <span class="eyebrow">Дизайн</span>
+        <h2>Красиво по умолчанию</h2>
+        <p class="lead">Бриз сам подбирает шрифты, цвета и отступы. Каждый блок выглядит так, будто над ним работала студия, — даже если вы открыли редактор впервые.</p>
+        <ul class="flist">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Готовые пары шрифтов и палитры под вашу нишу</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Идеальная вёрстка на телефоне, планшете и десктопе</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Светлая и тёмная тема — сразу из коробки</li>
         </ul>
-        <div class="feat__foot">
-          <div class="feat__price"><b class="num">от 34 900 ₸</b><small> / человек · всё включено</small></div>
-          <a class="btn btn--primary" href="#book">Забронировать место</a>
+        <a class="btn btn--ghost" href="#cta">Посмотреть примеры <span class="arw" aria-hidden="true">→</span></a>
+      </div>
+      <div class="feature__media rv rv-d2">
+        <div class="media media--a">
+          <div class="media__grad" aria-hidden="true"></div>
+          <div class="media__grain" aria-hidden="true"></div>
+          <div class="uichip u1"><span class="k" style="background:var(--g-lilac)">Аа</span><span>Шрифты<small>Подобраны ИИ</small></span></div>
+          <div class="uichip u2"><span class="k" style="background:var(--g-teal)">◐</span><span>Палитра<small>6 оттенков</small></span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GUIDES -->
-<section class="section" id="guides" style="padding-top:0">
+<!-- FEATURE ROW B -->
+<section class="section" style="padding-top:0">
   <div class="wrap">
-    <div class="head rv"><div><span class="eyebrow">Команда</span><h2>Вас поведут те, кто здесь вырос</h2><p>Гиды-инструкторы с опытом от 6 лет и любовью к этим горам.</p></div></div>
-    <div class="guides">
-      <article class="guide rv rv-d1"><div class="guide__ph ph"><img loading="lazy" src="https://i.pravatar.cc/500?img=12" alt="Ерлан"></div><div class="guide__b"><b>Ерлан Сапаров</b><div class="role">Старший гид · альпинизм</div><p>15 лет в горах Алатау, спасатель-инструктор. Знает Кольсай как свой двор.</p></div></article>
-      <article class="guide rv rv-d2"><div class="guide__ph ph"><img loading="lazy" src="https://i.pravatar.cc/500?img=45" alt="Аружан"></div><div class="guide__b"><b>Аружан Ким</b><div class="role">Гид · треккинг и фото</div><p>Покажет лучшие ракурсы и расскажет легенды каждого перевала.</p></div></article>
-      <article class="guide rv rv-d3"><div class="guide__ph ph"><img loading="lazy" src="https://i.pravatar.cc/500?img=68" alt="Данияр"></div><div class="guide__b"><b>Данияр Оспанов</b><div class="role">Гид · кемпинг и выживание</div><p>Ставит лагерь за 10 минут и готовит лучший плов на высоте 2 500 м.</p></div></article>
+    <div class="feature feature--rev">
+      <div class="feature__text rv">
+        <span class="eyebrow">Публикация</span>
+        <h2>От идеи до публикации — один клик</h2>
+        <p class="lead">Готово? Нажмите «Опубликовать» — Бриз развернёт сайт на быстром хостинге, настроит SSL и подключит домен. Скорость загрузки и SEO уже внутри.</p>
+        <ul class="flist">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Глобальный CDN — сайт открывается меньше чем за секунду</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> SEO-теги, карта сайта и Open Graph генерируются сами</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span> Формы и заявки прилетают прямо в Telegram или на почту</li>
+        </ul>
+        <a class="btn btn--primary" href="#cta">Опубликовать бесплатно</a>
+      </div>
+      <div class="feature__media rv rv-d2">
+        <div class="media media--b">
+          <div class="media__grad" aria-hidden="true"></div>
+          <div class="media__grain" aria-hidden="true"></div>
+          <div class="uichip u3"><span class="k" style="background:var(--g-mint)">↑</span><span>Опубликовано<small>2 сек назад</small></span></div>
+          <div class="uichip u1"><span class="k" style="background:var(--g-peach)">⚡</span><span>0.4s<small>загрузка</small></span></div>
+          <div class="uichip u2"><span class="k" style="background:var(--g-rose)">✦</span><span>SSL<small>активен</small></span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- REVIEWS -->
-<section class="section" id="reviews" style="background:var(--bg-soft);border-block:1px solid var(--border)">
+<!-- STEPS -->
+<section class="section" id="how" style="background:var(--bg-soft);border-block:1px solid var(--border)">
   <div class="wrap">
-    <div class="head rv" style="justify-content:center;text-align:center;flex-direction:column;align-items:center;margin-bottom:48px">
-      <span class="eyebrow" style="justify-content:center">Отзывы</span>
-      <h2>4,9 из 5 — и 2 100 историй</h2>
+    <div class="steps__head rv">
+      <span class="eyebrow" style="justify-content:center">Три шага</span>
+      <h2 style="margin-top:14px">От пустого экрана до готового сайта</h2>
+      <p class="lead">Средний путь до первой публикации у пользователей Бриза — меньше десяти минут.</p>
     </div>
-    <div class="reviews">
-      <article class="review rv rv-d1"><div class="rs">★★★★★</div><p>«Ехали на один день на БАО, а получили лучший выходной за год. Гид Ерлан — отдельная любовь, столько всего рассказал. Вернёмся на Кольсай!»</p><div class="who"><span class="av"><img loading="lazy" src="https://i.pravatar.cc/128?img=32" alt="Динара"></span><div><b>Динара А.</b><span>Алматы · июнь 2026</span></div></div></article>
-      <article class="review rv rv-d2"><div class="rs">★★★★★</div><p>«Первый поход с ночёвкой — боялась, что не потяну. Малая группа, всё снаряжение дали, шли в своём темпе. Юрточный лагерь — сказка.»</p><div class="who"><span class="av"><img loading="lazy" src="https://i.pravatar.cc/128?img=47" alt="Мария"></span><div><b>Мария Т.</b><span>Астана · май 2026</span></div></div></article>
-      <article class="review rv rv-d3"><div class="rs">★★★★★</div><p>«Возили корпоратив на Чарын — 16 человек, всё чётко: трансфер вовремя, перекусы, фото. Организация на 10 из 10, коллеги в восторге.»</p><div class="who"><span class="av"><img loading="lazy" src="https://i.pravatar.cc/128?img=13" alt="Тимур"></span><div><b>Тимур Ж.</b><span>Алматы · июль 2026</span></div></div></article>
+    <div class="steps">
+      <article class="step rv rv-d1">
+        <div class="step__n"></div>
+        <div class="step__line"></div>
+        <h3>Опишите проект</h3>
+        <p>Одна фраза о том, что вы делаете и для кого. Бриз задаст пару уточняющих вопросов — и всё.</p>
+      </article>
+      <article class="step rv rv-d2">
+        <div class="step__n"></div>
+        <div class="step__line"></div>
+        <h3>Выберите стиль</h3>
+        <p>ИИ покажет три готовых варианта дизайна. Правьте тексты и блоки прямо на странице.</p>
+      </article>
+      <article class="step rv rv-d3">
+        <div class="step__n"></div>
+        <div class="step__line"></div>
+        <h3>Опубликуйте</h3>
+        <p>Нажмите одну кнопку — сайт уже в сети со своим доменом, SSL и аналитикой.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- CTA / BOOK -->
-<section class="section" id="book">
+<!-- STATS -->
+<section class="section">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat rv rv-d1"><div class="stat__n" data-to="4000" data-suffix="+">0</div><div class="stat__l">команд запустились</div></div>
+      <div class="stat rv rv-d2"><div class="stat__n" data-to="60" data-suffix=" сек">0</div><div class="stat__l">до первого сайта</div></div>
+      <div class="stat rv rv-d3"><div class="stat__n" data-to="200" data-suffix="+">0</div><div class="stat__l">готовых блоков</div></div>
+      <div class="stat rv rv-d4"><div class="stat__n" data-to="99.9" data-suffix="%">0</div><div class="stat__l">аптайм хостинга</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="quote rv">
+      <div class="quote__mark" aria-hidden="true">“</div>
+      <blockquote>Раньше на лендинг для акции уходила неделя и подрядчик. Теперь я собираю его сама за вечер — и он выглядит лучше прежних.</blockquote>
+      <div class="quote__by">
+        <div class="quote__av" aria-hidden="true"></div>
+        <div style="text-align:left"><b>Динара Ахметова</b><span>маркетолог, сеть пекарен «Тёплый хлеб»</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section" id="cta">
   <div class="wrap">
     <div class="cta rv">
-      <div class="cta__ph"><img loading="lazy" src="https://loremflickr.com/1400/700/mountains,sunrise,fog?lock=141" alt="Рассвет в горах"></div>
-      <div class="cta__scrim" aria-hidden="true"></div>
-      <div class="cta__in">
-        <span class="eyebrow">Свободные даты каждую неделю</span>
-        <h2>Горы ближе, чем кажется</h2>
-        <p>Напишите нам — подберём маршрут под вашу компанию, форму и настроение. Бронь за 2 минуты, оплата на месте или онлайн.</p>
-        <div class="cta__btns">
-          <a class="btn btn--light" href="#">Подобрать тур</a>
-          <a class="btn btn--ghost" href="#" style="color:#fff;border-color:rgba(255,255,255,.5)">Написать в WhatsApp</a>
-        </div>
-      </div>
+      <div class="cta__bg" aria-hidden="true"></div>
+      <div class="cta__grain" aria-hidden="true"></div>
+      <span class="eyebrow" style="justify-content:center">Бесплатный старт</span>
+      <h2>Ваш сайт ждёт всего одну фразу</h2>
+      <p class="lead">Опишите идею — и посмотрите, что соберёт Бриз. Без карты, без обязательств.</p>
+      <form class="cta__form" id="ctaForm">
+        <input type="email" placeholder="Ваш e-mail" aria-label="Ваш e-mail" required>
+        <button class="btn btn--primary" type="submit">Начать бесплатно</button>
+      </form>
+      <p class="cta__note" id="ctaNote">14 дней бесплатно · дальше от 2 900 ₸ в месяц</p>
     </div>
   </div>
 </section>
 
 </main>
 
-<footer class="foot">
+<!-- FOOTER -->
+<footer class="foot" id="pricing">
   <div class="wrap">
     <div class="foot__grid">
       <div class="foot__brand">
-        <a class="brand" href="#top"><span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 19 9 8l4 6 2.5-3.5L21 19z" fill="currentColor" opacity=".9"/><circle cx="16.5" cy="7" r="2.2" fill="currentColor"/></svg></span> Тропа</a>
-        <p>Авторские туры по горам, каньонам и озёрам Казахстана. Малые группы, местные гиды, всё включено.</p>
+        <a class="brand" href="#top">
+          <span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#15141a" stroke-width="2.1" stroke-linecap="round"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h15a3 3 0 1 1-3 3"/><path d="M3 16h8"/></svg></span>
+          Бриз
+        </a>
+        <p>ИИ-конструктор сайтов, который превращает одну фразу в готовый лендинг. Сделано, чтобы вы запускались быстрее.</p>
         <div class="foot__soc">
           <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M21.9 4.3 18.7 19c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-4.9 9-8.1c.4-.3-.1-.5-.6-.2L6.3 12.9l-4.8-1.5c-1-.3-1-1 .2-1.5l18.7-7.2c.9-.3 1.6.2 1.3 1.6z"/></svg></a>
           <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
           <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12s0-3.3-.4-4.9c-.2-.9-.9-1.5-1.7-1.7C18.3 5 12 5 12 5s-6.3 0-7.9.4c-.8.2-1.5.8-1.7 1.7C2 8.7 2 12 2 12s0 3.3.4 4.9c.2.9.9 1.5 1.7 1.7C5.7 19 12 19 12 19s6.3 0 7.9-.4c.8-.2 1.5-.8 1.7-1.7.4-1.6.4-4.9.4-4.9zM10 15V9l5 3z"/></svg></a>
         </div>
       </div>
-      <div class="foot__col"><h4>Туры</h4><a href="#tours">Горы Алматы</a><a href="#tours">Каньоны</a><a href="#tours">Озёра</a><a href="#tours">Многодневные</a></div>
-      <div class="foot__col"><h4>Компания</h4><a href="#guides">Гиды</a><a href="#reviews">Отзывы</a><a href="#">О нас</a><a href="#">Блог</a></div>
-      <div class="foot__col"><h4>Помощь</h4><a href="#">Как собраться</a><a href="#">Безопасность</a><a href="#">Оплата и возврат</a><a href="#book">Контакты</a></div>
+      <div class="foot__col">
+        <h4>Продукт</h4>
+        <a href="#features">Возможности</a>
+        <a href="#examples">Шаблоны</a>
+        <a href="#cta">Тарифы</a>
+        <a href="#">Обновления</a>
+      </div>
+      <div class="foot__col">
+        <h4>Компания</h4>
+        <a href="#">О нас</a>
+        <a href="#">Блог</a>
+        <a href="#">Вакансии</a>
+        <a href="#">Контакты</a>
+      </div>
+      <div class="foot__col">
+        <h4>Поддержка</h4>
+        <a href="#">Помощь</a>
+        <a href="#">Статус</a>
+        <a href="#">Документация</a>
+        <a href="#">API</a>
+      </div>
     </div>
-    <div class="foot__bar"><span>© 2026 Тропа. Все права защищены.</span><span class="made">Сделано с <span class="heart">♥</span> в Алматы</span></div>
+    <div class="foot__bar">
+      <span>© 2026 Бриз. Все права защищены.</span>
+      <span class="made">Сделано с <span class="heart">♥</span> в Алматы</span>
+    </div>
   </div>
 </footer>
 
@@ -478,52 +721,119 @@ p{color:var(--ink-soft)}
   "use strict";
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* photos: loremflickr -> picsum -> gradient, with fade-in */
-  document.querySelectorAll(".ph>img, .hero__bg img, .cta__ph img").forEach(function(img, idx){
-    function ok(){ img.style.visibility="visible"; img.classList.add("on"); }
-    function fail(){ img.classList.remove("on"); img.style.visibility="hidden"; }
-    function onerr(){ if(!img.dataset.fb){ img.dataset.fb="1"; img.classList.remove("on"); img.src="https://picsum.photos/seed/tropa"+idx+"/800/600"; } else { fail(); } }
-    img.addEventListener("load", ok); img.addEventListener("error", onerr);
-    if(img.complete){ img.naturalWidth ? ok() : onerr(); }
-  });
-
-  /* theme */
+  /* ---- theme toggle ---- */
   var root = document.documentElement, tbtn = document.getElementById("themeBtn");
-  try{ var saved = localStorage.getItem("tropa-theme"); if(saved) root.setAttribute("data-theme", saved); }catch(e){}
+  try{ var saved = localStorage.getItem("briz-theme"); if(saved) root.setAttribute("data-theme", saved); }catch(e){}
   tbtn.addEventListener("click", function(){
     var cur = root.getAttribute("data-theme");
     if(!cur){ cur = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; }
     var next = cur === "dark" ? "light" : "dark";
     root.setAttribute("data-theme", next);
-    try{ localStorage.setItem("tropa-theme", next); }catch(e){}
+    try{ localStorage.setItem("briz-theme", next); }catch(e){}
   });
 
-  /* nav solid on scroll */
+  /* ---- nav shadow on scroll ---- */
   var nav = document.getElementById("nav");
-  var onScroll = function(){ nav.classList.toggle("scrolled", window.scrollY > 40); };
+  var onScroll = function(){ nav.classList.toggle("scrolled", window.scrollY > 12); };
   onScroll(); window.addEventListener("scroll", onScroll, {passive:true});
 
-  /* reveal */
+  /* ---- reveal on scroll ---- */
   var rvs = document.querySelectorAll(".rv");
   if("IntersectionObserver" in window && !reduce){
-    var io = new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }); }, {threshold:0.1, rootMargin:"0px 0px -8% 0px"});
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, {threshold:0.12, rootMargin:"0px 0px -8% 0px"});
     rvs.forEach(function(el){ io.observe(el); });
   } else { rvs.forEach(function(el){ el.classList.add("in"); }); }
 
-  /* stats count-up */
-  function fmt(v, dec){ return dec ? v.toFixed(1).replace(".",",") : Math.round(v).toLocaleString("ru-RU"); }
-  function animateStat(el){
-    var to = parseFloat(el.getAttribute("data-to")), suffix = el.getAttribute("data-suffix") || "", dec = (to % 1 !== 0) ? 1 : 0;
-    if(reduce){ el.textContent = fmt(to, dec) + suffix; return; }
-    var start = null;
-    function fr(t){ if(!start) start = t; var p = Math.min((t - start)/1500, 1), val = to * (1 - Math.pow(1 - p, 3)); el.textContent = fmt(val, dec) + suffix; if(p < 1) requestAnimationFrame(fr); }
-    requestAnimationFrame(fr);
+  /* ---- hero prompt typing ---- */
+  var ideas = ["кофейня в центре Алматы","студия йоги и медитации","SaaS для учёта склада","портфолио фотографа","доставка здоровых обедов","школа английского онлайн"];
+  var pt = document.getElementById("promptText"), caret = document.getElementById("caret");
+  var ii = 0, ci = 0, typing = true, typed = "";
+  function typeLoop(){
+    var word = ideas[ii];
+    if(typing){
+      typed = word.slice(0, ++ci);
+      pt.textContent = typed;
+      if(ci >= word.length){ typing = false; setTimeout(typeLoop, 1600); return; }
+      setTimeout(typeLoop, 55 + Math.random()*45);
+    } else {
+      typed = word.slice(0, --ci);
+      pt.textContent = typed;
+      if(ci <= 0){ typing = true; ii = (ii+1) % ideas.length; setTimeout(typeLoop, 260); return; }
+      setTimeout(typeLoop, 26);
+    }
   }
-  var stated = false, statEls = document.querySelectorAll(".strip .num");
+  if(!reduce){ pt.textContent = ""; setTimeout(typeLoop, 700); }
+  else { pt.innerHTML = '<span class="ph">кофейня в центре Алматы</span>'; if(caret) caret.style.display="none"; }
+
+  /* ---- generate preview demo ---- */
+  var go = document.getElementById("promptGo"), preview = document.getElementById("preview");
+  var busy = false;
+  go.addEventListener("click", function(){
+    if(busy) return; busy = true;
+    preview.classList.remove("done");
+    preview.classList.add("on");
+    go.textContent = "Собираю…";
+    var wait = reduce ? 200 : 1500;
+    setTimeout(function(){
+      preview.classList.add("done");
+      go.textContent = "Готово ✓";
+      setTimeout(function(){ go.textContent = "Собрать ещё"; busy = false; }, 1400);
+    }, wait);
+  });
+
+  /* ---- stats count-up ---- */
+  function animateStat(el){
+    var to = parseFloat(el.getAttribute("data-to"));
+    var suffix = el.getAttribute("data-suffix") || "";
+    var dec = (to % 1 !== 0) ? 1 : 0;
+    if(reduce){ el.textContent = to.toLocaleString("ru-RU") + suffix; return; }
+    var start = null, dur = 1500;
+    function frame(t){
+      if(!start) start = t;
+      var p = Math.min((t - start)/dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = to * eased;
+      el.textContent = (dec ? val.toFixed(1) : Math.round(val)).toLocaleString ?
+        (dec ? val.toFixed(1) : Math.round(val).toLocaleString("ru-RU")) : val;
+      if(dec){ el.textContent = val.toFixed(1).replace(".", ","); }
+      else { el.textContent = Math.round(val).toLocaleString("ru-RU"); }
+      el.textContent += suffix;
+      if(p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  var stated = false;
+  var statEls = document.querySelectorAll(".stat__n");
   if("IntersectionObserver" in window){
-    var sio = new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting && !stated){ stated = true; statEls.forEach(animateStat); sio.disconnect(); } }); }, {threshold:0.3});
-    var host = document.querySelector(".strip"); if(host) sio.observe(host);
+    var sio = new IntersectionObserver(function(en){
+      en.forEach(function(e){ if(e.isIntersecting && !stated){ stated = true; statEls.forEach(animateStat); sio.disconnect(); } });
+    }, {threshold:0.4});
+    var host = document.querySelector(".stats"); if(host) sio.observe(host);
   } else { statEls.forEach(animateStat); }
+
+  /* ---- subtle hero parallax ---- */
+  var mesh = document.getElementById("mesh");
+  if(mesh && !reduce && window.matchMedia("(pointer:fine)").matches){
+    window.addEventListener("mousemove", function(ev){
+      var x = (ev.clientX / window.innerWidth - 0.5);
+      var y = (ev.clientY / window.innerHeight - 0.5);
+      mesh.style.transform = "translate(" + (x*18) + "px," + (y*18) + "px)";
+    }, {passive:true});
+  }
+
+  /* ---- fake form submit feedback ---- */
+  var form = document.getElementById("ctaForm"), note = document.getElementById("ctaNote");
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var btn = form.querySelector("button");
+    btn.textContent = "Отправляю…";
+    setTimeout(function(){
+      btn.textContent = "Письмо отправлено ✓";
+      note.textContent = "Проверьте почту — там ссылка для входа в Бриз.";
+    }, 900);
+  });
 })();
 </script>
 </body>
