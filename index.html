@@ -96,13 +96,15 @@ p{color:var(--ink-soft)}
 /* hero */
 .hero{position:relative;overflow:hidden;padding-top:clamp(30px,5vw,54px);padding-bottom:clamp(60px,8vw,100px);color:#fff;background:radial-gradient(130% 105% at 50% -12%,#1d1033 0,#0c0816 50%,#050308 100%)}
 .hero::before{content:"";position:absolute;left:0;right:0;bottom:-1px;height:150px;z-index:1;background:linear-gradient(transparent,var(--bg));pointer-events:none}
+.hero::after{content:"";position:absolute;z-index:1;left:0;top:0;width:66%;height:100%;background:radial-gradient(58% 64% at 40% 56%,rgba(7,4,14,.5),transparent 72%);pointer-events:none}
 .hero .wrap{position:relative;z-index:2}
 .stars{position:absolute;inset:0;z-index:0;display:block}
-/* giant planet: only its curved horizon shows across the top; dark surface below, glowing iridescent rim */
-.planet{position:absolute;z-index:1;left:50%;top:8%;width:150vw;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;overflow:hidden;background:radial-gradient(circle at 50% 44%,#0b0613 60%,#180a2b 88%,#2a1046 100%);box-shadow:0 -22px 130px 8px color-mix(in srgb,var(--accent-2) 28%,transparent),0 -8px 54px 0 color-mix(in srgb,var(--accent) 22%,transparent)}
-.planet__rim{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,#ff4d6d,#a855f7,#3fd6d0,#ffb03a,#ff6ad0,#ff4d6d);filter:blur(16px) saturate(1.45);-webkit-mask:radial-gradient(circle at 50% 50%,transparent 87%,#000 92%,#000 98%,transparent 100%);mask:radial-gradient(circle at 50% 50%,transparent 87%,#000 92%,#000 98%,transparent 100%);animation:pspin 30s linear infinite,phue 22s linear infinite}
+/* giant planet: bright neon curved horizon across the top, rich purple surface below */
+.planet{position:absolute;z-index:1;left:50%;top:8%;width:150vw;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;overflow:hidden;background:radial-gradient(circle at 50% 46%,#160b28 40%,#2c1250 78%,#4a2270 94%,#6a2f86 100%);box-shadow:0 -34px 170px 22px color-mix(in srgb,var(--accent-2) 45%,transparent),0 -16px 90px 8px color-mix(in srgb,var(--accent) 42%,transparent),0 -8px 46px 0 color-mix(in srgb,var(--accent-3) 30%,transparent)}
+.planet__glow{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,#ff4d6d,#a855f7,#3fd6d0,#ffb03a,#ff6ad0,#7c5cff,#ff4d6d);filter:blur(30px) saturate(1.7) brightness(1.12);opacity:.92;-webkit-mask:radial-gradient(circle at 50% 50%,transparent 76%,#000 90%,#000 100%);mask:radial-gradient(circle at 50% 50%,transparent 76%,#000 90%,#000 100%);animation:pspin 34s linear infinite}
+.planet__rim{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 20deg,#ffd6e0,#ff4d6d,#c98bff,#a855f7,#8af0ea,#3fd6d0,#ffe6b0,#ffb03a,#ffa6da,#ff4d6d);filter:saturate(1.55) brightness(1.3);-webkit-mask:radial-gradient(circle at 50% 50%,transparent 96%,#000 98.4%,#000 99.6%,transparent 100%);mask:radial-gradient(circle at 50% 50%,transparent 96%,#000 98.4%,#000 99.6%,transparent 100%);animation:pspin 26s linear infinite}
 .hero h1,.hero .al{color:#fff}
-.hero h1{text-shadow:0 2px 40px rgba(0,0,0,.45)}
+.hero h1{text-shadow:0 2px 34px rgba(0,0,0,.6),0 1px 3px rgba(0,0,0,.5)}
 .hero .hero__sub{color:rgba(255,255,255,.82)}
 .hero .badge{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.18);color:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .hero .badge b{color:#fff}
@@ -324,7 +326,7 @@ p{color:var(--ink-soft)}
 <!-- HERO -->
 <section class="hero">
   <canvas class="stars" id="stars" aria-hidden="true"></canvas>
-  <div class="planet" aria-hidden="true"><div class="planet__rim"></div></div>
+  <div class="planet" aria-hidden="true"><div class="planet__glow"></div><div class="planet__rim"></div></div>
   <div class="wrap">
     <div class="hero__grid">
       <div>
