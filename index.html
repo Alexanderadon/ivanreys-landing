@@ -195,9 +195,9 @@ body.playing .track__eq i{animation-play-state:running}
 
 .about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,64px);align-items:center}
 .about__art{aspect-ratio:5/4;border-radius:var(--r-xl);position:relative;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--surface-2)}
-.about__art::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(115% 100% at 50% 28%,transparent 46%,rgba(12,8,20,.6) 100%),linear-gradient(180deg,rgba(12,8,20,.1),rgba(12,8,20,.42))}
+.about__art::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(205deg,rgba(168,85,247,.30),transparent 46%),radial-gradient(95% 85% at 50% 30%,transparent 36%,rgba(16,9,26,.88) 95%),linear-gradient(180deg,rgba(16,9,26,.22),rgba(16,9,26,.5))}
 .about__art .initial{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(5rem,15vw,10rem);font-weight:850;letter-spacing:-.05em;color:rgba(255,255,255,.16);mix-blend-mode:overlay}
-.about__art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;filter:grayscale(.15) brightness(.93) contrast(1.04)}
+.about__art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;transform:scale(1.12);transform-origin:50% 20%;filter:grayscale(.25) brightness(.88) contrast(1.06)}
 .about__stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
 .about__stats .s b{display:block;font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800;letter-spacing:-.03em}
 .about__stats .s span{font-size:.82rem;color:var(--ink-faint)}
@@ -209,13 +209,13 @@ body.playing .track__eq i{animation-play-state:running}
 .quote__by span{font-size:.86rem;color:var(--ink-faint)}
 
 .cta{position:relative;border-radius:var(--r-xl);overflow:hidden;text-align:center;padding:clamp(48px,7vw,88px) 24px;box-shadow:var(--shadow-lg);border:1px solid var(--border)}
-.cta__bg{position:absolute;inset:0;z-index:-1;background:var(--surface)}
-.cta h2{max-width:18ch;margin:14px auto 0;color:var(--ink)}
-.cta p{color:var(--ink-soft);margin:16px auto 0;max-width:44ch}
+.cta__bg{position:absolute;inset:0;z-index:-1;background:radial-gradient(70% 130% at 15% 0%,var(--accent),transparent 55%),radial-gradient(70% 130% at 85% 10%,var(--accent-2),transparent 55%),radial-gradient(90% 130% at 50% 120%,var(--accent-3),transparent 60%),var(--surface-2)}
+.cta h2{max-width:18ch;margin:14px auto 0;color:#fff}
+.cta p{color:rgba(255,255,255,.92);margin:16px auto 0;max-width:44ch}
 .cta__form{margin:30px auto 0;max-width:460px;display:flex;gap:8px;background:color-mix(in srgb,#fff 92%,transparent);border-radius:14px;padding:7px 7px 7px 16px;box-shadow:var(--shadow-md)}
 .cta__form input{flex:1;border:none;background:none;font:inherit;font-size:.98rem;color:#160e1c;outline:none;min-width:0}
 .cta__form input::placeholder{color:#7a6f7d}.cta__form .btn{flex:none}
-.cta__note{margin-top:14px;font-size:.82rem;color:var(--ink-faint)}
+.cta__note{margin-top:14px;font-size:.82rem;color:rgba(255,255,255,.78)}
 section[id]{scroll-margin-top:84px}
 #music,#tour,#videos,#about,#join{content-visibility:auto;contain-intrinsic-size:auto 760px}
 .foot{content-visibility:auto;contain-intrinsic-size:auto 420px}
@@ -283,6 +283,12 @@ section[id]{scroll-margin-top:84px}
   .brand{white-space:nowrap;font-size:1.02rem;gap:8px}
   .nav__cta .btn{height:44px;padding:0 15px;font-size:.9rem}
   .nav__in{gap:12px}
+}
+@media (max-width:520px){
+  .planet{width:min(240px,62vw);right:-24%;top:-2%}
+  .moon{display:none}
+  .hero h1 .al{font-size:clamp(1.3rem,6vw,1.6rem)}
+  .hero__sub{max-width:38ch}
 }
 @media (pointer:coarse){
   .progress{height:9px;border-radius:9px}
@@ -433,8 +439,8 @@ section[id]{scroll-margin-top:84px}
   <div class="wrap">
     <div class="cta rv">
       <div class="cta__bg" aria-hidden="true"></div>
-      <span class="eyebrow" style="justify-content:center">Не пропусти</span>
-      <h2><span class="grad-text">Новые треки — первым</span></h2>
+      <span class="eyebrow" style="justify-content:center;color:#fff;opacity:.92">Не пропусти</span>
+      <h2>Новые треки — первым</h2>
       <p>Пресейлы концертов, неизданное и анонсы релизов.</p>
       <form class="cta__form" id="joinForm"><input type="email" placeholder="Твой e-mail" aria-label="e-mail" required><button class="btn btn--primary" type="submit">Подписаться</button></form>
       <p class="cta__note" id="joinNote">Без спама. Отписка в один клик.</p>
