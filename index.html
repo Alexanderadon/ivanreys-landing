@@ -220,6 +220,28 @@ section[id]{scroll-margin-top:84px}
 .mutebtn{display:grid;place-items:center;color:inherit;padding:2px}
 .mutebtn.muted{opacity:.4}
 
+/* motion system: one-shot entrances + input-driven parallax; idle stays 100% static */
+@media (prefers-reduced-motion: no-preference){
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes drop{from{opacity:0;transform:translateY(-12px) scale(.985)}to{opacity:1;transform:none}}
+  @keyframes coverpop{from{opacity:.25;transform:scale(.94)}to{opacity:1;transform:none}}
+  .hero h1{animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
+  .hero__sub{animation:rise .6s cubic-bezier(.2,.7,.2,1) .08s both}
+  .hero__cta{animation:rise .6s cubic-bezier(.2,.7,.2,1) .16s both}
+  .planet{animation:drop .9s cubic-bezier(.2,.7,.2,1) .12s both}
+  .moon{animation:drop .9s cubic-bezier(.2,.7,.2,1) .28s both}
+  .cover img.swap{animation:coverpop .32s cubic-bezier(.2,.7,.2,1) both}
+  @supports (animation-timeline: view()){
+    .planet img{animation:pdrift linear both;animation-timeline:view();animation-range:exit}
+    .moon img{animation:mdrift linear both;animation-timeline:view();animation-range:exit}
+  }
+  @keyframes pdrift{to{transform:translateY(44px)}}
+  @keyframes mdrift{to{transform:translateY(72px)}}
+}
+.btn:active{transform:translateY(0) scale(.96)}
+.iconbtn:active,.mutebtn:active{transform:scale(.92)}
+.stream:active{transform:translateY(0) scale(.97)}
+
 .foot{border-top:1px solid var(--border);background:var(--bg-soft)}
 .foot__grid{display:grid;grid-template-columns:1.6fr 1fr;gap:40px;padding-block:56px 36px;align-items:start}
 .foot__brand .brand{margin-bottom:16px}
@@ -418,7 +440,7 @@ section[id]{scroll-margin-top:84px}
         <div class="foot__soc">
           <a href="https://www.instagram.com/ivanreysss/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
           <a href="https://www.youtube.com/@IvanReys" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12s0-3.3-.4-4.9c-.2-.9-.9-1.5-1.7-1.7C18.3 5 12 5 12 5s-6.3 0-7.9.4c-.8.2-1.5.8-1.7 1.7C2 8.7 2 12 2 12s0 3.3.4 4.9c.2.9.9 1.5 1.7 1.7C5.7 19 12 19 12 19s6.3 0 7.9-.4c.8-.2 1.5-.8 1.7-1.7.4-1.6.4-4.9.4-4.9zM10 15V9l5 3z"/></svg></a>
-          <a href="https://open.spotify.com/artist/4ZJ1wDa7zb28izi6i58rcH" target="_blank" rel="noopener" aria-label="Spotify"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M17 16.3c-.2.3-.6.4-.9.2-2.5-1.5-5.6-1.9-9.3-1-.4.1-.7-.1-.8-.5s.1-.7.5-.8c4-1 7.5-.6 10.3 1.1.3.2.4.6.2.9zm1.2-2.7c-.3.4-.7.5-1.1.3-2.9-1.8-7.2-2.3-10.6-1.3-.4.1-.9-.1-1-.6-.1-.4.1-.9.6-1 3.9-1.2 8.7-.6 12 1.5.3.2.5.7.1 1.1z" fill="var(--bg)"/></svg></a>
+          <a href="https://open.spotify.com/artist/4ZJ1wDa7zb28izi6i58rcH" target="_blank" rel="noopener" aria-label="Spotify"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M17 16.3c-.2.3-.6.4-.9.2-2.5-1.5-5.6-1.9-9.3-1-.4.1-.7-.1-.8-.5s.1-.7.5-.8c4-1 7.5-.6 10.3 1.1.3.2.4.6.2.9zm1.2-2.7c-.3.4-.7.5-1.1.3-2.9-1.8-7.2-2.3-10.6-1.3-.4.1-.9-.1-1-.6-.1-.4.1-.9.6-1 3.9-1.2 8.7-.6 12 1.5.3.2.5.7.1 1.1zm.1-2.8C15.9 6.9 9.6 6.7 6.1 7.8c-.5.2-1.1-.1-1.3-.7-.2-.5.1-1.1.7-1.3 4-1.2 11-1 15 1.4.5.3.7 1 .4 1.5-.3.4-1 .6-1.5.1z" fill="var(--bg-soft)"/></svg></a>
         </div>
       </div>
       <div class="foot__col"><h4>Слушать</h4>
@@ -535,7 +557,7 @@ section[id]{scroll-margin-top:84px}
 
   function fmtT(s){ if(!isFinite(s)||s<0)s=0; var m=(s/60)|0, ss=(s%60)|0; return m+":"+(ss<10?"0":"")+ss; }
   function setPlaying(v){ player.classList.toggle("playing",v); document.body.classList.toggle("playing",v); playIcon.innerHTML=v?iconPause:iconPlay; playBtn.setAttribute("aria-label",v?"Пауза":"Играть"); }
-  function setActive(el){ curEl=el; tracks.forEach(function(x){x.classList.toggle("active",x===el);}); npTitle.textContent=el.getAttribute("data-t"); var alb=el.getAttribute("data-album"); if(npAlbum)npAlbum.textContent=alb?("Иван Рейс · «"+alb+"»"):"Иван Рейс"; var art=el.getAttribute("data-art"); if(npArt&&art)npArt.src=art; var d=el.getAttribute("data-dur"); if(d)tTot.textContent=d; progFill.style.width="0%"; tCur.textContent="0:00"; audio.src=el.getAttribute("data-src"); }
+  function setActive(el){ curEl=el; tracks.forEach(function(x){x.classList.toggle("active",x===el);}); npTitle.textContent=el.getAttribute("data-t"); var alb=el.getAttribute("data-album"); if(npAlbum)npAlbum.textContent=alb?("Иван Рейс · «"+alb+"»"):"Иван Рейс"; var art=el.getAttribute("data-art"); if(npArt&&art){ npArt.src=art; npArt.classList.remove("swap"); void npArt.offsetWidth; npArt.classList.add("swap"); } var d=el.getAttribute("data-dur"); if(d)tTot.textContent=d; progFill.style.width="0%"; tCur.textContent="0:00"; audio.src=el.getAttribute("data-src"); }
   function ensureCtx(){ if(actx)return; try{ var AC=window.AudioContext||window.webkitAudioContext; if(!AC)return; actx=new AC(); ana=actx.createAnalyser(); ana.fftSize=128; ana.smoothingTimeConstant=0.82; freq=new Uint8Array(ana.frequencyBinCount); srcN=actx.createMediaElementSource(audio); srcN.connect(ana); ana.connect(actx.destination); }catch(e){} }
   function renderWave(){ if(!ana||reduce||audio.paused){ raf=null; return; } raf=requestAnimationFrame(renderWave); ana.getByteFrequencyData(freq); var L=WBARS.length, F=freq.length-2; for(var i=0;i<L;i++){ var v=freq[1+((i/L*F)|0)]/255; WBARS[i].style.transform="scaleY("+(0.14+v*0.86).toFixed(3)+")"; } }
   function idleWave(){ for(var i=0;i<WBARS.length;i++){ WBARS[i].style.transform="scaleY("+(0.08+Math.abs(Math.sin(i*0.42))*0.11).toFixed(3)+")"; } }
