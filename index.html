@@ -95,6 +95,7 @@ p{color:var(--ink-soft)}
 .planet__halo{position:absolute;inset:-6%;border-radius:50%;z-index:-1;background:radial-gradient(closest-side,rgba(168,85,247,.30),rgba(255,77,109,.13) 55%,transparent 74%)}
 .moon{position:absolute;z-index:2;right:50%;top:68%;width:min(150px,16vw);aspect-ratio:1}
 .moon img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 18px color-mix(in srgb,var(--accent-cyan) 35%,transparent))}
+.planet__inner,.moon__inner{position:absolute;inset:0;will-change:transform}
 
 .hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,56px);align-items:center}
 .hero h1{font-size:clamp(3rem,8.5vw,6rem);letter-spacing:-.04em;line-height:.92;font-weight:850;color:#fff}
@@ -307,8 +308,8 @@ section[id]{scroll-margin-top:84px}
 <!-- HERO -->
 <section class="hero">
   <canvas class="stars" id="stars" aria-hidden="true"></canvas>
-  <div class="planet" aria-hidden="true"><div class="planet__halo"></div><img src="planet.webp" alt="" fetchpriority="high" decoding="async"></div>
-  <div class="moon" aria-hidden="true"><img src="moon.webp" alt="" decoding="async"></div>
+  <div class="planet" aria-hidden="true"><div class="planet__inner"><div class="planet__halo"></div><img src="planet.webp" alt="" fetchpriority="high" decoding="async"></div></div>
+  <div class="moon" aria-hidden="true"><div class="moon__inner"><img src="moon.webp" alt="" decoding="async"></div></div>
   <div class="wrap">
     <div class="hero__grid">
       <div>
@@ -377,10 +378,13 @@ section[id]{scroll-margin-top:84px}
 <!-- TOUR -->
 <section class="section" id="tour" style="background:var(--bg-soft);border-block:1px solid var(--border)">
   <div class="wrap">
-    <div class="head rv"><div><span class="eyebrow">Live</span><h2>Концерты</h2><p>Дат пока нет. Подпишись — анонс придёт первым.</p></div></div>
+    <div class="head rv"><div><span class="eyebrow">Live</span><h2>Концерты</h2><p>Новых дат пока нет. Подпишись — анонс придёт первым.</p></div></div>
     <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:6px">
       <a class="btn btn--primary" href="#join">Подписаться на анонсы</a>
       <a class="btn btn--ghost" href="https://www.instagram.com/ivanreysss/" target="_blank" rel="noopener">Instagram <span class="arw" aria-hidden="true">→</span></a>
+    </div>
+    <div class="shows rv" style="margin-top:36px">
+      <div class="show"><div class="show__date"><b class="num">30</b><span>Янв</span></div><div class="show__c"><b>Концерт прошёл — было очень круто</b><span>Спасибо всем, кто был!</span></div><div class="show__status soldout">2026</div></div>
     </div>
   </div>
 </section>
@@ -482,13 +486,16 @@ section[id]{scroll-margin-top:84px}
     rvs.forEach(function(el){ io.observe(el); });
   } else { rvs.forEach(function(el){ el.classList.add("in"); }); }
 
-  /* starfield v3: FULLY STATIC scene (nebula + stars baked once, zero idle work).
-     rAF wakes only for the ~1s life of an occasional shooting star, then stops. */
+  /* cosmos v4: living space — star drift + floating planet/moon + meteors.
+     One 30fps loop, pre-rendered layers (pure blits, no blur/blend), and it
+     runs ONLY while the hero is on screen and the tab is visible. */
   (function(){
     var cv = document.getElementById("stars"); if(!cv) return;
     var ctx = cv.getContext("2d"), hero = cv.parentElement;
-    var DPR = Math.min(window.devicePixelRatio||1,1.5), W=0,H=0;
-    var scene=null, shoots=[], lastT=0, running=false, heroVis=true, timer=null;
+    var DPR = Math.min(window.devicePixelRatio||1,1), W=0,H=0;
+    var bg=null, far=null, near=null, shoots=[], nextShoot=5, t=0, lastT=0, acc=0, run=false, heroVis=true;
+    var pin=document.querySelector(".planet__inner"), moo=document.querySelector(".moon__inner");
+    function mk(){ var c=document.createElement("canvas"); c.width=Math.max(1,Math.round(W*DPR)); c.height=Math.max(1,Math.round(H*DPR)); var x=c.getContext("2d"); x.setTransform(DPR,0,0,DPR,0,0); return {c:c,x:x}; }
     function blob(x,cx,cy,r,col,a){ var g=x.createRadialGradient(cx,cy,0,cx,cy,r); g.addColorStop(0,"rgba("+col+","+a+")"); g.addColorStop(1,"rgba("+col+",0)"); x.fillStyle=g; x.fillRect(cx-r,cy-r,r*2,r*2); }
     function paintStars(x,n,rmin,rmax,alpha){
       var cols=["255,255,255","198,214,255","255,226,196"];
@@ -496,33 +503,27 @@ section[id]{scroll-margin-top:84px}
         x.beginPath(); x.arc(X,Y,r,0,6.283); x.fillStyle="rgba("+cols[(Math.random()*3)|0]+","+a.toFixed(3)+")"; x.fill();
         if(r>1){ x.beginPath(); x.arc(X,Y,r*2.6,0,6.283); x.fillStyle="rgba(255,255,255,"+(a*0.08).toFixed(3)+")"; x.fill(); } }
     }
-    function still(){ ctx.clearRect(0,0,W,H); ctx.drawImage(scene,0,0,W,H); }
     function build(){
       W = hero.clientWidth||window.innerWidth; H = hero.clientHeight||600;
       cv.width = Math.round(W*DPR); cv.height = Math.round(H*DPR); ctx.setTransform(DPR,0,0,DPR,0,0);
-      scene = document.createElement("canvas"); scene.width=cv.width; scene.height=cv.height;
-      var x = scene.getContext("2d"); x.setTransform(DPR,0,0,DPR,0,0);
-      blob(x, W*0.18,H*0.32,W*0.30,"168,85,247",0.34);
-      blob(x, W*0.62,H*0.14,W*0.26,"255,77,109",0.20);
-      blob(x, W*0.86,H*0.62,W*0.30,"63,214,208",0.16);
-      blob(x, W*0.38,H*0.86,W*0.34,"96,120,255",0.20);
-      blob(x, W*0.55,H*0.46,W*0.20,"255,176,58",0.10);
-      paintStars(x, Math.max(80,Math.min(220,Math.round(W*H/12000))), 0.3, 0.9, 0.55);
-      paintStars(x, Math.max(30,Math.min(90,Math.round(W*H/30000))), 0.9, 1.6, 0.85);
-      still();
-      schedule();
+      bg = mk();
+      blob(bg.x, W*0.18,H*0.32,W*0.30,"168,85,247",0.34);
+      blob(bg.x, W*0.62,H*0.14,W*0.26,"255,77,109",0.20);
+      blob(bg.x, W*0.86,H*0.62,W*0.30,"63,214,208",0.16);
+      blob(bg.x, W*0.38,H*0.86,W*0.34,"96,120,255",0.20);
+      blob(bg.x, W*0.55,H*0.46,W*0.20,"255,176,58",0.10);
+      far = mk(); paintStars(far.x, Math.max(80,Math.min(220,Math.round(W*H/12000))), 0.3, 0.9, 0.55);
+      near = mk(); paintStars(near.x, Math.max(30,Math.min(90,Math.round(W*H/30000))), 0.9, 1.6, 0.85);
+      frame(0);
     }
-    function schedule(){ clearTimeout(timer); timer=setTimeout(spawn, 6000+Math.random()*9000); }
-    function spawn(){
-      if(reduce || document.hidden || !heroVis){ schedule(); return; }
-      var ang=0.35+Math.random()*0.25, sp=420+Math.random()*260;
-      shoots.push({x:Math.random()*W*0.8,y:Math.random()*H*0.3,vx:Math.cos(ang)*sp,vy:Math.sin(ang)*sp,life:0,max:0.7+Math.random()*0.4,len:90+Math.random()*70});
-      if(!running){ running=true; lastT=0; requestAnimationFrame(loop); }
-    }
-    function loop(ts){
-      if(!lastT) lastT=ts;
-      var dt=Math.min((ts-lastT)/1000,0.05); lastT=ts;
-      still();
+    function blitWrap(l,off){ off=((off%W)+W)%W; ctx.drawImage(l.c,-off,0,W,H); if(off>0.5)ctx.drawImage(l.c,W-off,0,W,H); }
+    function frame(dt){
+      ctx.clearRect(0,0,W,H);
+      ctx.drawImage(bg.c,0,0,W,H);
+      blitWrap(far, t*3.5); blitWrap(near, t*7);
+      if(dt>0 && t>nextShoot){ var ang=0.35+Math.random()*0.25, sp=420+Math.random()*260;
+        shoots.push({x:Math.random()*W*0.8,y:Math.random()*H*0.3,vx:Math.cos(ang)*sp,vy:Math.sin(ang)*sp,life:0,max:0.7+Math.random()*0.4,len:90+Math.random()*70});
+        nextShoot=t+6+Math.random()*8; }
       for(var k=shoots.length-1;k>=0;k--){ var m=shoots[k];
         m.x+=m.vx*dt; m.y+=m.vy*dt; m.life+=dt;
         var la=1-m.life/m.max; if(la<=0||m.x>W+120||m.y>H+120){ shoots.splice(k,1); continue; }
@@ -533,11 +534,22 @@ section[id]{scroll-margin-top:84px}
         ctx.beginPath(); ctx.moveTo(tx,ty); ctx.lineTo(m.x,m.y); ctx.stroke();
         ctx.beginPath(); ctx.arc(m.x,m.y,1.7,0,6.283); ctx.fillStyle="rgba(255,255,255,"+la.toFixed(3)+")"; ctx.fill();
       }
-      if(shoots.length){ requestAnimationFrame(loop); }
-      else { running=false; still(); schedule(); }
+      if(pin) pin.style.transform="translateY("+(Math.sin(t*0.52)*9).toFixed(2)+"px)";
+      if(moo) moo.style.transform="translateY("+(Math.sin(t*0.43+2.1)*7).toFixed(2)+"px)";
     }
+    function loop(ts){
+      if(!run) return;
+      if(!lastT) lastT=ts;
+      var dt=(ts-lastT)/1000; lastT=ts; if(dt>0.2)dt=0.2;
+      acc+=dt;
+      if(acc>=1/30){ var step=Math.min(acc,0.1); acc=0; t+=step; frame(step); }
+      requestAnimationFrame(loop);
+    }
+    function upd(){ var want=heroVis && !document.hidden && !reduce; if(want && !run){ run=true; lastT=0; acc=0; requestAnimationFrame(loop); } else if(!want){ run=false; } }
     build();
-    if("IntersectionObserver" in window){ new IntersectionObserver(function(en){ heroVis=en[0].isIntersecting; },{threshold:0}).observe(hero); }
+    if("IntersectionObserver" in window){ new IntersectionObserver(function(en){ heroVis=en[0].isIntersecting; upd(); },{threshold:0}).observe(hero); }
+    document.addEventListener("visibilitychange", upd);
+    if(!reduce) upd();
     var rt; window.addEventListener("resize", function(){ clearTimeout(rt); rt=setTimeout(build,180); }, {passive:true});
   })();
 
@@ -558,8 +570,9 @@ section[id]{scroll-margin-top:84px}
   function fmtT(s){ if(!isFinite(s)||s<0)s=0; var m=(s/60)|0, ss=(s%60)|0; return m+":"+(ss<10?"0":"")+ss; }
   function setPlaying(v){ player.classList.toggle("playing",v); document.body.classList.toggle("playing",v); playIcon.innerHTML=v?iconPause:iconPlay; playBtn.setAttribute("aria-label",v?"Пауза":"Играть"); }
   function setActive(el){ curEl=el; tracks.forEach(function(x){x.classList.toggle("active",x===el);}); npTitle.textContent=el.getAttribute("data-t"); var alb=el.getAttribute("data-album"); if(npAlbum)npAlbum.textContent=alb?("Иван Рейс · «"+alb+"»"):"Иван Рейс"; var art=el.getAttribute("data-art"); if(npArt&&art){ npArt.src=art; npArt.classList.remove("swap"); void npArt.offsetWidth; npArt.classList.add("swap"); } var d=el.getAttribute("data-dur"); if(d)tTot.textContent=d; progFill.style.width="0%"; tCur.textContent="0:00"; audio.src=el.getAttribute("data-src"); }
-  function ensureCtx(){ if(actx)return; try{ var AC=window.AudioContext||window.webkitAudioContext; if(!AC)return; actx=new AC(); ana=actx.createAnalyser(); ana.fftSize=128; ana.smoothingTimeConstant=0.82; freq=new Uint8Array(ana.frequencyBinCount); srcN=actx.createMediaElementSource(audio); srcN.connect(ana); ana.connect(actx.destination); }catch(e){} }
-  function renderWave(){ if(!ana||reduce||audio.paused){ raf=null; return; } raf=requestAnimationFrame(renderWave); ana.getByteFrequencyData(freq); var L=WBARS.length, F=freq.length-2; for(var i=0;i<L;i++){ var v=freq[1+((i/L*F)|0)]/255; WBARS[i].style.transform="scaleY("+(0.14+v*0.86).toFixed(3)+")"; } }
+  function ensureCtx(){ if(actx)return; try{ var AC=window.AudioContext||window.webkitAudioContext; if(!AC)return; actx=new AC(); ana=actx.createAnalyser(); ana.fftSize=256; ana.smoothingTimeConstant=0.8; freq=new Uint8Array(ana.frequencyBinCount); srcN=actx.createMediaElementSource(audio); srcN.connect(ana); ana.connect(actx.destination); }catch(e){} }
+  function renderWave(){ if(!ana||reduce||audio.paused){ raf=null; return; } raf=requestAnimationFrame(renderWave); ana.getByteFrequencyData(freq); var L=WBARS.length, F=freq.length-2;
+    for(var i=0;i<L;i++){ var bin=1+Math.min(F,Math.floor(Math.pow(F,(i+1)/L))); var v=(freq[bin]/255)*(0.55+1.35*i/L); if(v>1)v=1; WBARS[i].style.transform="scaleY("+(0.14+v*0.86).toFixed(3)+")"; } }
   function idleWave(){ for(var i=0;i<WBARS.length;i++){ WBARS[i].style.transform="scaleY("+(0.08+Math.abs(Math.sin(i*0.42))*0.11).toFixed(3)+")"; } }
   function play(){ ensureCtx(); if(actx&&actx.state==="suspended")actx.resume(); var p=audio.play(); if(p&&p.catch)p.catch(function(){}); }
 
