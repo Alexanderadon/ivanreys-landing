@@ -8,8 +8,8 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Иван Рейс">
 <meta property="og:description" content="Слушай новый сингл прямо на странице, смотри клипы и подписывайся на анонсы.">
-<meta property="og:image" content="https://briz-landing.vercel.app/cover.jpg">
-<meta property="og:url" content="https://briz-landing.vercel.app/">
+<meta property="og:image" content="https://ivanreys.vercel.app/cover.jpg">
+<meta property="og:url" content="https://ivanreys.vercel.app/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff4d6d'/%3E%3Cstop offset='.5' stop-color='%23a855f7'/%3E%3Cstop offset='1' stop-color='%233fd6d0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='26' fill='%23120a16'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='url(%23g)' stroke-width='7'/%3E%3Ccircle cx='50' cy='50' r='7' fill='url(%23g)'/%3E%3C/svg%3E">
 <link rel="preload" as="image" href="planet.webp" fetchpriority="high">
 <style>
@@ -86,7 +86,8 @@ p{color:var(--ink-soft)}
 .iconbtn:hover{color:var(--ink);border-color:var(--border-strong);background:var(--surface-2)}
 
 /* hero — deep space: nebula + stars + planet */
-.hero{position:relative;overflow:hidden;padding-top:clamp(30px,5vw,54px);padding-bottom:clamp(30px,4vw,56px);color:#fff;background:#0a0711}
+.hero{position:relative;overflow:hidden;padding-top:clamp(30px,5vw,54px);padding-bottom:clamp(30px,4vw,56px);color:#fff;background:#0a0711;min-height:clamp(540px,66vh,840px);display:flex;align-items:center}
+.hero>.wrap{width:100%}
 .hero::before{content:"";position:absolute;left:0;right:0;bottom:-1px;height:110px;z-index:3;background:linear-gradient(transparent,var(--bg));pointer-events:none}
 .hero .wrap{position:relative;z-index:4}
 .stars{position:absolute;inset:0;z-index:1;display:block}
@@ -342,7 +343,7 @@ section[id]{scroll-margin-top:84px}
             <a class="btn btn--ghost" href="#videos">Смотреть клипы <span class="arw" aria-hidden="true">→</span></a>
           </div>
           <div class="streams">
-            <a class="stream" href="https://open.spotify.com/artist/4ZJ1wDa7zb28izi6i58rcH" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#1db954"><circle cx="12" cy="12" r="12"/><path d="M17 16.3c-.2.3-.6.4-.9.2-2.5-1.5-5.6-1.9-9.3-1-.4.1-.7-.1-.8-.5s.1-.7.5-.8c4-1 7.5-.6 10.3 1.1.3.2.4.6.2.9zm1.2-2.7c-.3.4-.7.5-1.1.3-2.9-1.8-7.2-2.3-10.6-1.3-.4.1-.9-.1-1-.6-.1-.4.1-.9.6-1 3.9-1.2 8.7-.6 12 1.5.3.2.5.7.1 1.1zm.1-2.8C15.9 6.9 9.6 6.7 6.1 7.8c-.5.2-1.1-.1-1.3-.7-.2-.5.1-1.1.7-1.3 4-1.2 11-1 15 1.4.5.3.7 1 .4 1.5-.3.4-1 .6-1.5.1z" fill="#000"/></svg>Spotify</a>
+            <a class="stream" href="https://open.spotify.com/artist/4ZJ1wDa7zb28izi6i58rcH" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#1db954"><circle cx="12" cy="12" r="10"/><path d="M17 16.3c-.2.3-.6.4-.9.2-2.5-1.5-5.6-1.9-9.3-1-.4.1-.7-.1-.8-.5s.1-.7.5-.8c4-1 7.5-.6 10.3 1.1.3.2.4.6.2.9zm1.2-2.7c-.3.4-.7.5-1.1.3-2.9-1.8-7.2-2.3-10.6-1.3-.4.1-.9-.1-1-.6-.1-.4.1-.9.6-1 3.9-1.2 8.7-.6 12 1.5.3.2.5.7.1 1.1zm.1-2.8C15.9 6.9 9.6 6.7 6.1 7.8c-.5.2-1.1-.1-1.3-.7-.2-.5.1-1.1.7-1.3 4-1.2 11-1 15 1.4.5.3.7 1 .4 1.5-.3.4-1 .6-1.5.1z" fill="#052e14"/></svg>Spotify</a>
             <a class="stream" href="https://music.apple.com/us/artist/%D0%B8%D0%B2%D0%B0%D0%BD-%D1%80%D0%B5%D0%B9%D1%81/1463049689" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V6l10-2v12" stroke-linecap="round"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg>Apple Music</a>
             <a class="stream" href="https://www.youtube.com/@IvanReys" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path fill="#ff0000" d="M23 12s0-3.3-.4-4.9c-.2-.9-.9-1.5-1.7-1.7C19.3 5 12 5 12 5s-7.3 0-8.9.4c-.8.2-1.5.8-1.7 1.7C1 8.7 1 12 1 12s0 3.3.4 4.9c.2.9.9 1.5 1.7 1.7C4.7 19 12 19 12 19s7.3 0 8.9-.4c.8-.2 1.5-.8 1.7-1.7.4-1.6.4-4.9.4-4.9z"/><path fill="#fff" d="M10 15V9l5 3z"/></svg>YouTube</a>
           </div>
