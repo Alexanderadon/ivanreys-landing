@@ -85,16 +85,14 @@ p{color:var(--ink-soft)}
 .hero::before{content:"";position:absolute;left:0;right:0;bottom:-1px;height:150px;z-index:3;background:linear-gradient(transparent,var(--bg));pointer-events:none}
 .hero .wrap{position:relative;z-index:4}
 .nebula{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.nebula::before{content:"";position:absolute;inset:-12%;background:radial-gradient(34% 30% at 20% 30%,rgba(168,85,247,.55),transparent 60%),radial-gradient(30% 26% at 68% 22%,rgba(255,77,109,.42),transparent 62%),radial-gradient(40% 34% at 84% 58%,rgba(63,214,208,.34),transparent 60%),radial-gradient(46% 40% at 38% 80%,rgba(88,110,255,.36),transparent 64%),radial-gradient(28% 22% at 56% 48%,rgba(255,176,58,.2),transparent 60%);
-  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012' numOctaves='4' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4 -0.25'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012' numOctaves='4' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4 -0.25'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  filter:blur(26px) saturate(1.25);opacity:.85;animation:nebdrift 46s ease-in-out infinite alternate}
-.nebula::after{content:"";position:absolute;inset:0;opacity:.35;mix-blend-mode:screen;background:radial-gradient(60% 50% at 30% 30%,rgba(180,120,255,.18),transparent 70%),radial-gradient(60% 50% at 78% 55%,rgba(63,214,208,.14),transparent 70%)}
+.nebula::before{content:"";position:absolute;inset:-15%;mix-blend-mode:screen;opacity:.95;filter:blur(46px) saturate(1.35);background:radial-gradient(30% 26% at 20% 30%,rgba(190,90,255,.75),transparent 62%),radial-gradient(26% 22% at 68% 22%,rgba(255,80,120,.6),transparent 64%),radial-gradient(34% 30% at 84% 58%,rgba(70,220,215,.52),transparent 62%),radial-gradient(40% 36% at 38% 82%,rgba(96,120,255,.55),transparent 66%),radial-gradient(24% 20% at 56% 46%,rgba(255,182,70,.4),transparent 62%);animation:nebdrift 46s ease-in-out infinite alternate;will-change:transform}
+.nebula::after{content:"";position:absolute;inset:-10%;mix-blend-mode:screen;opacity:.6;filter:blur(64px);background:radial-gradient(46% 40% at 30% 26%,rgba(150,90,255,.45),transparent 70%),radial-gradient(42% 34% at 78% 66%,rgba(60,214,208,.36),transparent 70%);animation:nebdrift 62s ease-in-out infinite alternate-reverse}
 .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:var(--grain);mix-blend-mode:soft-light;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E")}
 .stars{position:absolute;inset:0;z-index:1;display:block}
-.planet{position:absolute;z-index:2;right:-8%;top:-6%;width:min(660px,58vw);aspect-ratio:1;isolation:isolate;animation:pfloat 9s ease-in-out infinite}
+.planet{position:absolute;z-index:2;right:-8%;top:-6%;width:min(660px,58vw);aspect-ratio:1;isolation:isolate;will-change:transform;animation:pfloat 9s ease-in-out infinite}
 .planet img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 56px color-mix(in srgb,var(--accent-2) 42%,transparent)) drop-shadow(0 0 130px color-mix(in srgb,var(--accent) 20%,transparent)) drop-shadow(0 10px 34px rgba(0,0,0,.55))}
 .planet__halo{position:absolute;inset:2%;border-radius:50%;z-index:-1;background:radial-gradient(closest-side,color-mix(in srgb,var(--accent-2) 40%,transparent),color-mix(in srgb,var(--accent-3) 22%,transparent) 52%,transparent 72%);filter:blur(36px)}
-.moon{position:absolute;z-index:2;right:33%;top:13%;width:min(158px,17vw);aspect-ratio:1;isolation:isolate;animation:mfloat 12s ease-in-out infinite}
+.moon{position:absolute;z-index:2;right:33%;top:13%;width:min(158px,17vw);aspect-ratio:1;isolation:isolate;will-change:transform;animation:mfloat 12s ease-in-out infinite}
 .moon img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 24px color-mix(in srgb,var(--accent-cyan) 40%,transparent)) drop-shadow(0 0 60px color-mix(in srgb,var(--accent-2) 18%,transparent)) drop-shadow(0 6px 18px rgba(0,0,0,.55))}
 @keyframes mfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(11px)}}
 
@@ -103,7 +101,7 @@ p{color:var(--ink-soft)}
 .badge .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 25%,transparent);animation:pulse 1.8s ease-in-out infinite}
 .badge b{color:#fff;font-weight:700}
 .hero h1{font-size:clamp(3rem,8.5vw,6rem);letter-spacing:-.04em;line-height:.92;font-weight:850;color:#fff;text-shadow:0 2px 34px rgba(0,0,0,.55),0 1px 3px rgba(0,0,0,.5)}
-.hero h1 .grad-text{background:linear-gradient(100deg,#ffb4c6,#ffe0a8 48%,#bcd6ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 1px 2px rgba(0,0,0,.45)) drop-shadow(0 0 26px rgba(255,130,190,.5))}
+.hero h1 .grad-text{background:linear-gradient(100deg,#ff4d6d,#a855f7 50%,#ffb03a);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 22px rgba(255,90,150,.4)) drop-shadow(0 2px 3px rgba(0,0,0,.4))}
 .hero h1 .al{display:block;font-size:clamp(1.5rem,4vw,2.5rem);font-weight:800;letter-spacing:-.03em;margin-top:14px;color:#fff}
 .hero__sub{margin-top:22px;font-size:clamp(1.05rem,1.7vw,1.24rem);color:rgba(255,255,255,.82);max-width:44ch}
 .hero__cta{margin-top:30px;display:flex;flex-direction:column;gap:16px;align-items:flex-start}
@@ -117,6 +115,7 @@ p{color:var(--ink-soft)}
 .player::after{content:"";position:absolute;inset:-1px;border-radius:25px;padding:1px;background:linear-gradient(130deg,var(--accent),transparent 40%,transparent 60%,var(--accent-2));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.6;pointer-events:none}
 .player__top{display:flex;gap:16px;align-items:center}
 .cover{width:96px;height:96px;border-radius:16px;flex:none;position:relative;overflow:hidden;box-shadow:var(--shadow-md)}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .cover--main{background:radial-gradient(120% 120% at 20% 15%,var(--accent-3),transparent 45%),radial-gradient(120% 120% at 85% 20%,var(--accent),transparent 50%),conic-gradient(from 210deg at 60% 80%,var(--accent-2),var(--accent),var(--accent-cyan),var(--accent-2))}
 .player__meta{flex:1;min-width:0}
 .player__meta small{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink)}
@@ -289,7 +288,6 @@ p{color:var(--ink-soft)}
   <div class="wrap">
     <div class="hero__grid">
       <div>
-        <span class="badge"><span class="dot"></span> <b>Новый альбом</b> · уже везде</span>
         <h1><span class="grad-text">Иван Рейс</span><span class="al">«Холодный космос» — 12 треков о бесконечности</span></h1>
         <p class="hero__sub">Электронная музыка и синты, под которые хочется молча смотреть на звёзды.</p>
         <div class="hero__cta">
@@ -307,7 +305,7 @@ p{color:var(--ink-soft)}
 
       <div class="player rv rv-d1" id="player">
         <div class="player__top">
-          <div class="cover cover--main"></div>
+          <div class="cover"><img src="cover.jpg" alt="Обложка «Холодный космос»"></div>
           <div class="player__meta"><small>Сейчас играет</small><b id="npTitle">Холодный космос</b><span id="npAlbum">Иван Рейс · «Холодный космос»</span></div>
         </div>
         <div class="wave" id="wave" aria-hidden="true"></div>
@@ -336,7 +334,7 @@ p{color:var(--ink-soft)}
     <div class="album">
       <div class="album__art rv">
         <div class="vinyl" aria-hidden="true"></div>
-        <div class="cover cover--big cover--main"><div class="ct"><span>Иван Рейс · 2026</span><b>ХОЛОДНЫЙ КОСМОС</b></div></div>
+        <div class="cover cover--big"><img src="cover.jpg" alt="Обложка «Холодный космос»"></div>
       </div>
       <div class="tracklist rv rv-d1" id="tracklist">
         <div class="track active" data-t="Холодный космос"><span class="track__n">1</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Холодный космос</b><small>Иван Рейс</small></div><span class="track__t">4:12</span></div>
@@ -459,10 +457,10 @@ p{color:var(--ink-soft)}
     rvs.forEach(function(el){ io.observe(el); });
   } else { rvs.forEach(function(el){ el.classList.add("in"); }); }
 
-  /* starfield */
+  /* starfield + falling (shooting) stars */
   (function(){
     var cv = document.getElementById("stars"); if(!cv) return;
-    var ctx = cv.getContext("2d"), hero = cv.parentElement, DPR = Math.min(window.devicePixelRatio||1,2), W=0,H=0, stars=[];
+    var ctx = cv.getContext("2d"), hero = cv.parentElement, DPR = Math.min(window.devicePixelRatio||1,2), W=0,H=0, stars=[], shoots=[], lastT=0, nextShoot=1.4;
     var cols = ["255,255,255","198,214,255","255,226,196"];
     function build(){
       W = hero.clientWidth||window.innerWidth; H = hero.clientHeight||600;
@@ -471,6 +469,7 @@ p{color:var(--ink-soft)}
       for(var i=0;i<n;i++){ stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.3+0.25,base:Math.random()*0.45+0.22,amp:Math.random()*0.5+0.25,sp:Math.random()*1.8+0.35,ph:Math.random()*6.283,vx:(Math.random()-0.5)*0.09,vy:(Math.random()-0.5)*0.05,c:cols[(Math.random()*3)|0]}); }
     }
     function draw(t){
+      var dt=Math.min(t-lastT,0.05); lastT=t;
       ctx.clearRect(0,0,W,H);
       for(var i=0;i<stars.length;i++){ var s=stars[i];
         s.x+=s.vx; s.y+=s.vy;
@@ -479,6 +478,19 @@ p{color:var(--ink-soft)}
         var a=s.base+s.amp*Math.sin(t*s.sp+s.ph); if(a<0)a=0; else if(a>1)a=1;
         ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,6.283); ctx.fillStyle="rgba("+s.c+","+a.toFixed(3)+")"; ctx.fill();
         if(s.r>0.95){ ctx.beginPath(); ctx.arc(s.x,s.y,s.r*2.7,0,6.283); ctx.fillStyle="rgba("+s.c+","+(a*0.09).toFixed(3)+")"; ctx.fill(); }
+      }
+      if(t>nextShoot){ var ang=0.32+Math.random()*0.3, sp=380+Math.random()*320;
+        shoots.push({x:Math.random()*W*0.78,y:Math.random()*H*0.34,vx:Math.cos(ang)*sp,vy:Math.sin(ang)*sp,life:0,max:0.7+Math.random()*0.5,len:76+Math.random()*74});
+        nextShoot=t+1.6+Math.random()*4.4; }
+      for(var k=shoots.length-1;k>=0;k--){ var m=shoots[k];
+        m.x+=m.vx*dt; m.y+=m.vy*dt; m.life+=dt;
+        var la=1-m.life/m.max; if(la<=0||m.x>W+90||m.y>H+90){ shoots.splice(k,1); continue; }
+        var hyp=Math.hypot(m.vx,m.vy)||1, tx=m.x-m.vx/hyp*m.len, ty=m.y-m.vy/hyp*m.len;
+        var g=ctx.createLinearGradient(m.x,m.y,tx,ty);
+        g.addColorStop(0,"rgba(255,255,255,"+la.toFixed(3)+")"); g.addColorStop(1,"rgba(185,205,255,0)");
+        ctx.strokeStyle=g; ctx.lineWidth=2; ctx.lineCap="round";
+        ctx.beginPath(); ctx.moveTo(tx,ty); ctx.lineTo(m.x,m.y); ctx.stroke();
+        ctx.beginPath(); ctx.arc(m.x,m.y,1.7,0,6.283); ctx.fillStyle="rgba(255,255,255,"+la.toFixed(3)+")"; ctx.fill();
       }
     }
     var t0=null;
