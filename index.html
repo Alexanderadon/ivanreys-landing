@@ -46,7 +46,7 @@ a{color:inherit;text-decoration:none}
 
 body{font-family:var(--font-sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
 .wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:24px}
-.section{padding-block:clamp(70px,10vw,120px)}
+.section{padding-block:clamp(52px,7vw,92px)}
 .eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-ink);font-weight:600;display:inline-flex;align-items:center;gap:9px}
 .eyebrow::before{content:"";width:22px;height:1.5px;background:currentColor;opacity:.7}
 h1,h2,h3{line-height:1;letter-spacing:-.03em;font-weight:800;text-wrap:balance;color:var(--ink)}
@@ -149,7 +149,7 @@ body.playing .vinyl{animation-play-state:running}
 :root[data-theme="light"] .vinyl{background:repeating-radial-gradient(circle at center,#2a2230 0 2px,#171018 2px 5px)}
 .vinyl::after{content:"";position:absolute;inset:0;margin:auto;width:30%;height:30%;border-radius:50%;background:conic-gradient(from 210deg,var(--accent),var(--accent-2),var(--accent-3),var(--accent))}
 .vinyl::before{content:"";position:absolute;inset:0;margin:auto;width:7%;height:7%;border-radius:50%;background:var(--bg);z-index:2}
-.tracklist{display:flex;flex-direction:column}
+.tracklist{display:flex;flex-direction:column;list-style:none}
 .track{display:flex;align-items:center;gap:16px;padding:14px 12px;border-radius:12px;transition:background .2s;cursor:pointer;border-bottom:1px solid var(--border)}
 .track:last-child{border-bottom:none}
 .track:hover,.track.active{background:var(--surface-2)}
@@ -165,7 +165,7 @@ body.playing .track__eq i{animation-play-state:running}
 .track__nm small{display:block;margin-top:2px;font-size:.8rem;color:var(--ink-faint)}
 .track__t{font-family:var(--font-mono);font-size:.82rem;color:var(--ink-faint)}
 
-.shows{display:flex;flex-direction:column;gap:12px}
+.shows{display:flex;flex-direction:column;gap:12px;list-style:none}
 .show{display:grid;grid-template-columns:auto 1fr auto auto;gap:20px;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px 22px;transition:transform .2s,border-color .2s,box-shadow .2s}
 .show:hover{transform:translateY(-2px);border-color:var(--border-strong);box-shadow:var(--shadow-sm)}
 .show__date{text-align:center;min-width:56px}
@@ -186,7 +186,7 @@ body.playing .track__eq i{animation-play-state:running}
 .vid__play i{width:60px;height:60px;border-radius:50%;background:color-mix(in srgb,#fff 90%,transparent);display:grid;place-items:center;color:#160e1c;transition:transform .25s;box-shadow:0 10px 30px -8px rgba(0,0,0,.5)}
 .vid:hover .vid__play i{transform:scale(1.1)}
 .vid__cap{position:absolute;z-index:2;left:18px;bottom:16px;color:#fff}
-.vid__cap b{display:block;font-size:1.05rem;font-weight:750;letter-spacing:-.01em}
+.vid__cap h3{display:block;font-size:1.05rem;font-weight:750;letter-spacing:-.01em;color:#fff}
 .vid__cap span{font-size:.78rem;opacity:.82}
 .vid__len{position:absolute;z-index:2;right:12px;bottom:12px;font-family:var(--font-mono);font-size:.72rem;background:rgba(8,4,10,.7);color:#fff;padding:3px 8px;border-radius:6px}
 .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:5}
@@ -255,7 +255,7 @@ section[id]{scroll-margin-top:84px}
 .foot__soc{display:flex;gap:10px;margin-top:20px}
 .foot__soc a{width:40px;height:40px;border-radius:12px;border:1px solid var(--border);display:grid;place-items:center;color:var(--ink-soft);transition:.2s}
 .foot__soc a:hover{color:var(--ink);border-color:var(--border-strong);background:var(--surface);transform:translateY(-2px)}
-.foot__col h4{font-size:.82rem;font-family:var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;margin-bottom:16px}
+.foot__col h3{font-size:.82rem;font-family:var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;margin-bottom:16px}
 .foot__col a{display:block;padding:6px 0;color:var(--ink-soft);font-size:.94rem;transition:color .2s}
 .foot__col a:hover{color:var(--ink)}
 .foot__bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:22px;border-top:1px solid var(--border);font-size:.86rem;color:var(--ink-faint)}
@@ -347,7 +347,7 @@ section[id]{scroll-margin-top:84px}
         </div>
       </div>
 
-      <div class="player rv rv-d1" id="player">
+      <div class="player rv rv-d1" id="player" role="group" aria-label="Аудиоплеер">
         <div class="player__top">
           <div class="cover"><img id="npArt" src="cover.jpg" alt="Обложка"></div>
           <div class="player__meta"><small>Сейчас играет</small><b id="npTitle">Холодный космос</b><span id="npAlbum">Иван Рейс</span></div>
@@ -381,15 +381,15 @@ section[id]{scroll-margin-top:84px}
         <div class="vinyl" aria-hidden="true"></div>
         <div class="cover cover--big"><img src="cover.jpg" alt="Обложка «Холодный космос»"></div>
       </div>
-      <div class="tracklist rv rv-d1" id="tracklist">
-        <div class="track active" data-t="Холодный космос" data-dur="3:27" data-album="Холодный космос" data-art="cover.jpg" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/2e/b3/14/2eb31414-4fe4-3630-ba11-b1ffb7081bfe/mzaf_2053208929470105266.plus.aac.p.m4a"><span class="track__n">1</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Холодный космос</b><small>Иван Рейс</small></div><span class="track__t">3:27</span></div>
-        <div class="track" data-t="Огонь" data-dur="2:46" data-album="Окна" data-art="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/90/e3/1e/90e31eda-76cd-29f1-ac80-1311091301cc/cover.jpg/600x600bb.jpg" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/51/9d/4e/519d4e76-d9a8-2a07-d095-6059e423e23d/mzaf_1958554967103870505.plus.aac.p.m4a"><span class="track__n">2</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Огонь</b><small>Иван Рейс</small></div><span class="track__t">2:46</span></div>
-        <div class="track" data-t="Сердце в огне" data-dur="2:42" data-album="Сердце в огне" data-art="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/f4/59/5d/f4595dbb-0bfb-cfb9-b9b2-13101df89619/cover.jpg/600x600bb.jpg" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/f2/34/53/f2345379-0839-f6fd-62cd-b0d566fa95b2/mzaf_15251048561600298473.plus.aac.p.m4a"><span class="track__n">3</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Сердце в огне</b><small>Иван Рейс</small></div><span class="track__t">2:42</span></div>
-        <div class="track" data-t="Тупая" data-dur="2:33" data-album="Тупая" data-art="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/91/78/45/917845fa-7e3b-4417-2665-4afec50380d3/cover.jpg/600x600bb.jpg" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/81/39/c2/8139c2d0-c3c7-1265-8277-76863c9a4e1d/mzaf_3584819163491802631.plus.aac.p.m4a"><span class="track__n">4</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Тупая</b><small>Иван Рейс</small></div><span class="track__t">2:33</span></div>
-        <div class="track" data-t="Мама" data-dur="2:40" data-album="Тупая" data-art="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/91/78/45/917845fa-7e3b-4417-2665-4afec50380d3/cover.jpg/600x600bb.jpg" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/5f/35/4f/5f354f1f-dd6a-debf-5f13-108d8b43ddc0/mzaf_5056498929086354984.plus.aac.p.m4a"><span class="track__n">5</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Мама</b><small>Иван Рейс</small></div><span class="track__t">2:40</span></div>
-        <div class="track" data-t="Эффектно" data-dur="2:31" data-album="DANGER: нежность" data-art="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a4/39/06/a4390654-758e-b817-3220-fea57adff2b9/cover.jpg/600x600bb.jpg" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/53/65/6d/53656d6d-b4d5-9122-5554-e73db21dfd4c/mzaf_5722036299305114741.plus.aac.p.m4a"><span class="track__n">6</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Эффектно</b><small>Иван Рейс</small></div><span class="track__t">2:31</span></div>
-        <div class="track" data-t="Локоны" data-dur="2:24" data-album="DANGER: нежность" data-art="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a4/39/06/a4390654-758e-b817-3220-fea57adff2b9/cover.jpg/600x600bb.jpg" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/76/ac/22/76ac2276-0a68-8e2d-1f1c-08be1538c2a4/mzaf_12590171664779687837.plus.aac.p.m4a"><span class="track__n">7</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Локоны</b><small>Иван Рейс</small></div><span class="track__t">2:24</span></div>
-      </div>
+      <ol class="tracklist rv rv-d1" id="tracklist" aria-label="Треки Ивана Рейса">
+        <li class="track active" tabindex="0" data-t="Холодный космос" data-dur="3:27" data-album="Холодный космос" data-art="cover.jpg" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/2e/b3/14/2eb31414-4fe4-3630-ba11-b1ffb7081bfe/mzaf_2053208929470105266.plus.aac.p.m4a"><span class="track__n">1</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Холодный космос</b><small>Иван Рейс</small></div><span class="track__t">3:27</span></li>
+        <li class="track" tabindex="0" data-t="Огонь" data-dur="2:46" data-album="Окна" data-art="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/90/e3/1e/90e31eda-76cd-29f1-ac80-1311091301cc/cover.jpg/600x600bb.jpg" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/51/9d/4e/519d4e76-d9a8-2a07-d095-6059e423e23d/mzaf_1958554967103870505.plus.aac.p.m4a"><span class="track__n">2</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Огонь</b><small>Иван Рейс</small></div><span class="track__t">2:46</span></li>
+        <li class="track" tabindex="0" data-t="Сердце в огне" data-dur="2:42" data-album="Сердце в огне" data-art="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/f4/59/5d/f4595dbb-0bfb-cfb9-b9b2-13101df89619/cover.jpg/600x600bb.jpg" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/f2/34/53/f2345379-0839-f6fd-62cd-b0d566fa95b2/mzaf_15251048561600298473.plus.aac.p.m4a"><span class="track__n">3</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Сердце в огне</b><small>Иван Рейс</small></div><span class="track__t">2:42</span></li>
+        <li class="track" tabindex="0" data-t="Тупая" data-dur="2:33" data-album="Тупая" data-art="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/91/78/45/917845fa-7e3b-4417-2665-4afec50380d3/cover.jpg/600x600bb.jpg" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/81/39/c2/8139c2d0-c3c7-1265-8277-76863c9a4e1d/mzaf_3584819163491802631.plus.aac.p.m4a"><span class="track__n">4</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Тупая</b><small>Иван Рейс</small></div><span class="track__t">2:33</span></li>
+        <li class="track" tabindex="0" data-t="Мама" data-dur="2:40" data-album="Тупая" data-art="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/91/78/45/917845fa-7e3b-4417-2665-4afec50380d3/cover.jpg/600x600bb.jpg" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/5f/35/4f/5f354f1f-dd6a-debf-5f13-108d8b43ddc0/mzaf_5056498929086354984.plus.aac.p.m4a"><span class="track__n">5</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Мама</b><small>Иван Рейс</small></div><span class="track__t">2:40</span></li>
+        <li class="track" tabindex="0" data-t="Эффектно" data-dur="2:31" data-album="DANGER: нежность" data-art="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a4/39/06/a4390654-758e-b817-3220-fea57adff2b9/cover.jpg/600x600bb.jpg" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/53/65/6d/53656d6d-b4d5-9122-5554-e73db21dfd4c/mzaf_5722036299305114741.plus.aac.p.m4a"><span class="track__n">6</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Эффектно</b><small>Иван Рейс</small></div><span class="track__t">2:31</span></li>
+        <li class="track" tabindex="0" data-t="Локоны" data-dur="2:24" data-album="DANGER: нежность" data-art="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a4/39/06/a4390654-758e-b817-3220-fea57adff2b9/cover.jpg/600x600bb.jpg" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/76/ac/22/76ac2276-0a68-8e2d-1f1c-08be1538c2a4/mzaf_12590171664779687837.plus.aac.p.m4a"><span class="track__n">7</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Локоны</b><small>Иван Рейс</small></div><span class="track__t">2:24</span></li>
+      </ol>
     </div>
   </div>
 </section>
@@ -402,9 +402,9 @@ section[id]{scroll-margin-top:84px}
       <a class="btn btn--primary" href="#join">Подписаться на анонсы</a>
       <a class="btn btn--ghost" href="https://www.instagram.com/ivanreysss/" target="_blank" rel="noopener">Instagram <span class="arw" aria-hidden="true">→</span></a>
     </div>
-    <div class="shows rv" style="margin-top:36px">
-      <div class="show"><div class="show__date"><b class="num">30</b><span>Янв</span></div><div class="show__c"><b>Концерт прошёл — было очень круто</b><span>Спасибо всем, кто был!</span></div><div class="show__status soldout">2026</div></div>
-    </div>
+    <ul class="shows rv" style="margin-top:36px" aria-label="Прошедшие концерты">
+      <li class="show"><div class="show__date"><b class="num">30</b><span>Янв</span></div><div class="show__c"><b>Концерт прошёл — было очень круто</b><span>Спасибо всем, кто был!</span></div><div class="show__status soldout">2026</div></li>
+    </ul>
   </div>
 </section>
 
@@ -413,14 +413,14 @@ section[id]{scroll-margin-top:84px}
   <div class="wrap">
     <div class="head rv"><div><span class="eyebrow">Смотреть</span><h2>Клипы и лайвы</h2></div><a class="btn btn--ghost" href="https://www.youtube.com/@IvanReys" target="_blank" rel="noopener">Весь канал <span class="arw" aria-hidden="true">→</span></a></div>
     <div class="videos">
-      <article class="vid rv rv-d1" data-yt="XZ_i9JTiL8o"><div class="vid__th" style="background-image:url(https://i.ytimg.com/vi/XZ_i9JTiL8o/hqdefault.jpg)"><div class="vid__play"><i><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M8 5v14l11-7z"/></svg></i></div><div class="vid__cap"><b>Сердце в огне</b><span>Клип · feat. XOLIDAYBOY</span></div></div></article>
-      <article class="vid rv rv-d2" data-yt="ISf3g8UcPdQ"><div class="vid__th" style="background-image:url(https://i.ytimg.com/vi/ISf3g8UcPdQ/hqdefault.jpg)"><div class="vid__play"><i><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M8 5v14l11-7z"/></svg></i></div><div class="vid__cap"><b>Холодный космос — LIVE</b><span>Живой звук</span></div></div></article>
+      <article class="vid rv rv-d1" data-yt="XZ_i9JTiL8o"><div class="vid__th" style="background-image:url(https://i.ytimg.com/vi/XZ_i9JTiL8o/hqdefault.jpg)"><div class="vid__play"><i><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M8 5v14l11-7z"/></svg></i></div><div class="vid__cap"><h3>Сердце в огне</h3><span>Клип · feat. XOLIDAYBOY</span></div></div></article>
+      <article class="vid rv rv-d2" data-yt="ISf3g8UcPdQ"><div class="vid__th" style="background-image:url(https://i.ytimg.com/vi/ISf3g8UcPdQ/hqdefault.jpg)"><div class="vid__play"><i><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M8 5v14l11-7z"/></svg></i></div><div class="vid__cap"><h3>Холодный космос — LIVE</h3><span>Живой звук</span></div></div></article>
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section class="section" id="about" style="padding-top:0">
+<section class="section" id="about">
   <div class="wrap">
     <div class="about">
       <div class="about__text rv">
@@ -466,7 +466,7 @@ section[id]{scroll-margin-top:84px}
           <a href="https://open.spotify.com/artist/4ZJ1wDa7zb28izi6i58rcH" target="_blank" rel="noopener" aria-label="Spotify"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M17 16.3c-.2.3-.6.4-.9.2-2.5-1.5-5.6-1.9-9.3-1-.4.1-.7-.1-.8-.5s.1-.7.5-.8c4-1 7.5-.6 10.3 1.1.3.2.4.6.2.9zm1.2-2.7c-.3.4-.7.5-1.1.3-2.9-1.8-7.2-2.3-10.6-1.3-.4.1-.9-.1-1-.6-.1-.4.1-.9.6-1 3.9-1.2 8.7-.6 12 1.5.3.2.5.7.1 1.1zm.1-2.8C15.9 6.9 9.6 6.7 6.1 7.8c-.5.2-1.1-.1-1.3-.7-.2-.5.1-1.1.7-1.3 4-1.2 11-1 15 1.4.5.3.7 1 .4 1.5-.3.4-1 .6-1.5.1z" fill="var(--bg-soft)"/></svg></a>
         </div>
       </div>
-      <div class="foot__col"><h4>Слушать</h4>
+      <div class="foot__col"><h3>Слушать</h3>
         <a href="https://open.spotify.com/artist/4ZJ1wDa7zb28izi6i58rcH" target="_blank" rel="noopener">Spotify</a>
         <a href="https://music.apple.com/us/artist/%D0%B8%D0%B2%D0%B0%D0%BD-%D1%80%D0%B5%D0%B9%D1%81/1463049689" target="_blank" rel="noopener">Apple Music</a>
         <a href="https://music.youtube.com/channel/UCAzcEiU2GAckkwQZSv_j3tw" target="_blank" rel="noopener">YouTube Music</a>
@@ -569,7 +569,9 @@ section[id]{scroll-margin-top:84px}
     if("IntersectionObserver" in window){ new IntersectionObserver(function(en){ heroVis=en[0].isIntersecting; upd(); },{threshold:0}).observe(hero); }
     document.addEventListener("visibilitychange", upd);
     if(!reduce) upd();
-    var rt; window.addEventListener("resize", function(){ clearTimeout(rt); rt=setTimeout(build,180); }, {passive:true});
+    // mobile URL-bar show/hide fires resize with SAME width — rebuilding would
+    // re-randomize stars and make them "jump"; rebuild only on real width change
+    var rt; window.addEventListener("resize", function(){ clearTimeout(rt); rt=setTimeout(function(){ var w=hero.clientWidth||window.innerWidth; if(Math.abs(w-W)>1) build(); },180); }, {passive:true});
   })();
 
   // wave bars — heights driven by REAL audio frequencies (WebAudio analyser)
@@ -582,8 +584,9 @@ section[id]{scroll-margin-top:84px}
   var tracks=document.querySelectorAll("#tracklist .track"), npTitle=document.getElementById("npTitle"), npAlbum=document.getElementById("npAlbum"), npArt=document.getElementById("npArt");
   var audio=new Audio(); audio.crossOrigin="anonymous"; audio.preload="none"; audio.volume=0.15;
   var volCtl=document.getElementById("vol");
+  var canVol=Math.abs(audio.volume-0.15)<0.05; // iOS игнорирует audio.volume (громкость только хард-кнопками)
   function volFill(){ if(volCtl)volCtl.style.background="linear-gradient(90deg,var(--accent) "+volCtl.value+"%,var(--border) "+volCtl.value+"%)"; }
-  if(volCtl){ volCtl.value=15; volFill(); volCtl.addEventListener("input", function(){ audio.volume=volCtl.value/100; volFill(); }); }
+  if(volCtl){ if(!canVol){ volCtl.style.display="none"; } else { volCtl.value=15; volFill(); volCtl.addEventListener("input", function(){ audio.volume=volCtl.value/100; volFill(); }); } }
   var actx=null, ana=null, freq=null, srcN=null, raf=null, curEl=null;
 
   function fmtT(s){ if(!isFinite(s)||s<0)s=0; var m=(s/60)|0, ss=(s%60)|0; return m+":"+(ss<10?"0":"")+ss; }
@@ -608,14 +611,15 @@ section[id]{scroll-margin-top:84px}
   audio.addEventListener("loadedmetadata", function(){ if(isFinite(audio.duration))tTot.textContent=fmtT(audio.duration); });
   audio.addEventListener("timeupdate", function(){ if(audio.duration){ progFill.style.width=(audio.currentTime/audio.duration*100).toFixed(2)+"%"; tCur.textContent=fmtT(audio.currentTime); } });
 
-  tracks.forEach(function(t){ t.addEventListener("click", function(){ if(t===curEl){ if(audio.paused)play(); else audio.pause(); return; } setActive(t); play(); }); });
+  tracks.forEach(function(t){ t.addEventListener("click", function(){ if(t===curEl){ if(audio.paused)play(); else audio.pause(); return; } setActive(t); play(); });
+    t.addEventListener("keydown", function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); t.click(); } }); });
   function step(dir){ var arr=Array.prototype.slice.call(tracks); var i=arr.indexOf(curEl); if(i<0)i=0; i=(i+dir+arr.length)%arr.length; setActive(arr[i]); play(); }
   document.getElementById("nextBtn").addEventListener("click", function(){ step(1); });
   document.getElementById("prevBtn").addEventListener("click", function(){ step(-1); });
   if(tracks.length)setActive(tracks[0]); setPlaying(false); idleWave();
 
   // YouTube facade — load the real video on click (keeps page light until asked)
-  document.querySelectorAll(".vid[data-yt]").forEach(function(v){ v.addEventListener("click", function(){ if(v.querySelector("iframe"))return; var f=document.createElement("iframe"); f.src="https://www.youtube.com/embed/"+v.getAttribute("data-yt")+"?autoplay=1&rel=0"; f.setAttribute("allow","autoplay; encrypted-media; picture-in-picture; fullscreen"); f.setAttribute("allowfullscreen",""); var cap=v.querySelector(".vid__cap b"); if(cap)f.setAttribute("title",cap.textContent); v.querySelector(".vid__th").appendChild(f); v.classList.add("playing"); }); });
+  document.querySelectorAll(".vid[data-yt]").forEach(function(v){ v.addEventListener("click", function(){ if(v.querySelector("iframe"))return; var f=document.createElement("iframe"); f.src="https://www.youtube.com/embed/"+v.getAttribute("data-yt")+"?autoplay=1&rel=0"; f.setAttribute("allow","autoplay; encrypted-media; picture-in-picture; fullscreen"); f.setAttribute("allowfullscreen",""); var cap=v.querySelector(".vid__cap h3"); if(cap)f.setAttribute("title",cap.textContent); v.querySelector(".vid__th").appendChild(f); v.classList.add("playing"); }); });
 
   function fmt(v,dec){ return dec?v.toFixed(1).replace(".",","):Math.round(v).toLocaleString("ru-RU"); }
   function animateStat(el){ var to=parseFloat(el.getAttribute("data-to")),suffix=el.getAttribute("data-suffix")||"",dec=(to%1!==0)?1:0; if(reduce){el.textContent=fmt(to,dec)+suffix;return;} var start=null; function fr(t){ if(!start)start=t; var p=Math.min((t-start)/1500,1),val=to*(1-Math.pow(1-p,3)); el.textContent=fmt(val,dec)+suffix; if(p<1)requestAnimationFrame(fr); } requestAnimationFrame(fr); }
