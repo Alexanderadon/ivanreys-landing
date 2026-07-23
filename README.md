@@ -3,7 +3,7 @@
 Лендинг реального электронного артиста Ивана Рейса: рабочий плеер с настоящими
 превью треков (Apple Music), клипы с YouTube, реальные ссылки на все площадки.
 
-**Live:** https://briz-landing.vercel.app
+**Live:** https://ivanreys.vercel.app (Vercel-проект `ivanreys`; старый адрес briz-landing.vercel.app — легаси, не обновляется)
 
 ## Стек
 Один самодостаточный `index.html` — без сборки и зависимостей. HTML + CSS + ванильный JS.
