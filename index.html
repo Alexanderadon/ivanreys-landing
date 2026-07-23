@@ -90,12 +90,11 @@ p{color:var(--ink-soft)}
 .hero::before{content:"";position:absolute;left:0;right:0;bottom:-1px;height:110px;z-index:3;background:linear-gradient(transparent,var(--bg));pointer-events:none}
 .hero .wrap{position:relative;z-index:4}
 .stars{position:absolute;inset:0;z-index:1;display:block}
-.planet{position:absolute;z-index:2;right:-8%;top:-6%;width:min(660px,58vw);aspect-ratio:1;will-change:transform;animation:pfloat 9s ease-in-out infinite}
+.planet{position:absolute;z-index:2;right:-8%;top:-6%;width:min(660px,58vw);aspect-ratio:1}
 .planet img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 .planet__halo{position:absolute;inset:-6%;border-radius:50%;z-index:-1;background:radial-gradient(closest-side,rgba(168,85,247,.30),rgba(255,77,109,.13) 55%,transparent 74%)}
-.moon{position:absolute;z-index:2;right:50%;top:68%;width:min(150px,16vw);aspect-ratio:1;will-change:transform;animation:mfloat 12s ease-in-out infinite}
+.moon{position:absolute;z-index:2;right:50%;top:68%;width:min(150px,16vw);aspect-ratio:1}
 .moon img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 18px color-mix(in srgb,var(--accent-cyan) 35%,transparent))}
-@keyframes mfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(11px)}}
 
 .hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,56px);align-items:center}
 .hero h1{font-size:clamp(3rem,8.5vw,6rem);letter-spacing:-.04em;line-height:.92;font-weight:850;color:#fff}
@@ -110,7 +109,6 @@ p{color:var(--ink-soft)}
 .hero .stream:hover{background:rgba(255,255,255,.16)}
 
 .player{background:var(--surface);border:1px solid var(--border-strong);border-radius:24px;padding:20px;box-shadow:var(--shadow-lg);position:relative}
-.player::after{content:"";position:absolute;inset:-1px;border-radius:25px;padding:1px;background:linear-gradient(130deg,var(--accent),transparent 40%,transparent 60%,var(--accent-2));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.6;pointer-events:none}
 .player__top{display:flex;gap:16px;align-items:center}
 .cover{width:96px;height:96px;border-radius:16px;flex:none;position:relative;overflow:hidden;box-shadow:var(--shadow-md)}
 .cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
@@ -145,7 +143,8 @@ p{color:var(--ink-soft)}
 .cover--big .ct{position:absolute;left:24px;bottom:22px;z-index:2;color:#fff}
 .cover--big .ct b{display:block;font-size:clamp(1.7rem,3.6vw,2.4rem);font-weight:850;letter-spacing:-.03em;line-height:.95;text-shadow:0 2px 20px rgba(0,0,0,.3)}
 .cover--big .ct span{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;opacity:.85}
-.vinyl{position:absolute;right:-40px;top:50%;transform:translateY(-50%);width:70%;aspect-ratio:1;border-radius:50%;z-index:-1;background:repeating-radial-gradient(circle at center,#1b1420 0 2px,#0e0a12 2px 5px);box-shadow:var(--shadow-md);will-change:transform;animation:spin 14s linear infinite}
+.vinyl{position:absolute;right:-40px;top:50%;transform:translateY(-50%);width:70%;aspect-ratio:1;border-radius:50%;z-index:-1;background:repeating-radial-gradient(circle at center,#1b1420 0 2px,#0e0a12 2px 5px);box-shadow:var(--shadow-md);animation:spin 14s linear infinite;animation-play-state:paused}
+body.playing .vinyl{animation-play-state:running}
 :root[data-theme="light"] .vinyl{background:repeating-radial-gradient(circle at center,#2a2230 0 2px,#171018 2px 5px)}
 .vinyl::after{content:"";position:absolute;inset:0;margin:auto;width:30%;height:30%;border-radius:50%;background:conic-gradient(from 210deg,var(--accent),var(--accent-2),var(--accent-3),var(--accent))}
 .vinyl::before{content:"";position:absolute;inset:0;margin:auto;width:7%;height:7%;border-radius:50%;background:var(--bg);z-index:2}
@@ -157,7 +156,8 @@ p{color:var(--ink-soft)}
 .track.active .track__n,.track:hover .track__n{color:var(--accent-ink)}
 .track__eq{display:none;gap:2px;align-items:flex-end;height:14px;width:22px;justify-content:center}
 .track.active .track__eq{display:flex}.track.active .track__n{display:none}
-.track__eq i{width:2.5px;background:var(--accent);border-radius:2px;animation:eq 800ms ease-in-out infinite}
+.track__eq i{width:2.5px;background:var(--accent);border-radius:2px;animation:eq 800ms ease-in-out infinite;animation-play-state:paused}
+body.playing .track__eq i{animation-play-state:running}
 .track__eq i:nth-child(2){animation-delay:-.3s}.track__eq i:nth-child(3){animation-delay:-.15s}
 .track__nm{flex:1;min-width:0}
 .track__nm b{display:block;font-size:1rem;font-weight:650;letter-spacing:-.01em}
@@ -239,7 +239,6 @@ section[id]{scroll-margin-top:84px}
 .rv.in{opacity:1;transform:none}
 .rv-d1{transition-delay:.06s}.rv-d2{transition-delay:.12s}.rv-d3{transition-delay:.18s}
 
-@keyframes pfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
 @keyframes eq{0%,100%{transform:scaleY(.28)}50%{transform:scaleY(1)}}
 @keyframes spin{to{transform:translateY(-50%) rotate(360deg)}}
 
@@ -461,14 +460,13 @@ section[id]{scroll-margin-top:84px}
     rvs.forEach(function(el){ io.observe(el); });
   } else { rvs.forEach(function(el){ el.classList.add("in"); }); }
 
-  /* starfield v2: nebula + stars pre-rendered into layers, per-frame = 4 blits.
-     Loop runs ONLY while the hero is on screen and the tab is visible. */
+  /* starfield v3: FULLY STATIC scene (nebula + stars baked once, zero idle work).
+     rAF wakes only for the ~1s life of an occasional shooting star, then stops. */
   (function(){
     var cv = document.getElementById("stars"); if(!cv) return;
     var ctx = cv.getContext("2d"), hero = cv.parentElement;
     var DPR = Math.min(window.devicePixelRatio||1,1.5), W=0,H=0;
-    var bg=null, far=null, near=null, shoots=[], nextShoot=6, lastT=0, t=0, run=false, heroVis=true;
-    function mk(){ var c=document.createElement("canvas"); c.width=Math.max(1,Math.round(W*DPR)); c.height=Math.max(1,Math.round(H*DPR)); var x=c.getContext("2d"); x.setTransform(DPR,0,0,DPR,0,0); return {c:c,x:x}; }
+    var scene=null, shoots=[], lastT=0, running=false, heroVis=true, timer=null;
     function blob(x,cx,cy,r,col,a){ var g=x.createRadialGradient(cx,cy,0,cx,cy,r); g.addColorStop(0,"rgba("+col+","+a+")"); g.addColorStop(1,"rgba("+col+",0)"); x.fillStyle=g; x.fillRect(cx-r,cy-r,r*2,r*2); }
     function paintStars(x,n,rmin,rmax,alpha){
       var cols=["255,255,255","198,214,255","255,226,196"];
@@ -476,27 +474,33 @@ section[id]{scroll-margin-top:84px}
         x.beginPath(); x.arc(X,Y,r,0,6.283); x.fillStyle="rgba("+cols[(Math.random()*3)|0]+","+a.toFixed(3)+")"; x.fill();
         if(r>1){ x.beginPath(); x.arc(X,Y,r*2.6,0,6.283); x.fillStyle="rgba(255,255,255,"+(a*0.08).toFixed(3)+")"; x.fill(); } }
     }
+    function still(){ ctx.clearRect(0,0,W,H); ctx.drawImage(scene,0,0,W,H); }
     function build(){
       W = hero.clientWidth||window.innerWidth; H = hero.clientHeight||600;
       cv.width = Math.round(W*DPR); cv.height = Math.round(H*DPR); ctx.setTransform(DPR,0,0,DPR,0,0);
-      bg = mk();
-      blob(bg.x, W*0.18,H*0.32,W*0.30,"168,85,247",0.34);
-      blob(bg.x, W*0.62,H*0.14,W*0.26,"255,77,109",0.20);
-      blob(bg.x, W*0.86,H*0.62,W*0.30,"63,214,208",0.16);
-      blob(bg.x, W*0.38,H*0.86,W*0.34,"96,120,255",0.20);
-      blob(bg.x, W*0.55,H*0.46,W*0.20,"255,176,58",0.10);
-      far = mk(); paintStars(far.x, Math.max(80,Math.min(220,Math.round(W*H/12000))), 0.3, 0.9, 0.55);
-      near = mk(); paintStars(near.x, Math.max(30,Math.min(90,Math.round(W*H/30000))), 0.9, 1.6, 0.85);
-      frame(0);
+      scene = document.createElement("canvas"); scene.width=cv.width; scene.height=cv.height;
+      var x = scene.getContext("2d"); x.setTransform(DPR,0,0,DPR,0,0);
+      blob(x, W*0.18,H*0.32,W*0.30,"168,85,247",0.34);
+      blob(x, W*0.62,H*0.14,W*0.26,"255,77,109",0.20);
+      blob(x, W*0.86,H*0.62,W*0.30,"63,214,208",0.16);
+      blob(x, W*0.38,H*0.86,W*0.34,"96,120,255",0.20);
+      blob(x, W*0.55,H*0.46,W*0.20,"255,176,58",0.10);
+      paintStars(x, Math.max(80,Math.min(220,Math.round(W*H/12000))), 0.3, 0.9, 0.55);
+      paintStars(x, Math.max(30,Math.min(90,Math.round(W*H/30000))), 0.9, 1.6, 0.85);
+      still();
+      schedule();
     }
-    function blitWrap(l,off){ off=((off%W)+W)%W; ctx.drawImage(l.c,-off,0,W,H); if(off>0.5)ctx.drawImage(l.c,W-off,0,W,H); }
-    function frame(dt){
-      ctx.clearRect(0,0,W,H);
-      ctx.drawImage(bg.c,0,0,W,H);
-      blitWrap(far, t*4); blitWrap(near, t*9);
-      if(dt>0 && t>nextShoot){ var ang=0.35+Math.random()*0.25, sp=420+Math.random()*260;
-        shoots.push({x:Math.random()*W*0.8,y:Math.random()*H*0.3,vx:Math.cos(ang)*sp,vy:Math.sin(ang)*sp,life:0,max:0.7+Math.random()*0.4,len:90+Math.random()*70});
-        nextShoot=t+7+Math.random()*8; }
+    function schedule(){ clearTimeout(timer); timer=setTimeout(spawn, 6000+Math.random()*9000); }
+    function spawn(){
+      if(reduce || document.hidden || !heroVis){ schedule(); return; }
+      var ang=0.35+Math.random()*0.25, sp=420+Math.random()*260;
+      shoots.push({x:Math.random()*W*0.8,y:Math.random()*H*0.3,vx:Math.cos(ang)*sp,vy:Math.sin(ang)*sp,life:0,max:0.7+Math.random()*0.4,len:90+Math.random()*70});
+      if(!running){ running=true; lastT=0; requestAnimationFrame(loop); }
+    }
+    function loop(ts){
+      if(!lastT) lastT=ts;
+      var dt=Math.min((ts-lastT)/1000,0.05); lastT=ts;
+      still();
       for(var k=shoots.length-1;k>=0;k--){ var m=shoots[k];
         m.x+=m.vx*dt; m.y+=m.vy*dt; m.life+=dt;
         var la=1-m.life/m.max; if(la<=0||m.x>W+120||m.y>H+120){ shoots.splice(k,1); continue; }
@@ -507,19 +511,11 @@ section[id]{scroll-margin-top:84px}
         ctx.beginPath(); ctx.moveTo(tx,ty); ctx.lineTo(m.x,m.y); ctx.stroke();
         ctx.beginPath(); ctx.arc(m.x,m.y,1.7,0,6.283); ctx.fillStyle="rgba(255,255,255,"+la.toFixed(3)+")"; ctx.fill();
       }
+      if(shoots.length){ requestAnimationFrame(loop); }
+      else { running=false; still(); schedule(); }
     }
-    function loop(ts){
-      if(!run) return;
-      if(!lastT) lastT=ts;
-      var dt=Math.min((ts-lastT)/1000,0.05); lastT=ts; t+=dt;
-      frame(dt);
-      requestAnimationFrame(loop);
-    }
-    function upd(){ var want=heroVis && !document.hidden && !reduce; if(want && !run){ run=true; lastT=0; requestAnimationFrame(loop); } else if(!want){ run=false; } }
     build();
-    if("IntersectionObserver" in window){ new IntersectionObserver(function(en){ heroVis=en[0].isIntersecting; upd(); },{threshold:0}).observe(hero); }
-    document.addEventListener("visibilitychange", upd);
-    if(!reduce) upd();
+    if("IntersectionObserver" in window){ new IntersectionObserver(function(en){ heroVis=en[0].isIntersecting; },{threshold:0}).observe(hero); }
     var rt; window.addEventListener("resize", function(){ clearTimeout(rt); rt=setTimeout(build,180); }, {passive:true});
   })();
 
@@ -538,7 +534,7 @@ section[id]{scroll-margin-top:84px}
   var actx=null, ana=null, freq=null, srcN=null, raf=null, curEl=null;
 
   function fmtT(s){ if(!isFinite(s)||s<0)s=0; var m=(s/60)|0, ss=(s%60)|0; return m+":"+(ss<10?"0":"")+ss; }
-  function setPlaying(v){ player.classList.toggle("playing",v); playIcon.innerHTML=v?iconPause:iconPlay; playBtn.setAttribute("aria-label",v?"Пауза":"Играть"); }
+  function setPlaying(v){ player.classList.toggle("playing",v); document.body.classList.toggle("playing",v); playIcon.innerHTML=v?iconPause:iconPlay; playBtn.setAttribute("aria-label",v?"Пауза":"Играть"); }
   function setActive(el){ curEl=el; tracks.forEach(function(x){x.classList.toggle("active",x===el);}); npTitle.textContent=el.getAttribute("data-t"); var alb=el.getAttribute("data-album"); if(npAlbum)npAlbum.textContent=alb?("Иван Рейс · «"+alb+"»"):"Иван Рейс"; var art=el.getAttribute("data-art"); if(npArt&&art)npArt.src=art; var d=el.getAttribute("data-dur"); if(d)tTot.textContent=d; progFill.style.width="0%"; tCur.textContent="0:00"; audio.src=el.getAttribute("data-src"); }
   function ensureCtx(){ if(actx)return; try{ var AC=window.AudioContext||window.webkitAudioContext; if(!AC)return; actx=new AC(); ana=actx.createAnalyser(); ana.fftSize=128; ana.smoothingTimeConstant=0.82; freq=new Uint8Array(ana.frequencyBinCount); srcN=actx.createMediaElementSource(audio); srcN.connect(ana); ana.connect(actx.destination); }catch(e){} }
   function renderWave(){ if(!ana||reduce||audio.paused){ raf=null; return; } raf=requestAnimationFrame(renderWave); ana.getByteFrequencyData(freq); var L=WBARS.length, F=freq.length-2; for(var i=0;i<L;i++){ var v=freq[1+((i/L*F)|0)]/255; WBARS[i].style.transform="scaleY("+(0.14+v*0.86).toFixed(3)+")"; } }
