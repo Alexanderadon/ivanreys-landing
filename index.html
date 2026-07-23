@@ -101,7 +101,7 @@ p{color:var(--ink-soft)}
 .badge .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 25%,transparent);animation:pulse 1.8s ease-in-out infinite}
 .badge b{color:#fff;font-weight:700}
 .hero h1{font-size:clamp(3rem,8.5vw,6rem);letter-spacing:-.04em;line-height:.92;font-weight:850;color:#fff;text-shadow:0 2px 34px rgba(0,0,0,.55),0 1px 3px rgba(0,0,0,.5)}
-.hero h1 .grad-text{background:linear-gradient(100deg,#ff4d6d,#a855f7 50%,#ffb03a);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 22px rgba(255,90,150,.4)) drop-shadow(0 2px 3px rgba(0,0,0,.4))}
+.hero h1 .grad-text{background:linear-gradient(95deg,#ff6b8a,#c98cff 50%,#ffc56f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 2px 5px rgba(0,0,0,.42))}
 .hero h1 .al{display:block;font-size:clamp(1.5rem,4vw,2.5rem);font-weight:800;letter-spacing:-.03em;margin-top:14px;color:#fff}
 .hero__sub{margin-top:22px;font-size:clamp(1.05rem,1.7vw,1.24rem);color:rgba(255,255,255,.82);max-width:44ch}
 .hero__cta{margin-top:30px;display:flex;flex-direction:column;gap:16px;align-items:flex-start}
@@ -122,10 +122,10 @@ p{color:var(--ink-soft)}
 .player__meta b{display:block;font-size:1.15rem;font-weight:800;letter-spacing:-.02em;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink)}
 .player__meta span{font-size:.86rem;color:var(--ink-faint)}
 .wave{display:flex;align-items:center;gap:3px;height:46px;margin:20px 2px 6px;overflow:hidden}
-.wave i{flex:1;min-width:2px;max-width:5px;height:22%;border-radius:3px;background:linear-gradient(var(--accent),var(--accent-2));opacity:.5}
-.player.playing .wave i{animation:eq 900ms ease-in-out infinite;opacity:1}
+.wave i{flex:1;min-width:2px;height:16%;border-radius:3px;background:linear-gradient(var(--accent),var(--accent-2));opacity:.55;transition:height .09s linear}
+.player.playing .wave i{opacity:1}
 .progress{height:5px;border-radius:5px;background:var(--border);overflow:hidden;margin:6px 2px 0}
-.progress i{display:block;height:100%;width:34%;border-radius:5px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+.progress i{display:block;height:100%;width:0%;border-radius:5px;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .2s linear}
 .player__ctl{display:flex;align-items:center;justify-content:space-between;margin-top:16px}
 .player__time{font-family:var(--font-mono);font-size:.74rem;color:var(--ink-faint)}
 .controls{display:flex;align-items:center;gap:14px}
@@ -140,7 +140,7 @@ p{color:var(--ink-soft)}
 
 .album{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,56px);align-items:center}
 .album__art{position:relative}
-.cover--big{width:100%;aspect-ratio:1;border-radius:22px;box-shadow:var(--shadow-lg)}
+.cover--big{width:100%;height:auto;aspect-ratio:1;border-radius:22px;box-shadow:var(--shadow-lg)}
 .cover--big .ct{position:absolute;left:24px;bottom:22px;z-index:2;color:#fff}
 .cover--big .ct b{display:block;font-size:clamp(1.7rem,3.6vw,2.4rem);font-weight:850;letter-spacing:-.03em;line-height:.95;text-shadow:0 2px 20px rgba(0,0,0,.3)}
 .cover--big .ct span{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;opacity:.85}
@@ -159,8 +159,8 @@ p{color:var(--ink-soft)}
 .track__eq i{width:2.5px;background:var(--accent);border-radius:2px;animation:eq 800ms ease-in-out infinite}
 .track__eq i:nth-child(2){animation-delay:-.3s}.track__eq i:nth-child(3){animation-delay:-.15s}
 .track__nm{flex:1;min-width:0}
-.track__nm b{font-size:1rem;font-weight:650;letter-spacing:-.01em}
-.track__nm small{font-size:.8rem;color:var(--ink-faint)}
+.track__nm b{display:block;font-size:1rem;font-weight:650;letter-spacing:-.01em}
+.track__nm small{display:block;margin-top:2px;font-size:.8rem;color:var(--ink-faint)}
 .track__t{font-family:var(--font-mono);font-size:.82rem;color:var(--ink-faint)}
 
 .shows{display:flex;flex-direction:column;gap:12px}
@@ -175,10 +175,10 @@ p{color:var(--ink-soft)}
 .show__status.few{color:var(--accent-3)}.show__status.soldout{color:var(--ink-faint)}
 .show .btn{white-space:nowrap}.show.gone{opacity:.55}
 
-.videos{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.videos{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
 .vid{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm);cursor:pointer;transition:transform .3s,box-shadow .3s}
 .vid:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
-.vid__th{aspect-ratio:16/10;position:relative}
+.vid__th{aspect-ratio:16/10;position:relative;background-size:cover;background-position:center;background-color:#160e1c}
 .vid__th::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(8,4,10,.72));z-index:1}
 .v1{background:radial-gradient(120% 120% at 20% 20%,var(--accent),transparent 55%),conic-gradient(from 200deg at 70% 80%,var(--accent-2),var(--accent-cyan),var(--accent))}
 .v2{background:radial-gradient(120% 120% at 80% 15%,var(--accent-3),transparent 50%),conic-gradient(from 40deg at 30% 70%,var(--accent),var(--accent-2),var(--accent-3))}
@@ -190,10 +190,14 @@ p{color:var(--ink-soft)}
 .vid__cap b{display:block;font-size:1.05rem;font-weight:750;letter-spacing:-.01em}
 .vid__cap span{font-size:.78rem;opacity:.82}
 .vid__len{position:absolute;z-index:2;right:12px;bottom:12px;font-family:var(--font-mono);font-size:.72rem;background:rgba(8,4,10,.7);color:#fff;padding:3px 8px;border-radius:6px}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:5}
+.vid.playing .vid__play,.vid.playing .vid__cap{display:none}
+.vid.playing .vid__th::after{opacity:0}
 
 .about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,64px);align-items:center}
 .about__art{aspect-ratio:5/4;border-radius:var(--r-xl);position:relative;overflow:hidden;box-shadow:var(--shadow-lg);background:radial-gradient(100% 120% at 10% 10%,var(--accent),transparent 50%),radial-gradient(100% 120% at 90% 20%,var(--accent-3),transparent 45%),conic-gradient(from 200deg at 60% 90%,var(--accent-2),var(--accent-cyan),var(--accent),var(--accent-2))}
 .about__art .initial{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(5rem,15vw,10rem);font-weight:850;letter-spacing:-.05em;color:rgba(255,255,255,.16);mix-blend-mode:overlay}
+.about__art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%}
 .about__stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
 .about__stats .s b{display:block;font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800;letter-spacing:-.03em}
 .about__stats .s span{font-size:.82rem;color:var(--ink-faint)}
@@ -306,18 +310,18 @@ p{color:var(--ink-soft)}
       <div class="player rv rv-d1" id="player">
         <div class="player__top">
           <div class="cover"><img src="cover.jpg" alt="Обложка «Холодный космос»"></div>
-          <div class="player__meta"><small>Сейчас играет</small><b id="npTitle">Холодный космос</b><span id="npAlbum">Иван Рейс · «Холодный космос»</span></div>
+          <div class="player__meta"><small>Сейчас играет</small><b id="npTitle">Холодный космос</b><span id="npAlbum">Иван Рейс</span></div>
         </div>
         <div class="wave" id="wave" aria-hidden="true"></div>
         <div class="progress"><i></i></div>
         <div class="player__ctl">
-          <span class="player__time">1:24</span>
+          <span class="player__time">0:00</span>
           <div class="controls">
             <button aria-label="Предыдущий" id="prevBtn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 6v12H5V6h2zm12 0v12l-9-6 9-6z"/></svg></button>
             <button class="play" id="playBtn" aria-label="Играть"><svg id="playIcon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
             <button aria-label="Следующий" id="nextBtn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 6v12h2V6h-2zM5 6v12l9-6-9-6z"/></svg></button>
           </div>
-          <span class="player__time">4:12</span>
+          <span class="player__time">3:27</span>
         </div>
       </div>
     </div>
@@ -328,7 +332,7 @@ p{color:var(--ink-soft)}
 <section class="section" id="music">
   <div class="wrap">
     <div class="head rv">
-      <div><span class="eyebrow">Альбом · 2026</span><h2>«Холодный космос»</h2><p>12 треков, записанных где-то между тишиной и звёздами. Слушайте целиком или тыкайте в любой.</p></div>
+      <div><span class="eyebrow">Сингл · 2026</span><h2>«Холодный космос»</h2><p>И другие треки Ивана Рейса — жми на любой, играет настоящее превью с Apple Music.</p></div>
       <a class="btn btn--ghost" href="#">Добавить в плейлист <span class="arw" aria-hidden="true">→</span></a>
     </div>
     <div class="album">
@@ -337,12 +341,13 @@ p{color:var(--ink-soft)}
         <div class="cover cover--big"><img src="cover.jpg" alt="Обложка «Холодный космос»"></div>
       </div>
       <div class="tracklist rv rv-d1" id="tracklist">
-        <div class="track active" data-t="Холодный космос"><span class="track__n">1</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Холодный космос</b><small>Иван Рейс</small></div><span class="track__t">4:12</span></div>
-        <div class="track" data-t="Орбита"><span class="track__n">2</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Орбита</b><small>Иван Рейс</small></div><span class="track__t">3:48</span></div>
-        <div class="track" data-t="Тёмная материя"><span class="track__n">3</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Тёмная материя</b><small>Иван Рейс, feat. NOVA</small></div><span class="track__t">5:02</span></div>
-        <div class="track" data-t="Невесомость"><span class="track__n">4</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Невесомость</b><small>Иван Рейс</small></div><span class="track__t">4:20</span></div>
-        <div class="track" data-t="Свет мёртвых звёзд"><span class="track__n">5</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Свет мёртвых звёзд</b><small>Иван Рейс</small></div><span class="track__t">3:55</span></div>
-        <div class="track" data-t="Возвращение на Землю"><span class="track__n">6</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Возвращение на Землю</b><small>Иван Рейс</small></div><span class="track__t">6:10</span></div>
+        <div class="track active" data-t="Холодный космос" data-dur="3:27" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/2e/b3/14/2eb31414-4fe4-3630-ba11-b1ffb7081bfe/mzaf_2053208929470105266.plus.aac.p.m4a"><span class="track__n">1</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Холодный космос</b><small>Иван Рейс</small></div><span class="track__t">3:27</span></div>
+        <div class="track" data-t="Огонь" data-dur="2:46" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/51/9d/4e/519d4e76-d9a8-2a07-d095-6059e423e23d/mzaf_1958554967103870505.plus.aac.p.m4a"><span class="track__n">2</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Огонь</b><small>Иван Рейс</small></div><span class="track__t">2:46</span></div>
+        <div class="track" data-t="Сердце в огне" data-dur="2:42" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/f2/34/53/f2345379-0839-f6fd-62cd-b0d566fa95b2/mzaf_15251048561600298473.plus.aac.p.m4a"><span class="track__n">3</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Сердце в огне</b><small>Иван Рейс</small></div><span class="track__t">2:42</span></div>
+        <div class="track" data-t="Тупая" data-dur="2:33" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/81/39/c2/8139c2d0-c3c7-1265-8277-76863c9a4e1d/mzaf_3584819163491802631.plus.aac.p.m4a"><span class="track__n">4</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Тупая</b><small>Иван Рейс</small></div><span class="track__t">2:33</span></div>
+        <div class="track" data-t="Мама" data-dur="2:40" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/5f/35/4f/5f354f1f-dd6a-debf-5f13-108d8b43ddc0/mzaf_5056498929086354984.plus.aac.p.m4a"><span class="track__n">5</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Мама</b><small>Иван Рейс</small></div><span class="track__t">2:40</span></div>
+        <div class="track" data-t="Эффектно" data-dur="2:31" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/53/65/6d/53656d6d-b4d5-9122-5554-e73db21dfd4c/mzaf_5722036299305114741.plus.aac.p.m4a"><span class="track__n">6</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Эффектно</b><small>Иван Рейс</small></div><span class="track__t">2:31</span></div>
+        <div class="track" data-t="Локоны" data-dur="2:24" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/76/ac/22/76ac2276-0a68-8e2d-1f1c-08be1538c2a4/mzaf_12590171664779687837.plus.aac.p.m4a"><span class="track__n">7</span><span class="track__eq"><i></i><i></i><i></i></span><div class="track__nm"><b>Локоны</b><small>Иван Рейс</small></div><span class="track__t">2:24</span></div>
       </div>
     </div>
   </div>
@@ -351,12 +356,19 @@ p{color:var(--ink-soft)}
 <!-- TOUR -->
 <section class="section" id="tour" style="background:var(--bg-soft);border-block:1px solid var(--border)">
   <div class="wrap">
-    <div class="head rv"><div><span class="eyebrow">Тур «Холодный космос»</span><h2>Живьём — этой осенью</h2><p>Синты громче, звёзды ближе. Билеты на официальных площадках.</p></div></div>
+    <div class="head rv"><div><span class="eyebrow">Тур «Холодный космос» · 2026</span><h2>Живьём — мировой тур 2026</h2><p>Весенняя часть прошла с аншлагами — все билеты распроданы. Осенью: возвращение домой в Казахстан и финал в Берлине. Билеты только на официальных площадках.</p></div></div>
     <div class="shows">
-      <div class="show rv rv-d1"><div class="show__date"><b class="num">14</b><span>Сен</span></div><div class="show__c"><b>Алматы</b><span>Дворец Республики</span></div><div class="show__status few">Мало мест</div><a class="btn btn--primary btn--sm" href="#">Билеты</a></div>
-      <div class="show rv rv-d1"><div class="show__date"><b class="num">21</b><span>Сен</span></div><div class="show__c"><b>Астана</b><span>EXPO Hall</span></div><div class="show__status" style="color:var(--accent-ink)">В продаже</div><a class="btn btn--primary btn--sm" href="#">Билеты</a></div>
-      <div class="show rv rv-d1"><div class="show__date"><b class="num">28</b><span>Сен</span></div><div class="show__c"><b>Шымкент</b><span>Amphitheatre</span></div><div class="show__status" style="color:var(--accent-ink)">В продаже</div><a class="btn btn--primary btn--sm" href="#">Билеты</a></div>
-      <div class="show gone rv rv-d1"><div class="show__date"><b class="num">05</b><span>Окт</span></div><div class="show__c"><b>Ташкент</b><span>Stadium Live</span></div><div class="show__status soldout">Sold out</div><a class="btn btn--ghost btn--sm" href="#" aria-disabled="true">Нет мест</a></div>
+      <div class="show rv rv-d1"><div class="show__date"><b class="num">15</b><span>Авг</span></div><div class="show__c"><b>Алматы</b><span>Дворец Республики</span></div><div class="show__status few">Мало мест</div><a class="btn btn--primary btn--sm" href="#">Билеты</a></div>
+      <div class="show rv rv-d1"><div class="show__date"><b class="num">29</b><span>Авг</span></div><div class="show__c"><b>Астана</b><span>EXPO Hall</span></div><div class="show__status" style="color:var(--accent-ink)">В продаже</div><a class="btn btn--primary btn--sm" href="#">Билеты</a></div>
+      <div class="show rv rv-d1"><div class="show__date"><b class="num">12</b><span>Сен</span></div><div class="show__c"><b>Шымкент</b><span>Amphitheatre</span></div><div class="show__status" style="color:var(--accent-ink)">В продаже</div><a class="btn btn--primary btn--sm" href="#">Билеты</a></div>
+      <div class="show rv rv-d1"><div class="show__date"><b class="num">26</b><span>Сен</span></div><div class="show__c"><b>Ташкент</b><span>Stadium Live</span></div><div class="show__status" style="color:var(--accent-ink)">В продаже</div><a class="btn btn--primary btn--sm" href="#">Билеты</a></div>
+      <div class="show rv rv-d1"><div class="show__date"><b class="num">17</b><span>Окт</span></div><div class="show__c"><b>Берлин</b><span>Kraftwerk · финал тура</span></div><div class="show__status few">Мало мест</div><a class="btn btn--primary btn--sm" href="#">Билеты</a></div>
+      <div class="shows__past" style="margin:10px 2px 2px;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)">Прошедшие даты — билеты распроданы</div>
+      <div class="show gone rv rv-d1"><div class="show__date"><b class="num">21</b><span>Мар</span></div><div class="show__c"><b>Москва</b><span>Adrenaline Stadium</span></div><div class="show__status soldout">Распродано</div><a class="btn btn--ghost btn--sm" href="#" aria-disabled="true">Нет мест</a></div>
+      <div class="show gone rv rv-d1"><div class="show__date"><b class="num">04</b><span>Апр</span></div><div class="show__c"><b>Санкт-Петербург</b><span>A2 Green Concert</span></div><div class="show__status soldout">Распродано</div><a class="btn btn--ghost btn--sm" href="#" aria-disabled="true">Нет мест</a></div>
+      <div class="show gone rv rv-d1"><div class="show__date"><b class="num">18</b><span>Апр</span></div><div class="show__c"><b>Минск</b><span>Prime Hall</span></div><div class="show__status soldout">Распродано</div><a class="btn btn--ghost btn--sm" href="#" aria-disabled="true">Нет мест</a></div>
+      <div class="show gone rv rv-d1"><div class="show__date"><b class="num">16</b><span>Май</span></div><div class="show__c"><b>Тбилиси</b><span>Tbilisi Event Hall</span></div><div class="show__status soldout">Распродано</div><a class="btn btn--ghost btn--sm" href="#" aria-disabled="true">Нет мест</a></div>
+      <div class="show gone rv rv-d1"><div class="show__date"><b class="num">06</b><span>Июн</span></div><div class="show__c"><b>Ереван</b><span>СКК им. Демирчяна</span></div><div class="show__status soldout">Распродано</div><a class="btn btn--ghost btn--sm" href="#" aria-disabled="true">Нет мест</a></div>
     </div>
   </div>
 </section>
@@ -364,11 +376,10 @@ p{color:var(--ink-soft)}
 <!-- VIDEOS -->
 <section class="section" id="videos">
   <div class="wrap">
-    <div class="head rv"><div><span class="eyebrow">Смотреть</span><h2>Клипы и лайвы</h2></div><a class="btn btn--ghost" href="#">Весь канал <span class="arw" aria-hidden="true">→</span></a></div>
+    <div class="head rv"><div><span class="eyebrow">Смотреть</span><h2>Клипы и лайвы</h2></div><a class="btn btn--ghost" href="https://www.youtube.com/results?search_query=%D0%98%D0%B2%D0%B0%D0%BD+%D0%A0%D0%B5%D0%B9%D1%81" target="_blank" rel="noopener">Весь канал <span class="arw" aria-hidden="true">→</span></a></div>
     <div class="videos">
-      <article class="vid rv rv-d1"><div class="vid__th v1"><div class="vid__play"><i><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M8 5v14l11-7z"/></svg></i></div><div class="vid__cap"><b>Холодный космос</b><span>Официальный клип</span></div><span class="vid__len">4:12</span></div></article>
-      <article class="vid rv rv-d2"><div class="vid__th v2"><div class="vid__play"><i><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M8 5v14l11-7z"/></svg></i></div><div class="vid__cap"><b>Орбита</b><span>Live под открытым небом</span></div><span class="vid__len">6:02</span></div></article>
-      <article class="vid rv rv-d3"><div class="vid__th v3"><div class="vid__play"><i><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M8 5v14l11-7z"/></svg></i></div><div class="vid__cap"><b>Невесомость</b><span>Студийная сессия</span></div><span class="vid__len">4:28</span></div></article>
+      <article class="vid rv rv-d1" data-yt="Rvvn4V4pA8c"><div class="vid__th" style="background-image:url(https://i.ytimg.com/vi/Rvvn4V4pA8c/hqdefault.jpg)"><div class="vid__play"><i><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M8 5v14l11-7z"/></svg></i></div><div class="vid__cap"><b>Холодный космос</b><span>Официальный трек · YouTube</span></div></div></article>
+      <article class="vid rv rv-d2" data-yt="ISf3g8UcPdQ"><div class="vid__th" style="background-image:url(https://i.ytimg.com/vi/ISf3g8UcPdQ/hqdefault.jpg)"><div class="vid__play"><i><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M8 5v14l11-7z"/></svg></i></div><div class="vid__cap"><b>Холодный космос — LIVE</b><span>Живой звук</span></div></div></article>
     </div>
   </div>
 </section>
@@ -380,14 +391,14 @@ p{color:var(--ink-soft)}
       <div class="about__text rv">
         <span class="eyebrow">Об артисте</span>
         <h2 style="margin-top:14px">Тот, кто озвучил тишину между звёздами</h2>
-        <p class="lead" style="margin-top:18px">Иван Рейс — продюсер и электронный музыкант. За пять лет — от квартирных сетов до главных сцен страны. «Холодный космос» — его новый и самый личный альбом: об одиночестве, орбитах и свете, который идёт к нам тысячи лет.</p>
+        <p class="lead" style="margin-top:18px">Иван Рейс — электронный музыкант, подтверждённый артист Spotify и Apple Music. Среди его треков — «Огонь», «Сердце в огне», «Тупая» и «Холодный космос». Ежемесячно его слушают более 50 тысяч человек.</p>
         <div class="about__stats">
-          <div class="s"><b class="num" data-to="1.8" data-suffix="M">0</b><span>слушателей в месяц</span></div>
-          <div class="s"><b class="num" data-to="120" data-suffix="+">0</b><span>концертов сыграно</span></div>
-          <div class="s"><b class="num" data-to="3">0</b><span>альбома выпущено</span></div>
+          <div class="s"><b class="num" data-to="51396">0</b><span>слушателей в месяц · Spotify</span></div>
+          <div class="s"><b class="num" data-to="3" data-suffix="M+">0</b><span>прослушиваний «Огонь»</span></div>
+          <div class="s"><b class="num" data-to="20">0</b><span>релизов</span></div>
         </div>
       </div>
-      <div class="about__art rv rv-d2" aria-hidden="true"><span class="initial">ИР</span></div>
+      <div class="about__art rv rv-d2"><img src="artist.jpg" alt="Иван Рейс — портрет"></div>
     </div>
   </div>
 </section>
@@ -466,7 +477,7 @@ p{color:var(--ink-soft)}
       W = hero.clientWidth||window.innerWidth; H = hero.clientHeight||600;
       cv.width = Math.round(W*DPR); cv.height = Math.round(H*DPR); ctx.setTransform(DPR,0,0,DPR,0,0);
       var n = Math.round(W*H/8500); if(n>340) n=340; if(n<90) n=90; stars=[];
-      for(var i=0;i<n;i++){ stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.3+0.25,base:Math.random()*0.45+0.22,amp:Math.random()*0.5+0.25,sp:Math.random()*1.8+0.35,ph:Math.random()*6.283,vx:(Math.random()-0.5)*0.09,vy:(Math.random()-0.5)*0.05,c:cols[(Math.random()*3)|0]}); }
+      for(var i=0;i<n;i++){ stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.3+0.25,base:Math.random()*0.3+0.55,amp:Math.random()*0.1+0.04,sp:Math.random()*0.5+0.15,ph:Math.random()*6.283,vx:(Math.random()-0.5)*0.09,vy:(Math.random()-0.5)*0.05,c:cols[(Math.random()*3)|0]}); }
     }
     function draw(t){
       var dt=Math.min(t-lastT,0.05); lastT=t;
@@ -499,20 +510,39 @@ p{color:var(--ink-soft)}
     var rt; window.addEventListener("resize", function(){ clearTimeout(rt); rt=setTimeout(build,180); }, {passive:true});
   })();
 
-  var wave = document.getElementById("wave");
-  if(wave){ var N=48, seed=7; for(var i=0;i<N;i++){ var b=document.createElement("i"); seed=(seed*9301+49297)%233280; var r=seed/233280; var h=20+Math.round(r*80); b.style.height=h+"%"; b.style.animationDelay=(-(r*0.9)).toFixed(2)+"s"; wave.appendChild(b); } }
+  // wave bars — heights driven by REAL audio frequencies (WebAudio analyser)
+  var wave=document.getElementById("wave"), WBARS=[];
+  if(wave){ for(var wi=0;wi<56;wi++){ var wb=document.createElement("i"); wb.style.height="16%"; wave.appendChild(wb); WBARS.push(wb); } }
 
-  var player=document.getElementById("player"), playBtn=document.getElementById("playBtn"), playIcon=document.getElementById("playIcon"), playing=false;
+  var player=document.getElementById("player"), playBtn=document.getElementById("playBtn"), playIcon=document.getElementById("playIcon");
+  var progFill=document.querySelector(".progress i"), _t=document.querySelectorAll(".player__time"), tCur=_t[0], tTot=_t[1];
   var iconPlay='<path d="M8 5v14l11-7z"/>', iconPause='<path d="M7 5h4v14H7zM13 5h4v14h-4z"/>';
-  function setPlaying(v){ playing=v; player.classList.toggle("playing",v); playIcon.innerHTML=v?iconPause:iconPlay; playBtn.setAttribute("aria-label",v?"Пауза":"Играть"); }
-  playBtn.addEventListener("click", function(){ setPlaying(!playing); });
-  if(!reduce) setPlaying(true);
-
   var tracks=document.querySelectorAll("#tracklist .track"), npTitle=document.getElementById("npTitle");
-  tracks.forEach(function(t){ t.addEventListener("click", function(){ tracks.forEach(function(x){x.classList.remove("active");}); t.classList.add("active"); npTitle.textContent=t.getAttribute("data-t"); setPlaying(true); player.scrollIntoView({behavior:"smooth",block:"center"}); }); });
-  function step(dir){ var arr=Array.prototype.slice.call(tracks); var i=arr.findIndex(function(x){return x.classList.contains("active");}); i=(i+dir+arr.length)%arr.length; arr.forEach(function(x,j){x.classList.toggle("active",j===i);}); npTitle.textContent=arr[i].getAttribute("data-t"); setPlaying(true); }
+  var audio=new Audio(); audio.crossOrigin="anonymous"; audio.preload="none";
+  var actx=null, ana=null, freq=null, srcN=null, raf=null, curEl=null;
+
+  function fmtT(s){ if(!isFinite(s)||s<0)s=0; var m=(s/60)|0, ss=(s%60)|0; return m+":"+(ss<10?"0":"")+ss; }
+  function setPlaying(v){ player.classList.toggle("playing",v); playIcon.innerHTML=v?iconPause:iconPlay; playBtn.setAttribute("aria-label",v?"Пауза":"Играть"); }
+  function setActive(el){ curEl=el; tracks.forEach(function(x){x.classList.toggle("active",x===el);}); npTitle.textContent=el.getAttribute("data-t"); var d=el.getAttribute("data-dur"); if(d)tTot.textContent=d; progFill.style.width="0%"; tCur.textContent="0:00"; audio.src=el.getAttribute("data-src"); }
+  function ensureCtx(){ if(actx)return; try{ var AC=window.AudioContext||window.webkitAudioContext; if(!AC)return; actx=new AC(); ana=actx.createAnalyser(); ana.fftSize=128; ana.smoothingTimeConstant=0.82; freq=new Uint8Array(ana.frequencyBinCount); srcN=actx.createMediaElementSource(audio); srcN.connect(ana); ana.connect(actx.destination); }catch(e){} }
+  function renderWave(){ raf=requestAnimationFrame(renderWave); if(!ana||reduce)return; ana.getByteFrequencyData(freq); var L=WBARS.length, F=freq.length-2; for(var i=0;i<L;i++){ var v=freq[1+((i/L*F)|0)]/255; WBARS[i].style.height=(14+v*86).toFixed(1)+"%"; } }
+  function play(){ ensureCtx(); if(actx&&actx.state==="suspended")actx.resume(); var p=audio.play(); if(p&&p.catch)p.catch(function(){}); }
+
+  playBtn.addEventListener("click", function(){ if(audio.paused)play(); else audio.pause(); });
+  audio.addEventListener("play", function(){ setPlaying(true); if(!raf)renderWave(); });
+  audio.addEventListener("pause", function(){ setPlaying(false); });
+  audio.addEventListener("ended", function(){ step(1); });
+  audio.addEventListener("loadedmetadata", function(){ if(isFinite(audio.duration))tTot.textContent=fmtT(audio.duration); });
+  audio.addEventListener("timeupdate", function(){ if(audio.duration){ progFill.style.width=(audio.currentTime/audio.duration*100).toFixed(2)+"%"; tCur.textContent=fmtT(audio.currentTime); } });
+
+  tracks.forEach(function(t){ t.addEventListener("click", function(){ var was=curEl; setActive(t); play(); if(was!==t)player.scrollIntoView({behavior:"smooth",block:"center"}); }); });
+  function step(dir){ var arr=Array.prototype.slice.call(tracks); var i=arr.indexOf(curEl); if(i<0)i=0; i=(i+dir+arr.length)%arr.length; setActive(arr[i]); play(); }
   document.getElementById("nextBtn").addEventListener("click", function(){ step(1); });
   document.getElementById("prevBtn").addEventListener("click", function(){ step(-1); });
+  if(tracks.length)setActive(tracks[0]); setPlaying(false);
+
+  // YouTube facade — load the real video on click (keeps page light until asked)
+  document.querySelectorAll(".vid[data-yt]").forEach(function(v){ v.addEventListener("click", function(){ if(v.querySelector("iframe"))return; var f=document.createElement("iframe"); f.src="https://www.youtube.com/embed/"+v.getAttribute("data-yt")+"?autoplay=1&rel=0"; f.setAttribute("allow","autoplay; encrypted-media; picture-in-picture; fullscreen"); f.setAttribute("allowfullscreen",""); var cap=v.querySelector(".vid__cap b"); if(cap)f.setAttribute("title",cap.textContent); v.querySelector(".vid__th").appendChild(f); v.classList.add("playing"); }); });
 
   function fmt(v,dec){ return dec?v.toFixed(1).replace(".",","):Math.round(v).toLocaleString("ru-RU"); }
   function animateStat(el){ var to=parseFloat(el.getAttribute("data-to")),suffix=el.getAttribute("data-suffix")||"",dec=(to%1!==0)?1:0; if(reduce){el.textContent=fmt(to,dec)+suffix;return;} var start=null; function fr(t){ if(!start)start=t; var p=Math.min((t-start)/1500,1),val=to*(1-Math.pow(1-p,3)); el.textContent=fmt(val,dec)+suffix; if(p<1)requestAnimationFrame(fr); } requestAnimationFrame(fr); }
