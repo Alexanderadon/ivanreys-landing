@@ -220,7 +220,10 @@ section[id]{scroll-margin-top:84px}
 #music,#tour,#videos,#about,#join{content-visibility:auto;contain-intrinsic-size:auto 760px}
 .foot{content-visibility:auto;contain-intrinsic-size:auto 420px}
 .mutebtn{display:grid;place-items:center;color:inherit;padding:2px}
-.mutebtn.muted{opacity:.4}
+.mutebtn .x{display:none}
+.mutebtn.muted .w{display:none}
+.mutebtn.muted .x{display:block}
+.mutebtn.muted{opacity:.55}
 
 /* motion system: one-shot entrances + input-driven parallax; idle stays 100% static */
 @media (prefers-reduced-motion: no-preference){
@@ -359,7 +362,7 @@ section[id]{scroll-margin-top:84px}
           </div>
           <span class="player__time">3:27</span>
         </div>
-        <div class="player__vol"><button class="mutebtn" id="muteBtn" type="button" aria-label="Выключить звук"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4z"/></svg></button><input type="range" id="vol" min="0" max="100" value="15" aria-label="Громкость"></div>
+        <div class="player__vol"><button class="mutebtn" id="muteBtn" type="button" aria-label="Выключить звук"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3z"/><path class="w" d="M15.2 8.7a4.7 4.7 0 0 1 0 6.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path class="w" d="M17.8 6.3a8 8 0 0 1 0 11.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path class="x" d="M15.4 9.8l4.6 4.6M20 9.8l-4.6 4.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button><input type="range" id="vol" min="0" max="100" value="15" aria-label="Громкость"></div>
       </div>
     </div>
   </div>
