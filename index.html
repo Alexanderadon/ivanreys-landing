@@ -194,9 +194,10 @@ body.playing .track__eq i{animation-play-state:running}
 .vid.playing .vid__th::after{opacity:0}
 
 .about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,64px);align-items:center}
-.about__art{aspect-ratio:5/4;border-radius:var(--r-xl);position:relative;overflow:hidden;box-shadow:var(--shadow-lg);background:radial-gradient(100% 120% at 10% 10%,var(--accent),transparent 50%),radial-gradient(100% 120% at 90% 20%,var(--accent-3),transparent 45%),conic-gradient(from 200deg at 60% 90%,var(--accent-2),var(--accent-cyan),var(--accent),var(--accent-2))}
+.about__art{aspect-ratio:5/4;border-radius:var(--r-xl);position:relative;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--surface-2)}
+.about__art::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(115% 100% at 50% 28%,transparent 46%,rgba(12,8,20,.6) 100%),linear-gradient(180deg,rgba(12,8,20,.1),rgba(12,8,20,.42))}
 .about__art .initial{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(5rem,15vw,10rem);font-weight:850;letter-spacing:-.05em;color:rgba(255,255,255,.16);mix-blend-mode:overlay}
-.about__art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.about__art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;filter:grayscale(.15) brightness(.93) contrast(1.04)}
 .about__stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
 .about__stats .s b{display:block;font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800;letter-spacing:-.03em}
 .about__stats .s span{font-size:.82rem;color:var(--ink-faint)}
@@ -279,6 +280,14 @@ section[id]{scroll-margin-top:84px}
   .show{grid-template-columns:auto 1fr;gap:14px 16px}
   .show__status{grid-column:2}.show .btn{grid-column:1/-1;width:100%}
   .about__stats{grid-template-columns:1fr 1fr}
+  .brand{white-space:nowrap;font-size:1.02rem;gap:8px}
+  .nav__cta .btn{height:44px;padding:0 15px;font-size:.9rem}
+  .nav__in{gap:12px}
+}
+@media (pointer:coarse){
+  .progress{height:9px;border-radius:9px}
+  .player__vol input[type=range]::-webkit-slider-thumb{width:19px;height:19px}
+  .player__vol input[type=range]::-moz-range-thumb{width:19px;height:19px}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
@@ -344,7 +353,7 @@ section[id]{scroll-margin-top:84px}
           </div>
           <span class="player__time">3:27</span>
         </div>
-        <div class="player__vol"><button class="mutebtn" id="muteBtn" type="button" aria-label="Выключить звук"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4z"/></svg></button><input type="range" id="vol" min="0" max="100" value="50" aria-label="Громкость"></div>
+        <div class="player__vol"><button class="mutebtn" id="muteBtn" type="button" aria-label="Выключить звук"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4z"/></svg></button><input type="range" id="vol" min="0" max="100" value="15" aria-label="Громкость"></div>
       </div>
     </div>
   </div>
@@ -425,7 +434,7 @@ section[id]{scroll-margin-top:84px}
     <div class="cta rv">
       <div class="cta__bg" aria-hidden="true"></div>
       <span class="eyebrow" style="justify-content:center">Не пропусти</span>
-      <h2>Новые треки — первым</h2>
+      <h2><span class="grad-text">Новые треки — первым</span></h2>
       <p>Пресейлы концертов, неизданное и анонсы релизов.</p>
       <form class="cta__form" id="joinForm"><input type="email" placeholder="Твой e-mail" aria-label="e-mail" required><button class="btn btn--primary" type="submit">Подписаться</button></form>
       <p class="cta__note" id="joinNote">Без спама. Отписка в один клик.</p>
@@ -561,10 +570,10 @@ section[id]{scroll-margin-top:84px}
   var progFill=document.querySelector(".progress i"), _t=document.querySelectorAll(".player__time"), tCur=_t[0], tTot=_t[1];
   var iconPlay='<path d="M8 5v14l11-7z"/>', iconPause='<path d="M7 5h4v14H7zM13 5h4v14h-4z"/>';
   var tracks=document.querySelectorAll("#tracklist .track"), npTitle=document.getElementById("npTitle"), npAlbum=document.getElementById("npAlbum"), npArt=document.getElementById("npArt");
-  var audio=new Audio(); audio.crossOrigin="anonymous"; audio.preload="none"; audio.volume=0.5;
+  var audio=new Audio(); audio.crossOrigin="anonymous"; audio.preload="none"; audio.volume=0.15;
   var volCtl=document.getElementById("vol");
   function volFill(){ if(volCtl)volCtl.style.background="linear-gradient(90deg,var(--accent) "+volCtl.value+"%,var(--border) "+volCtl.value+"%)"; }
-  if(volCtl){ volCtl.value=50; volFill(); volCtl.addEventListener("input", function(){ audio.volume=volCtl.value/100; volFill(); }); }
+  if(volCtl){ volCtl.value=15; volFill(); volCtl.addEventListener("input", function(){ audio.volume=volCtl.value/100; volFill(); }); }
   var actx=null, ana=null, freq=null, srcN=null, raf=null, curEl=null;
 
   function fmtT(s){ if(!isFinite(s)||s<0)s=0; var m=(s/60)|0, ss=(s%60)|0; return m+":"+(ss<10?"0":"")+ss; }
