@@ -5,3 +5,9 @@ node_modules
 
 .vercel
 .env*
+media/node_modules/
+media/*.png
+media/*.mp4
+media/*.wav
+media/clicks.json
+media/package*.json
