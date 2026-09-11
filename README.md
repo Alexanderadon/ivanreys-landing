@@ -6,6 +6,8 @@ Landing page for electronic artist Ivan Reys ("Cold Space" / «Холодный 
 
 **Live:** https://ivanreys.vercel.app
 
+![Ivan Reys landing: hero, player with live spectrum](docs/demo.gif)
+
 ## Stack
 
 A single self-contained `index.html` — no build step, no dependencies. HTML + CSS + vanilla JavaScript (one inline `<script>`, no external scripts or stylesheets).
